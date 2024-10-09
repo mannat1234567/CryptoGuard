@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard - Pricing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding: 100px 20px; /* Added padding for top spacing */
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between; /* Space between logo and nav */
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header img {
+            height: 80px; /* Logo height */
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px; /* Space between links */
+            margin-left: auto; /* Pushes nav to the right */
+            padding-right: 5px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: gold;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: lightblue; /* Change color on hover */
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row; /* Align cards horizontally */
+            align-items: flex-start; /* Align cards at the start */
+            gap: 40px; /* Adjusted gap between cards */
+            margin-top: 80px; /* Space below the header */
+        }
+
+        .card {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.25rem;
+            background-color: rgba(17, 24, 39, 1);
+            padding: 1.5rem;
+            width: 320px; /* Set a fixed width for cards */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .price {
+            font-size: 3.75rem;
+            line-height: 1;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .desc {
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.625;
+            color: rgba(156, 163, 175, 1);
+        }
+
+        .lists {
+            margin-bottom: 1.5rem;
+            flex: 1 1 0%;
+            color: rgba(156, 163, 175, 1);
+        }
+
+        .lists .list {
+            margin-bottom: 0.5rem;
+            display: flex;
+            margin-left: 0.5rem;
+        }
+
+        .lists .list svg {
+            height: 1.5rem;
+            width: 1.5rem;
+            flex-shrink: 0;
+            margin-right: 0.5rem;
+            color: rgba(167, 139, 250, 1);
+        }
+
+        .action {
+            border: none;
+            outline: none;
+            display: inline-block;
+            border-radius: 0.25rem;
+            background-color: rgba(167, 139, 250, 1);
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: rgba(17, 24, 39, 1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action:hover {
+            background-color: gold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="cryptoguard.jpg" alt="Company Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Use</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Pricing Section -->
+    <div class="pricing-container">
+        <!-- Casual Pricing Card -->
+        <div class="card">
+            <div class="header">
+                <span class="title">Casual</span>
+                <span class="price">Free</span>
+            </div>
+            <p class="desc">Perfect for Occasional users and serves a good trial demo</p>
+            <ul class="lists">
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>14 day trial</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Allows you to access the basic features of CryptoGuard</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Great for new users who are beginning to learn how to use crypto.</span>
+                </li>
+            </ul>
+            <button type="button" class="action"><a href="detector.html">Get Started</a></button>
+        </div>
+
+        <!-- Beginner Pricing Card -->
+        <div class="card">
+            <div class="header">
+                <span class="title">Beginner</span>
+                <span class="price">₹499</span>
+            </div>
+            <p class="desc">Useful for people who are used to such platforms.</p>
+            <ul class="lists">
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>14 day trial</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Allows you to access the basic features of CryptoGuard</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Access to standard support features.</span>
+                </li>
+            </ul>
+            <button type="button" class="action"><a href="payments.html">Get Started</a></button>
+        </div>
+
+        <!-- Pro Pricing Card -->
+        <div class="card">
+            <div class="header">
+                <span class="title">Pro</span>
+                <span class="price">₹999</span>
+            </div>
+            <p class="desc">Best for Professionals who trade frequently.</p>
+            <ul class="lists">
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>14 day trial</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Allows you to access all features of CryptoGuard</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Access to premium support features.</span>
+                </li>
+            </ul>
+            <button type="button" class="action"><a href="payments.html">Get Started</a></button>
+        </div>
+    </div>
+</body>
+</html>
