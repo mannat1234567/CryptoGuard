@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -20,7 +21,7 @@
             animation: moveBackground 30s linear infinite;
             padding-top: 100px;
         }
-        
+
         @keyframes moveBackground {
             0% { background-position: 0 0; }
             100% { background-position: 100% 100%; }
@@ -31,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0); /* no more dark header cuz maam said so */
+            background-color: rgba(0, 0, 0, 0);
             position: fixed;
             width: 100%;
             top: 0;
@@ -47,13 +48,13 @@
         }
         header nav a {
             text-decoration: none;
-            color: gold; /* Gold links */
+            color: gold;
             font-weight: bold;
             font-size: 18px;
             transition: color 0.3s ease;
         }
         header nav a:hover {
-            color: lightblue; /* Light blue on hover */
+            color: lightblue;
         }
 
         .background-section {
@@ -72,13 +73,13 @@
         .background-section h1 {
             font-size: 72px;
             font-weight: bold;
-            color: gold; /* Gold color for heading */
+            color: gold;
             margin-bottom: 20px;
         }
 
         .background-section p {
             font-size: 20px;
-            color: lightblue; /* Light blue text */
+            color: lightblue;
             margin: 0;
         }
 
@@ -86,31 +87,31 @@
             margin-top: 40px;
             padding: 15px 40px;
             font-size: 30px;
-            border: 2px solid gold; /* Gold border */
-            color: gold; /* Gold text */
+            border: 2px solid gold;
+            color: gold;
             background: transparent;
             cursor: pointer;
             outline: none;
             transition: all 0.3s ease;
         }
         .get-started-btn:hover {
-            background-color: gold; /* Gold background on hover */
-            color: black; /* Black text on hover */
+            background-color: gold;
+            color: black;
         }
 
-        /* Box Section Styles */
         .section {
-            width: 50%; /* Adjust the width of each section */
+            width: 50%;
             padding: 50px;
-            background-color: rgba(25, 25, 25, 0.9); /* Dark background */
-            color: lightblue; /* Light blue text */
-            margin: 20px;
+            background-color: rgba(25, 25, 25, 0.9);
+            color: lightblue;
+            margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             animation: popIn 0.5s ease forwards;
             opacity: 0;
             transition: opacity 0.5s ease;
             position: relative;
+            text-align: center;
         }
         @keyframes popIn {
             from { transform: scale(0.9); opacity: 0; }
@@ -118,35 +119,28 @@
         }
         .section h2 {
             font-size: 36px;
-            color: gold; /* Gold heading */
+            color: gold;
         }
         .section p {
             font-size: 18px;
             margin: 10px 0;
         }
 
-        /* Left-Aligned Box */
-        .left-align {
-            margin-left: 0; /* Align to the left */
-            margin-right: auto;
-        }
-
-        /* Reviews Section */
         .reviews {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Spacing between reviews */
-            margin-left: 0; /* Ensure reviews are aligned to the left */
+            gap: 15px;
+            margin-left: 0;
         }
         .reviews .review {
             padding: 15px;
             border-radius: 10px;
-            background-color: rgba(40, 40, 40, 0.8); /* Darker review box */
-            color: lightblue; /* Light blue text */
+            background-color: rgba(40, 40, 40, 0.8);
+            color: lightblue;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            list-style: none; /* Remove bullet points */
+            list-style: none;
         }
         .reviews .review:hover {
             transform: translateY(-5px);
@@ -158,7 +152,25 @@
             font-size: 18px;
         }
         .star-rating span {
-            color: lightgray; /* Color for unfilled stars */
+            color: lightgray;
+        }
+
+        .crypto-tracker, .user-count {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(25, 25, 25, 0.9);
+            border-radius: 10px;
+            color: lightblue;
+            text-align: center;
+            animation: popIn 0.5s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #price-chart {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
         }
     </style>
 </head>
@@ -184,22 +196,36 @@
         </a>
     </div>
 
-    <!-- Features Section (Left-Aligned) -->
-    <div class="section left-align">
+    <!-- User Count Section -->
+    <div class="user-count">
+        <h2>Users of CryptoGuard</h2>
+        <p id="user-count">0</p>
+        <p>users have used our product this minute.</p>
+    </div>
+
+    <!-- Live Crypto Tracker Section -->
+    <div class="crypto-tracker">
+        <h2>Live Crypto Tracker</h2>
+        <p id="crypto-price">Fetching price...</p>
+        <canvas id="price-chart"></canvas>
+    </div>
+
+    <!-- Features Section -->
+    <div class="section">
         <h2>Features</h2>
         <p>Gives you CG Score, which tells you your crypto behavior.</p>
         <p>Provides transaction history for better tracking.</p>
         <p>Lower the CG Score, the easier it is for you to get salt loans.</p>
     </div>
 
-    <!-- Reviews Section (Left-Aligned) -->
-    <div class="section left-align reviews" id="reviews-section">
+    <!-- User Reviews Section -->
+    <div class="section" id="reviews-section">
         <h2>User Reviews</h2>
         <ul>
             <li class="review">
                 <h3>Amrita</h3>
                 <div class="star-rating">★★★★☆</div>
-                <p>"This app really helped me manage my crypto wallet and helped me get a salt loan on my ethereum, which kept my money invested yet allowed me to take out a loan against it. This idea is brilliant."</p>
+                <p>"This app really helped me manage my crypto wallet and helped me get a salt loan on my ethereum, which kept my money invested yet allowed me to take out a loan against it. Brilliant idea."</p>
             </li>
             <li class="review">
                 <h3>Anjali</h3>
@@ -214,14 +240,130 @@
         </ul>
     </div>
 
-    <!-- Contact Info Section (Left-Aligned) -->
-    <div class="section left-align">
+    <!-- Team Section -->
+    <div class="section">
+        <h2>Meet the Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="ceo.jpg" alt="CEO" class="team-photo">
+                <h3>CEO: John Doe</h3>
+                <p>John has 10+ years of experience in the crypto space and is the visionary behind CryptoGuard.</p>
+            </div>
+            <div class="team-member">
+                <img src="cto.jpg" alt="CTO" class="team-photo">
+                <h3>CTO: Jane Smith</h3>
+                <p>Jane leads the tech team and ensures CryptoGuard runs smoothly and securely.</p>
+            </div>
+            <div class="team-member">
+                <img src="cmo.jpg" alt="CMO" class="team-photo">
+                <h3>CMO: Mike Johnson</h3>
+                <p>Mike is responsible for marketing strategies and ensuring CryptoGuard reaches its users.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap Section -->
+    <div class="section">
+        <h2>Roadmap</h2>
+        <ul>
+            <li>Q1 2024: Launch of new features.</li>
+            <li>Q2 2024: Expansion into international markets.</li>
+            <li>Q3 2024: Implementation of AI for better insights.</li>
+        </ul>
+    </div>
+
+    <!-- News Section -->
+    <div class="section">
+        <h2>Latest News</h2>
+        <article>
+            <h3>CryptoGuard Launches New Features</h3>
+            <p>CryptoGuard has launched new features that allow users to better track their crypto behavior.</p>
+            <small>Posted on September 30, 2024</small>
+        </article>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="section">
         <h2>Contact Information</h2>
-        <p>Email:<a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
+        <p>Email: <a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
         <p>Phone: I'm not leaking my phone no. lol</p>
     </div>
 
     <script>
+        // Live Crypto Tracker
+        const cryptoPriceElement = document.getElementById('crypto-price');
+        const priceChartCtx = document.getElementById('price-chart').getContext('2d');
+        let priceChart;
+        const historicalPrices = []; // Array to hold historical prices
+
+        const fetchCryptoPrice = async () => {
+            try {
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+                const data = await response.json();
+                const price = data.bitcoin.usd;
+                cryptoPriceElement.textContent = `Current Bitcoin (BTC) Price: $${price}`;
+
+                // Update historical prices
+                historicalPrices.push(price);
+                if (historicalPrices.length > 10) { // Keep last 10 prices
+                    historicalPrices.shift();
+                }
+                updateChart(historicalPrices);
+            } catch (error) {
+                console.error('Error fetching crypto price:', error);
+                cryptoPriceElement.textContent = 'Failed to fetch price.';
+            }
+        };
+
+        const updateChart = (prices) => {
+            if (priceChart) {
+                priceChart.destroy();
+            }
+            priceChart = new Chart(priceChartCtx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: prices.length }, (_, i) => i + 1),
+                    datasets: [{
+                        label: 'Bitcoin Price (USD)',
+                        data: prices,
+                        borderColor: 'gold',
+                        backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                        fill: true,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time (Last 10 Updates)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Price (USD)',
+                            },
+                            beginAtZero: false,
+                        },
+                    },
+                },
+            });
+        };
+
+        fetchCryptoPrice();
+        setInterval(fetchCryptoPrice, 30000); // Update every 30 seconds
+
+        // Random User Count
+        const userCountElement = document.getElementById('user-count');
+        const updateUserCount = () => {
+            const randomCount = Math.floor(Math.random() * 1000) + 1; // Random number between 1 and 1000
+            userCountElement.textContent = randomCount;
+        };
+        updateUserCount();
+        setInterval(updateUserCount, 5000); // Update every 5 seconds
+
         // Fetching reviews from JSON
         fetch('reviews.json')
             .then(response => response.json())
@@ -237,7 +379,6 @@
                     `;
                     reviewsSection.querySelector('ul').appendChild(reviewDiv);
                 });
-                // Trigger fadeIn for the reviews section
                 document.querySelectorAll('.reviews').forEach(el => {
                     el.style.opacity = 1;
                 });
@@ -247,11 +388,11 @@
         // Redirect to signup and simulate login
         const getStartedBtn = document.querySelector('.get-started-btn');
         getStartedBtn.addEventListener('click', function() {
-            // Store login status (you might modify this logic based on actual signup)
             localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'signup.html'; // Redirect to signup
+            window.location.href = 'signup.html';
         });
     </script>
+
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
