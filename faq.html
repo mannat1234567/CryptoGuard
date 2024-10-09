@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard - FAQ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding-top: 100px;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        header img {
+            height: 40px;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: gold; /* Gold links */
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: lightblue; /* Light blue on hover */
+        }
+
+        .faq-section {
+            width: 50%;
+            margin: 80px auto 20px; /* Center the section with a margin */
+            padding: 20px;
+            background-color: rgba(25, 25, 25, 0.9);
+            color: lightblue;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .faq-section h1 {
+            font-size: 36px;
+            color: gold; /* Gold color for heading */
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+        }
+
+        .faq-item h3 {
+            cursor: pointer;
+            color: gold; /* Gold color for question */
+            margin-bottom: 5px;
+        }
+
+        .answer {
+            display: block;
+            padding-left: 10px;
+            color: lightblue; /* Light blue for answers */
+            font-size: 16px;
+        }
+
+        .answer:not(:first-of-type) {
+            display: none; /* Hide answers by default */
+        }
+
+        .faq-item h3:hover {
+            color: lightblue; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="cryptoguard.jpg" alt="Company Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Use</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="faq-section">
+        <h1>Frequently Asked Questions (FAQ)</h1>
+
+        <div class="faq-item">
+            <h3>1. What is CryptoGuard?</h3>
+            <div class="answer">CryptoGuard is a platform that provides tools and resources for cryptocurrency management and investment.</div>
+        </div>
+        <div class="faq-item">
+            <h3>2. How does CryptoGuard work?</h3>
+            <div class="answer">CryptoGuard works by offering various features such as portfolio tracking, market analysis, and security tools for cryptocurrencies.</div>
+        </div>
+        <div class="faq-item">
+            <h3>3. Is there a subscription fee?</h3>
+            <div class="answer">Yes, CryptoGuard offers both free and premium subscription plans. Premium plans include additional features.</div>
+        </div>
+        <div class="faq-item">
+            <h3>4. How do I create an account?</h3>
+            <div class="answer">You can create an account by visiting our website and clicking on the "Sign Up" button. Fill in the required details and follow the instructions.</div>
+        </div>
+        <div class="faq-item">
+            <h3>5. Can I use CryptoGuard on mobile devices?</h3>
+            <div class="answer">Yes, CryptoGuard is mobile-friendly and can be accessed on smartphones and tablets through a web browser.</div>
+        </div>
+        <div class="faq-item">
+            <h3>6. How do I reset my password?</h3>
+            <div class="answer">You can reset your password by clicking the "Forgot Password" link on the login page and following the instructions.</div>
+        </div>
+        <div class="faq-item">
+            <h3>7. Can I upgrade my subscription later?</h3>
+            <div class="answer">Yes, you can upgrade your subscription at any time through your account settings.</div>
+        </div>
+        <div class="faq-item">
+            <h3>8. How can I cancel my subscription?</h3>
+            <div class="answer">You can cancel your subscription anytime in your account settings under the subscription section.</div>
+        </div>
+        <div class="faq-item">
+            <h3>9. What payment methods are accepted?</h3>
+            <div class="answer">We accept various payment methods, including credit/debit cards and cryptocurrency.</div>
+        </div>
+        <div class="faq-item">
+            <h3>10. Can I get a discount for annual subscriptions?</h3>
+            <div class="answer">Yes, we offer a discount for users who opt for an annual subscription.</div>
+        </div>
+        <div class="faq-item">
+            <h3>11. What is Bitcoin?</h3>
+            <div class="answer">Bitcoin is the first decentralized cryptocurrency, created in 2009, enabling peer-to-peer transactions without intermediaries.</div>
+        </div>
+        <div class="faq-item">
+            <h3>12. How is Ethereum different from Bitcoin?</h3>
+            <div class="answer">Ethereum is a decentralized platform that enables smart contracts and decentralized applications, while Bitcoin is primarily a digital currency.</div>
+        </div>
+        <div class="faq-item">
+            <h3>13. What is a blockchain?</h3>
+            <div class="answer">A blockchain is a distributed ledger technology that records transactions across many computers, ensuring security and transparency.</div>
+        </div>
+        <div class="faq-item">
+            <h3>14. What are altcoins?</h3>
+            <div class="answer">Altcoins are any cryptocurrencies other than Bitcoin, including Ethereum, Litecoin, and thousands of others.</div>
+        </div>
+        <div class="faq-item">
+            <h3>15. What is mining in cryptocurrency?</h3>
+            <div class="answer">Mining is the process of validating transactions and adding them to the blockchain, usually rewarded with newly created coins.</div>
+        </div>
+        <div class="faq-item">
+            <h3>16. How do I store my cryptocurrency safely?</h3>
+            <div class="answer">Store your cryptocurrency in secure wallets, use strong passwords, and enable two-factor authentication.</div>
+        </div>
+        <div class="faq-item">
+            <h3>17. How can I stay safe online while using CryptoGuard?</h3>
+            <div class="answer">Use strong passwords, enable two-factor authentication, and be cautious of phishing attempts.</div>
+        </div>
+        <div class="faq-item">
+            <h3>18. Are my funds insured?</h3>
+            <div class="answer">Most cryptocurrencies are not insured. However, exchanges may offer insurance for funds stored on their platforms.</div>
+        </div>
+        <div class="faq-item">
+            <h3>19. What should I do if I suspect fraudulent activity?</h3>
+            <div class="answer">If you suspect fraudulent activity, immediately contact our support team and secure your account.</div>
+        </div>
+        <div class="faq-item">
+            <h3>20. How does CryptoGuard protect my data?</h3>
+            <div class="answer">CryptoGuard employs encryption and advanced security protocols to protect your data and transactions.</div>
+        </div>
+        <div class="faq-item">
+            <h3>21. How can I participate in the CryptoGuard community?</h3>
+            <div class="answer">Join our forums, follow us on social media, and participate in community events to engage with other users.</div>
+        </div>
+        <div class="faq-item">
+            <h3>22. Can I contribute to CryptoGuard development?</h3>
+            <div class="answer">Yes, we welcome contributions! Please reach out via our support channels for more information.</div>
+        </div>
+        <div class="faq-item">
+            <h3>23. What is a wallet address?</h3>
+            <div class="answer">A wallet address is a unique identifier used to send and receive cryptocurrencies, similar to an email address.</div>
+        </div>
+        <div class="faq-item">
+            <h3>24. What is a private key?</h3>
+            <div class="answer">A private key is a secret number that allows you to access and manage your cryptocurrency wallet.</div>
+        </div>
+        <div class="faq-item">
+            <h3>25. How can I track my portfolio's performance?</h3>
+            <div class="answer">You can track your portfolio's performance using CryptoGuard's built-in portfolio tracking feature.</div>
+        </div>
+        <div class="faq-item">
+            <h3>26. What is a smart contract?</h3>
+            <div class="answer">A smart contract is a self-executing contract with the terms of the agreement directly written into code.</div>
+        </div>
+        <div class="faq-item">
+            <h3>27. What are gas fees?</h3>
+            <div class="answer">Gas fees are transaction fees paid to miners for processing and validating transactions on the Ethereum network.</div>
+        </div>
+        <div class="faq-item">
+            <h3>28. How can I get started with trading?</h3>
+            <div class="answer">Start by researching the market, choosing a reliable exchange, and practicing with small amounts.</div>
+        </div>
+        <div class="faq-item">
+            <h3>29. Can I earn interest on my cryptocurrency?</h3>
+            <div class="answer">Yes, many platforms offer interest on cryptocurrency holdings through lending or staking.</div>
+        </div>
+        <div class="faq-item">
+            <h3>30. What is a cryptocurrency exchange?</h3>
+            <div class="answer">A cryptocurrency exchange is a platform that allows users to buy, sell, and trade cryptocurrencies.</div>
+        </div>
+        <div class="faq-item">
+            <h3>31. How can I contact customer support?</h3>
+            <div class="answer">You can contact support via email, live chat, or through our support page on the website.</div>
+        </div>
+        <div class="faq-item">
+            <h3>32. What are the working hours for customer support?</h3>
+            <div class="answer">Our customer support team is available 24/7 to assist you with any inquiries.</div>
+        </div>
+        <div class="faq-item">
+            <h3>33. Can I get help with account recovery?</h3>
+            <div class="answer">Yes, our support team can assist you with account recovery if you have lost access to your account.</div>
+        </div>
+        <div class="faq-item">
+            <h3>34. How can I submit a feature request?</h3>
+            <div class="answer">You can submit feature requests through our support channels or community forums.</div>
+        </div>
+        <div class="faq-item">
+            <h3>35. What if I encounter a problem with the website?</h3>
+            <div class="answer">If you encounter a problem, please report it to our support team so we can address it promptly.</div>
+        </div>
+        <div class="faq-item">
+            <h3>36. What is the best way to start investing in cryptocurrency?</h3>
+            <div class="answer">Start by researching and understanding the market, then gradually invest small amounts as you learn.</div>
+        </div>
+        <div class="faq-item">
+            <h3>37. How can I unsubscribe from newsletters?</h3>
+            <div class="answer">You can unsubscribe by clicking the "Unsubscribe" link at the bottom of any newsletter email.</div>
+        </div>
+        <div class="faq-item">
+            <h3>38. Can I access my account from multiple devices?</h3>
+            <div class="answer">Yes, you can access your account from any device with internet connectivity.</div>
+        </div>
+        <div class="faq-item">
+            <h3>39. Where can I find the terms and conditions?</h3>
+            <div class="answer">You can find our terms and conditions in the footer of our website or in your account settings.</div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle answers visibility
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>
