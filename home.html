@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding-top: 100px;
+        }
+        
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Darker header */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        header img {
+            height: 40px;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: gold; /* Gold links */
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: lightblue; /* Light blue on hover */
+        }
+
+        .background-section {
+            width: 100%;
+            height: 80vh;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .background-section h1 {
+            font-size: 72px;
+            font-weight: bold;
+            color: gold; /* Gold color for heading */
+            margin-bottom: 20px;
+        }
+
+        .background-section p {
+            font-size: 20px;
+            color: lightblue; /* Light blue text */
+            margin: 0;
+        }
+
+        .get-started-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 30px;
+            border: 2px solid gold; /* Gold border */
+            color: gold; /* Gold text */
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .get-started-btn:hover {
+            background-color: gold; /* Gold background on hover */
+            color: black; /* Black text on hover */
+        }
+
+        /* Box Section Styles */
+        .section {
+            width: 50%; /* Adjust the width of each section */
+            padding: 50px;
+            background-color: rgba(25, 25, 25, 0.9); /* Dark background */
+            color: lightblue; /* Light blue text */
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: popIn 0.5s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            position: relative;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .section h2 {
+            font-size: 36px;
+            color: gold; /* Gold heading */
+        }
+        .section p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Left-Aligned Box */
+        .left-align {
+            margin-left: 0; /* Align to the left */
+            margin-right: auto;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between reviews */
+            margin-left: 0; /* Ensure reviews are aligned to the left */
+        }
+        .reviews .review {
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(40, 40, 40, 0.8); /* Darker review box */
+            color: lightblue; /* Light blue text */
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            list-style: none; /* Remove bullet points */
+        }
+        .reviews .review:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .star-rating {
+            color: gold;
+            font-size: 18px;
+        }
+        .star-rating span {
+            color: lightgray; /* Color for unfilled stars */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="cryptoguard.jpg" alt="Company Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Use</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Background Section with Text -->
+    <div class="background-section">
+        <h1>Welcome to CryptoGuard</h1>
+        <p>CryptoGuard: Simplifying Crypto Transactions with Trust.</p>
+        <a href="signup.html">
+            <button class="get-started-btn">Get Started</button>
+        </a>
+    </div>
+
+    <!-- Features Section (Left-Aligned) -->
+    <div class="section left-align">
+        <h2>Features</h2>
+        <p>Gives you CG Score, which tells you your crypto behavior.</p>
+        <p>Provides transaction history for better tracking.</p>
+        <p>Lower the CG Score, the easier it is for you to get salt loans.</p>
+    </div>
+
+    <!-- Reviews Section (Left-Aligned) -->
+    <div class="section left-align reviews" id="reviews-section">
+        <h2>User Reviews</h2>
+        <ul>
+            <li class="review">
+                <h3>Amrita</h3>
+                <div class="star-rating">★★★★☆</div>
+                <p>"This app really helped me manage my crypto wallet and helped me get a salt loan on my ethereum, which kept my money invested yet allowed me to take out a loan against it. This idea is brilliant."</p>
+            </li>
+            <li class="review">
+                <h3>Anjali</h3>
+                <div class="star-rating">★★★★★</div>
+                <p>"I've been using CryptoGuard for months. The CG Score feature really helps me understand my trading patterns!"</p>
+            </li>
+            <li class="review">
+                <h3>Suresh</h3>
+                <div class="star-rating">★★★★☆</div>
+                <p>"Excellent app! I got my first crypto loan through CryptoGuard, and the process was smooth and fast."</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contact Info Section (Left-Aligned) -->
+    <div class="section left-align">
+        <h2>Contact Information</h2>
+        <p>Email:<a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
+        <p>Phone: I'm not leaking my phone no. lol</p>
+    </div>
+
+    <script>
+        // Fetching reviews from JSON
+        fetch('reviews.json')
+            .then(response => response.json())
+            .then(data => {
+                const reviewsSection = document.getElementById('reviews-section');
+                data.reviews.forEach(review => {
+                    const reviewDiv = document.createElement('li');
+                    reviewDiv.classList.add('review');
+                    reviewDiv.innerHTML = `
+                        <h3>${review.author}</h3>
+                        <div class="star-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                        <p>"${review.comment}"</p>
+                    `;
+                    reviewsSection.querySelector('ul').appendChild(reviewDiv);
+                });
+                // Trigger fadeIn for the reviews section
+                document.querySelectorAll('.reviews').forEach(el => {
+                    el.style.opacity = 1;
+                });
+            })
+            .catch(error => console.error('Error loading reviews:', error));
+
+        // Redirect to signup and simulate login
+        const getStartedBtn = document.querySelector('.get-started-btn');
+        getStartedBtn.addEventListener('click', function() {
+            // Store login status (you might modify this logic based on actual signup)
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'signup.html'; // Redirect to signup
+        });
+    </script>
+</body>
+</html>

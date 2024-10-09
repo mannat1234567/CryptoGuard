@@ -1,0 +1,22 @@
+[
+    {
+        "reviewer": "Alice Johnson",
+        "comment": "CryptoGuard has transformed my trading experience! Highly recommend!",
+        "rating": 5
+    },
+    {
+        "reviewer": "Bob Smith",
+        "comment": "Great platform, easy to use and reliable!",
+        "rating": 4
+    },
+    {
+        "reviewer": "Charlie Brown",
+        "comment": "Had some issues initially, but the support was helpful.",
+        "rating": 3
+    },
+    {
+        "reviewer": "Diana Prince",
+        "comment": "User-friendly interface and secure transactions.",
+        "rating": 5
+    }
+]

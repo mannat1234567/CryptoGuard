@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard: Risk & Fraud Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        header img {
+            height: 40px;
+            width: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .form-area {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        button {
+            padding: 12px;
+            background: linear-gradient(90deg, #00FF00, #00BFFF);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, rgba(0,255,0,0.8), rgba(0,191,255,0.8));
+            animation: glitch 1.5s infinite alternate-reverse;
+            z-index: 0;
+            filter: blur(3px);
+            opacity: 0.6;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #00BFFF, #00FF00);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            animation: fadeIn 0.5s;
+            width: 100%;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+            width: 100%;
+        }
+
+        .high-risk { color: red; }
+        .medium-risk { color: orange; }
+
+        .alert { color: red; font-weight: bold; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(2px, -2px); }
+            75% { transform: translate(-2px, 2px); }
+            100% { transform: translate(2px, -2px); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: gold;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <img src="cryptoguard.jpg" alt="CryptoGuard Logo">
+    <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="home.html">Sign Out</a>
+        <a href="home.html#reviews">Reviews</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="form-area">
+        <h1>CryptoGuard: Risk & Fraud Detection</h1>
+
+        <div class="form-group">
+            <label for="walletAddress">Enter Ethereum Wallet Address:</label>
+            <input type="text" id="walletAddress" placeholder="e.g. 0x1234...">
+        </div>
+
+        <button onclick="checkRisk()"><span>Check Risk</span></button>
+
+        <div id="alertMessage" style="display: none;"></div>
+
+        <div class="result" id="result" style="display: none;">
+            <h2>Risk Analysis Result</h2>
+            <p id="riskScore"></p>
+            <p id="riskDetails"></p>
+        </div>
+
+        <div class="chart-container" id="chartContainer" style="display: none;">
+            <h3>Transaction Pattern Analysis</h3>
+            <canvas id="transactionChart"></canvas>
+        </div>
+
+        <button onclick="downloadReport()" style="display: none;" id="downloadButton">Download Report</button>
+    </div>
+</div>
+
+<script>
+    const API_KEY = 'HYDVFZQQE1N9ZU2461H43YC1UB2D63384P';  // Your Etherscan API key
+
+    async function checkRisk() {
+        const walletAddress = document.getElementById('walletAddress').value;
+        const resultDiv = document.getElementById('result');
+        const riskScore = document.getElementById('riskScore');
+        const riskDetails = document.getElementById('riskDetails');
+        const alertMessage = document.getElementById('alertMessage');
+        const chartContainer = document.getElementById('chartContainer');
+        const downloadButton = document.getElementById('downloadButton');
+
+        if (walletAddress.trim() === '') {
+            alert("Please enter a valid Ethereum wallet address.");
+            return;
+        }
+
+        const url = `https://api.etherscan.io/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${API_KEY}`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} - ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            if (data.result.length === 0) {
+                alertMessage.innerHTML = `<div class="alert">No transactions found for this address.</div>`;
+                alertMessage.style.display = 'block';
+                return;
+            }
+
+            const transactionAmounts = data.result.map(tx => parseFloat(tx.value) / 1e18);
+            const totalValue = transactionAmounts.reduce((a, b) => a + b, 0);
+            const numTransactions = transactionAmounts.length;
+
+            let riskCategory = '';
+            let riskScoreValue = totalValue > 100 ? 80 : totalValue > 10 ? 50 : 20;
+
+            if (riskScoreValue > 75) {
+                riskCategory = `<span class="high-risk">High Risk</span>`;
+            } else if (riskScoreValue > 35) {
+                riskCategory = `<span class="medium-risk">Medium Risk</span>`;
+            } else {
+                riskCategory = `Low Risk`;
+            }
+
+            riskScore.innerHTML = `Risk Score: ${riskScoreValue} (${riskCategory})`;
+            riskDetails.innerHTML = `Number of Transactions: ${numTransactions}, Total Value: ${totalValue.toFixed(2)} ETH`;
+            alertMessage.style.display = 'block';
+            resultDiv.style.display = 'block';
+
+            chartContainer.style.display = 'block';
+            createChart(transactionAmounts);
+            downloadButton.style.display = 'block';
+
+            downloadButton.dataset.reportData = JSON.stringify({
+                walletAddress: walletAddress,
+                riskScore: riskScoreValue,
+                totalValue: totalValue,
+                numTransactions: numTransactions,
+                riskCategory: riskCategory,
+            });
+        } catch (error) {
+            alertMessage.innerHTML = `<div class="alert">${error.message}</div>`;
+            alertMessage.style.display = 'block';
+        }
+    }
+
+    function createChart(transactionAmounts) {
+        const ctx = document.getElementById('transactionChart').getContext('2d');
+        const labels = transactionAmounts.map((_, index) => `Tx ${index + 1}`);
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Transaction Amounts (ETH)',
+                    data: transactionAmounts,
+                    backgroundColor: 'rgba(255, 215, 0, 0.5)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 1,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function downloadReport() {
+        const downloadButton = document.getElementById('downloadButton');
+        const reportData = JSON.parse(downloadButton.dataset.reportData);
+
+        const reportContent = `
+        Wallet Address: ${reportData.walletAddress}
+        Risk Score: ${reportData.riskScore}
+        Total Value: ${reportData.totalValue.toFixed(2)} ETH
+        Number of Transactions: ${reportData.numTransactions}
+        Risk Category: ${reportData.riskCategory}
+        `.trim();
+
+        const blob = new Blob([reportContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'risk_report.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+</script>
+</body>
+</html>
