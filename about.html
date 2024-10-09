@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CryptoGuard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding-top: 100px;
+            color: lightblue; /* Set default text color */
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Darker header */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: gold; /* Gold links */
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: lightblue; /* Light blue on hover */
+        }
+
+        .background-section {
+            width: 100%;
+            height: 80vh;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .background-section h1 {
+            font-size: 72px;
+            font-weight: bold;
+            color: gold; /* Gold color for heading */
+            margin-bottom: 20px;
+        }
+
+        .background-section p {
+            font-size: 20px;
+            color: lightblue; /* Light blue text */
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+            margin: 0 20px; /* Margin to give space from the edges */
+            padding-bottom: 100px; /* Add padding to the bottom to prevent footer overlap */
+        }
+
+        h2 {
+            font-size: 36px;
+            color: gold; /* Gold heading */
+            margin-top: 30px; /* Add margin to top for spacing */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: lightblue;
+            position: relative; /* Changed to relative to prevent overlap */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="cryptoguard.jpg" alt="Company Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Use</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Background Section with Text -->
+    <div class="background-section">
+        <h1>About Us</h1>
+        <p>Learn more about CryptoGuard and our mission to secure your crypto journey.</p>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Our Story</h2>
+        <p>Founded by a team of passionate students, CryptoGuard was born out of the belief that everyone should be able to participate in the crypto revolution without fear of scams or security breaches. With the rapid growth of the cryptocurrency market, we recognized a pressing need for robust security solutions that cater to both new and experienced users.</p>
+
+        <h2>What We Do</h2>
+        <p>CryptoGuard offers a comprehensive suite of services designed to protect your digital assets:</p>
+        <ul>
+            <li><strong>Advanced Security Tools:</strong> We provide cutting-edge security solutions to safeguard your cryptocurrencies.</li>
+            <li><strong>Educational Resources:</strong> Our extensive library of articles, guides, and tutorials helps you understand the complexities of cryptocurrency.</li>
+            <li><strong>Community Support:</strong> Join our growing community of crypto enthusiasts who share knowledge and support.</li>
+        </ul>
+
+        <h2>Our Values</h2>
+        <ul>
+            <li><strong>Integrity:</strong> We prioritize the safety and privacy of our users above all else.</li>
+            <li><strong>Innovation:</strong> We are committed to staying at the forefront of technology.</li>
+            <li><strong>Education:</strong> We believe that knowledge is power.</li>
+        </ul>
+
+        <h2>Join Us</h2>
+        <p>Whether you’re a seasoned investor or just starting your cryptocurrency journey, CryptoGuard is here to support you. Together, we can create a safer and more informed crypto community.</p>
+        <p>Thank you for choosing CryptoGuard. We look forward to helping you secure your digital future!</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@cryptoguard.com" style="color: lightblue;">support@cryptoguard.com</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CryptoGuard. All rights reserved.</p>
+    </footer>
+</body>
+</html>
