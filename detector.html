@@ -5,10 +5,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard: Risk & Fraud Detection</title>
+	<link rel="stylesheet" href="glitch.css"> <!-- Link to your glitch.css -->
     <style>
+		a {
+			color: yellow;          /* Change the color to yellow */
+			text-decoration: none;  /* Remove the underline */
+		}
+
+		a:hover {
+			text-decoration: underline; /* Optional: Add underline on hover for better usability */
+		}
+
+ 
+		.container {
+		  font-family: "Arial", Tahoma, Geneva, Verdana, sans-serif;
+		  
+		  font-weight: bold;
+		  font-size: 1.2em;
+		  display: grid;
+		  gap: 2em;
+		  place-content: center;
+		  width: 400px;
+		}
+
+		.container input[type=radio] {
+		  display: none;
+		}
+
+		.input-btn:is(:checked) + .neon-btn .span {
+		  inset: 2px;
+		  background-color: #4090b5;
+		  background: repeating-linear-gradient(to bottom, transparent 0%, #4090b5 1px, #4090b5 3px, #4090b5 5px, #4090b5 4px, transparent 0.5%), repeating-linear-gradient(to left, hsl(295, 60%, 12%) 100%, hsl(295, 60%, 12%) 100%);
+		  box-shadow: inset 0 40px 20px hsl(296, 59%, 10%);
+		}
+
+		.input-btn:is(:checked) + .neon-btn .txt {
+		  text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+		  color: rgb(255, 255, 255);
+		  animation: colorchange 0.3s ease;
+		}
+
+		.input-btn:is(:checked) + .neon-btn::before {
+		  animation-duration: 0.6s;
+		}
+
+		.input-btn:is(:checked) + .neon-btn::after {
+		  animation-duration: 0.6s;
+		}
+
+		.neon-btn {
+		  width: 175px; /* Reduced width */
+		  height: 50px; /* Reduced height */
+		  cursor: pointer;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  padding: 0.5em; /* Adjusted padding */
+		  text-align: center; /* Centered text */
+		  background: transparent;
+		  position: relative;
+		  overflow: hidden;
+		  transition: all 2s ease-in-out;
+		  -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+		  clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+		  font-family: Arial, sans-serif; /* Normal font for the button */
+		  font-weight: normal; /* Normal weight for the button */
+		  font-size: 1em; /* Normal font size */
+		  font-style: italic
+		}
+
+		.neon-btn .span {
+		  display: flex;
+		  -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+		  clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+		  position: absolute;
+		  inset: 1px;
+		  background-color: #212121;
+		  z-index: 1;
+		}
+
+		.neon-btn .txt {
+		  text-align: center; /* Centered text */
+		  position: relative;
+		  z-index: 2;
+		  color: aliceblue;
+		  font-size: 1em; /* Normal font size */
+		  transition: all ease-in-out 2s linear;
+		  text-shadow: 0px 0px 1px #4090b5, 0px 0px 1px #9e30a9, 0 0 1px white;
+		}
+
+		.neon-btn::before {
+		  content: "";
+		  position: absolute;
+		  height: 300px;
+		  aspect-ratio: 1.5/1;
+		  box-shadow: -17px -19px 20px #9e30a9;
+		  background-image: conic-gradient(#9e30a9, transparent, transparent, transparent, transparent, transparent, transparent, #9e30a9);
+		  animation: rotate 4s linear infinite -2s;
+		}
+
+		.neon-btn::after {
+		  content: "";
+		  position: absolute;
+		  height: 300px;
+		  aspect-ratio: 1.5/1;
+		  box-shadow: -17px -19px 10px #4090b5;
+		  background-image: conic-gradient(#4090b5, transparent, transparent, transparent, transparent, transparent, transparent, transparent, #4090b5);
+		  animation: rotate 4s linear infinite;
+		}
+
+		@keyframes rotate {
+		  0% {
+			transform: rotate(0deg);
+		  }
+
+		  to {
+			transform: rotate(360deg);
+		  }
+		}
+
+		@keyframes colorchange {
+		  0% {
+			text-shadow: 0px 0px 0px #9e30a9, 0px 0px 0px #4090b5, 0 0 0px rgba(255, 255, 255, 0.616);
+		  }
+
+		  50% {
+			text-shadow: -6px 5px 1px #9e30a9, 5px 11px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+		  }
+
+		  to {
+			text-shadow: 2px 4px 1px #9e30a9, 2px 2px 1px #4090b5, 0 0 20px rgba(255, 255, 255, 0.616);
+		  }
+		}
+
+		@keyframes backgroundchange {
+		  0% {
+			background-color: transparent;
+		  }
+
+		  50% {
+			background-color: #4090b5;
+		  }
+
+		  to {
+			background-color: transparent;
+		  }
+		}
         body {
             font-family: 'Arial', sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
+            background: url('pic1.gif') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
@@ -26,7 +171,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0);
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -35,7 +180,7 @@
         }
 
         header img {
-            height: 40px;
+            height: 80px;
             width: auto;
         }
 
@@ -46,14 +191,7 @@
             font-weight: bold;
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-        }
-
+        
         .form-area {
             max-width: 600px;
             width: 100%;
@@ -85,94 +223,35 @@
 
         button {
             padding: 12px;
-            background: linear-gradient(90deg, #00FF00, #00BFFF);
-            color: black;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
             border: none;
             border-radius: 5px;
+            color: white;
+            font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        button:before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            background: linear-gradient(135deg, rgba(0,255,0,0.8), rgba(0,191,255,0.8));
-            animation: glitch 1.5s infinite alternate-reverse;
-            z-index: 0;
-            filter: blur(3px);
-            opacity: 0.6;
+            transition: background 0.3s ease;
         }
 
         button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(90deg, #00BFFF, #00FF00);
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
         }
-
-        button span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .result {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: left;
-            animation: fadeIn 0.5s;
-            width: 100%;
-        }
-
-        .chart-container {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            animation: fadeIn 0.5s;
-            width: 100%;
-        }
-
-        .high-risk { color: red; }
-        .medium-risk { color: orange; }
-
-        .alert { color: red; font-weight: bold; }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            25% { transform: translate(-2px, 2px); }
-            50% { transform: translate(2px, -2px); }
-            75% { transform: translate(-2px, 2px); }
-            100% { transform: translate(2px, -2px); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .nav-links {
+		.nav-links {
             display: flex;
             gap: 20px;
         }
-
-        a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: gold;
-        }
-    </style>
+		</style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -180,8 +259,8 @@
 <header>
     <img src="cryptoguard.jpg" alt="CryptoGuard Logo">
     <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="home.html">Sign Out</a>
+        <a href="home.html">Home</a>
+        
         <a href="home.html#reviews">Reviews</a>
     </nav>
 </header>
@@ -195,7 +274,16 @@
             <input type="text" id="walletAddress" placeholder="e.g. 0x1234...">
         </div>
 
-        <button onclick="checkRisk()"><span>Check Risk</span></button>
+		<form action="" class="container">
+			<input class="input-btn" type="radio" id="valueIs-1" name="valueIs-radio" checked="" value="valueIs-1">
+			<label class="neon-btn" for="valueIs-1" onclick="checkRisk()"> 
+				<span class="span"></span>
+				<span class="txt"><p>Check Risk</p></span>
+			</label>
+		</form>
+
+
+
 
         <div id="alertMessage" style="display: none;"></div>
 
@@ -217,121 +305,187 @@
 <script>
     const API_KEY = 'HYDVFZQQE1N9ZU2461H43YC1UB2D63384P';  // Your Etherscan API key
 
-    async function checkRisk() {
-        const walletAddress = document.getElementById('walletAddress').value;
-        const resultDiv = document.getElementById('result');
-        const riskScore = document.getElementById('riskScore');
-        const riskDetails = document.getElementById('riskDetails');
-        const alertMessage = document.getElementById('alertMessage');
-        const chartContainer = document.getElementById('chartContainer');
-        const downloadButton = document.getElementById('downloadButton');
+async function checkRisk() {
+    const walletAddress = document.getElementById('walletAddress').value;
+    const resultDiv = document.getElementById('result');
+    const riskScore = document.getElementById('riskScore');
+    const riskDetails = document.getElementById('riskDetails');
+    const alertMessage = document.getElementById('alertMessage');
+    const chartContainer = document.getElementById('chartContainer');
+    const downloadButton = document.getElementById('downloadButton');
 
-        if (walletAddress.trim() === '') {
-            alert("Please enter a valid Ethereum wallet address.");
+    if (walletAddress.trim() === '') {
+        alert("Please enter a valid Ethereum wallet address.");
+        return;
+    }
+
+    const url = `https://api.etherscan.io/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${API_KEY}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        if (data.result.length === 0) {
+            alertMessage.innerHTML = `<div class="alert">No transactions found for this address.</div>`;
+            alertMessage.style.display = 'block';
             return;
         }
 
-        const url = `https://api.etherscan.io/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${API_KEY}`;
+        const transactionAmounts = data.result.map(tx => parseFloat(tx.value) / 1e18);
+        const totalValue = transactionAmounts.reduce((a, b) => a + b, 0);
+        const numTransactions = transactionAmounts.length;
 
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status} - ${response.statusText}`);
-            }
+        // Calculate risk category based on total value
+        let riskCategory = '';
+        let riskScoreValue = totalValue > 100 ? 80 : totalValue > 10 ? 50 : 20;
 
-            const data = await response.json();
-            if (data.result.length === 0) {
-                alertMessage.innerHTML = `<div class="alert">No transactions found for this address.</div>`;
-                alertMessage.style.display = 'block';
-                return;
-            }
-
-            const transactionAmounts = data.result.map(tx => parseFloat(tx.value) / 1e18);
-            const totalValue = transactionAmounts.reduce((a, b) => a + b, 0);
-            const numTransactions = transactionAmounts.length;
-
-            let riskCategory = '';
-            let riskScoreValue = totalValue > 100 ? 80 : totalValue > 10 ? 50 : 20;
-
-            if (riskScoreValue > 75) {
-                riskCategory = `<span class="high-risk">High Risk</span>`;
-            } else if (riskScoreValue > 35) {
-                riskCategory = `<span class="medium-risk">Medium Risk</span>`;
-            } else {
-                riskCategory = `Low Risk`;
-            }
-
-            riskScore.innerHTML = `Risk Score: ${riskScoreValue} (${riskCategory})`;
-            riskDetails.innerHTML = `Number of Transactions: ${numTransactions}, Total Value: ${totalValue.toFixed(2)} ETH`;
-            alertMessage.style.display = 'block';
-            resultDiv.style.display = 'block';
-
-            chartContainer.style.display = 'block';
-            createChart(transactionAmounts);
-            downloadButton.style.display = 'block';
-
-            downloadButton.dataset.reportData = JSON.stringify({
-                walletAddress: walletAddress,
-                riskScore: riskScoreValue,
-                totalValue: totalValue,
-                numTransactions: numTransactions,
-                riskCategory: riskCategory,
-            });
-        } catch (error) {
-            alertMessage.innerHTML = `<div class="alert">${error.message}</div>`;
-            alertMessage.style.display = 'block';
+        if (riskScoreValue > 75) {
+            riskCategory = `<span class="high-risk">High Risk</span>`;
+        } else if (riskScoreValue > 35) {
+            riskCategory = `<span class="medium-risk">Medium Risk</span>`;
+        } else {
+            riskCategory = `<span class="low-risk">Low Risk</span>`;
         }
+
+        riskScore.innerHTML = `Risk Score: ${riskScoreValue} (${riskCategory})`;
+        riskDetails.innerHTML = `Number of Transactions: ${numTransactions}, Total Value: ${totalValue.toFixed(2)} ETH`;
+        alertMessage.style.display = 'block';
+        resultDiv.style.display = 'block';
+
+        // Assess fraud risk
+        const fraudRiskAssessment = assessFraudRisk(transactionAmounts);
+        if (fraudRiskAssessment.isFraudulent) {
+            alertMessage.innerHTML += `<br><strong>Alert: This wallet is flagged for potential fraudulent activity!</strong>`;
+        } else {
+            alertMessage.innerHTML += `<br>Fraud Risk: Low`;
+        }
+
+        chartContainer.style.display = 'block';
+        createChart(transactionAmounts);
+        downloadButton.style.display = 'block';
+
+        downloadButton.dataset.reportData = JSON.stringify({
+            walletAddress: walletAddress,
+            riskScore: riskScoreValue,
+            totalValue: totalValue,
+            numTransactions: numTransactions,
+            riskCategory: riskCategory,
+            fraudRisk: fraudRiskAssessment.riskScore,
+        });
+    } catch (error) {
+        alertMessage.innerHTML = `<div class="alert">${error.message}</div>`;
+        alertMessage.style.display = 'block';
+    }
+}
+
+function assessFraudRisk(transactionAmounts) {
+    const totalTransactions = transactionAmounts.length;
+    const averageTransaction = transactionAmounts.reduce((a, b) => a + b, 0) / totalTransactions;
+    
+    // Set thresholds for assessing fraud risk
+    const highValueThreshold = 10; // Define a threshold for high-value transactions
+    const highValueTransactions = transactionAmounts.filter(amount => amount > highValueThreshold);
+    const highValueCount = highValueTransactions.length;
+
+    // Calculate risk score
+    let riskScore = 0;
+    if (highValueCount > 2) {
+        riskScore = 80; // High risk if more than 2 high-value transactions
+    } else if (averageTransaction > 5) {
+        riskScore = 50; // Medium risk if average transaction is above 5
+    } else {
+        riskScore = 20; // Low risk
     }
 
-    function createChart(transactionAmounts) {
-        const ctx = document.getElementById('transactionChart').getContext('2d');
-        const labels = transactionAmounts.map((_, index) => `Tx ${index + 1}`);
+    return {
+        riskScore,
+        isFraudulent: riskScore > 75, // Set threshold for fraud detection
+        averageTransaction,
+        highValueCount,
+    };
+}
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Transaction Amounts (ETH)',
-                    data: transactionAmounts,
-                    backgroundColor: 'rgba(255, 215, 0, 0.5)',
-                    borderColor: 'rgba(255, 215, 0, 1)',
-                    borderWidth: 1,
-                    fill: true,
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+function createChart(transactionAmounts) {
+    const ctx = document.getElementById('transactionChart').getContext('2d');
+    const labels = transactionAmounts.map((_, index) => `Tx ${index + 1}`);
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Transaction Amounts (ETH)',
+                data: transactionAmounts,
+                backgroundColor: 'rgba(255, 215, 0, 0.5)',  // Gold background color for bars
+                borderColor: 'rgba(255, 215, 0, 1)',        // Gold border color
+                borderWidth: 1,
+                fill: true,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white'  // Change y-axis tick labels to white
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Light white grid lines
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'  // Change x-axis tick labels to white
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Light white grid lines
                     }
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Change legend text color to white
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Transaction Amounts',
+                    color: 'white'  // Change chart title color to white
+                }
             }
-        });
-    }
+        }
+    });
+}
 
-    function downloadReport() {
-        const downloadButton = document.getElementById('downloadButton');
-        const reportData = JSON.parse(downloadButton.dataset.reportData);
+function downloadReport() {
+    const downloadButton = document.getElementById('downloadButton');
+    const reportData = JSON.parse(downloadButton.dataset.reportData);
 
-        const reportContent = `
-        Wallet Address: ${reportData.walletAddress}
-        Risk Score: ${reportData.riskScore}
-        Total Value: ${reportData.totalValue.toFixed(2)} ETH
-        Number of Transactions: ${reportData.numTransactions}
-        Risk Category: ${reportData.riskCategory}
-        `.trim();
+    const reportContent = `
+    Wallet Address: ${reportData.walletAddress}
+    Risk Score: ${reportData.riskScore}
+    Total Value: ${reportData.totalValue.toFixed(2)} ETH
+    Number of Transactions: ${reportData.numTransactions}
+    Risk Category: ${reportData.riskCategory}
+    Fraud Risk: ${reportData.fraudRisk}
+    `.trim();
 
-        const blob = new Blob([reportContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'risk_report.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    }
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'risk_report.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
 </script>
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
