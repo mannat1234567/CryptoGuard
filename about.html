@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - CryptoGuard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMH5i7Zl0e5I0T4DgH0PpGI5+R1Iy3m2ZJbPp14nOBX6D6b2YFDOV6A8D1Drg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -20,7 +21,7 @@
             background-attachment: fixed;
             animation: moveBackground 30s linear infinite;
             padding-top: 100px;
-            color: lightblue; /* Set default text color */
+            color: lightblue;
         }
 
         @keyframes moveBackground {
@@ -33,7 +34,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Darker header */
+            background-color: rgba(0, 0, 0, 0.8);
             position: fixed;
             width: 100%;
             top: 0;
@@ -52,14 +53,14 @@
 
         header nav a {
             text-decoration: none;
-            color: gold; /* Gold links */
+            color: gold;
             font-weight: bold;
             font-size: 18px;
             transition: color 0.3s ease;
         }
 
         header nav a:hover {
-            color: lightblue; /* Light blue on hover */
+            color: lightblue;
         }
 
         .background-section {
@@ -78,26 +79,26 @@
         .background-section h1 {
             font-size: 72px;
             font-weight: bold;
-            color: gold; /* Gold color for heading */
+            color: gold;
             margin-bottom: 20px;
         }
 
         .background-section p {
             font-size: 20px;
-            color: lightblue; /* Light blue text */
+            color: lightblue;
             margin: 0;
         }
 
         .content {
             padding: 20px;
-            margin: 0 20px; /* Margin to give space from the edges */
-            padding-bottom: 100px; /* Add padding to the bottom to prevent footer overlap */
+            margin: 0 20px;
+            padding-bottom: 100px;
         }
 
         h2 {
             font-size: 36px;
-            color: gold; /* Gold heading */
-            margin-top: 30px; /* Add margin to top for spacing */
+            color: gold;
+            margin-top: 30px;
         }
 
         p {
@@ -110,8 +111,57 @@
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
             color: lightblue;
-            position: relative; /* Changed to relative to prevent overlap */
             width: 100%;
+        }
+
+        .founders {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 20px 0;
+        }
+
+        .founder {
+            text-align: center;
+        }
+
+        .founder img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 40px 0;
+        }
+
+        .trend-info {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            color: gold;
+        }
+
+        .icon-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .icon-item {
+            text-align: center;
+            flex: 1 0 30%; /* Responsive width */
+            margin: 10px;
+        }
+
+        .icon-item i {
+            font-size: 50px;
+            color: gold;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -123,7 +173,6 @@
             <a href="home.html">Home</a>
             <a href="login.html">Use</a>
             <a href="about.html">About</a>
-            <a href="features.html">Features</a>
             <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
@@ -154,18 +203,125 @@
             <li><strong>Education:</strong> We believe that knowledge is power.</li>
         </ul>
 
+        <h2>Our Founders</h2>
+        <div class="founders">
+            <div class="founder">
+                <img src="soham.jpg" alt="Soham Mukherjee">
+                <h3>Soham Mukherjee</h3>
+                <p>Co-Founder & CEO</p>
+            </div>
+            <div class="founder">
+                <img src="mannat.jpg" alt="Mannat Yadav">
+                <h3>Mannat Yadav</h3>
+                <p>Co-Founder & CTO</p>
+            </div>
+            <div class="founder">
+                <img src="tarang.jpg" alt="Tarang Yadav">
+                <h3>Tarang Yadav</h3>
+                <p>Co-Founder & COO</p>
+            </div>
+        </div>
+
+        <h2>Target Audience</h2>
+        <p>Our services cater to a diverse audience, including:</p>
+        <ul>
+            <li>New cryptocurrency users looking for secure entry points.</li>
+            <li>Experienced investors seeking advanced security measures.</li>
+            <li>Individuals and organizations wanting to educate themselves on crypto safety.</li>
+            <li>Anyone interested in protecting their digital assets from scams and fraud.</li>
+        </ul>
+
+        <h2>Scam Trends Visualization</h2>
+        <div class="chart-container">
+            <canvas id="scamTrendsChart"></canvas>
+        </div>
+        <div class="trend-info">
+            <p>The number of scams in the cryptocurrency space has been steadily increasing over the past year. With more people investing in digital assets, scammers are becoming more sophisticated, making it crucial for users to stay informed and vigilant.</p>
+        </div>
+
         <h2>Join Us</h2>
         <p>Whether you’re a seasoned investor or just starting your cryptocurrency journey, CryptoGuard is here to support you. Together, we can create a safer and more informed crypto community.</p>
         <p>Thank you for choosing CryptoGuard. We look forward to helping you secure your digital future!</p>
 
         <h2>Contact Us</h2>
         <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@cryptoguard.com" style="color: lightblue;">support@cryptoguard.com</a>.</p>
+
+        <h2>Why Choose CryptoGuard?</h2>
+        <div class="icon-list">
+            <div class="icon-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Robust Security</h3>
+                <p>We provide top-notch security tools for your digital assets.</p>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-book-open"></i>
+                <h3>Educational Resources</h3>
+                <p>Comprehensive guides and tutorials to keep you informed.</p>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-users"></i>
+                <h3>Community Support</h3>
+                <p>Join our network of crypto enthusiasts for shared knowledge.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 CryptoGuard. All rights reserved.</p>
     </footer>
-    <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
+
+    <!-- Chart.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('scamTrendsChart').getContext('2d');
+        const scamTrendsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Number of Scams',
+                    data: [5, 15, 30, 45, 55, 75, 90, 100, 120, 140, 160, 180],
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Scams'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: 'lightblue'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
