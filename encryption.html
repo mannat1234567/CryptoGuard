@@ -27,12 +27,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.5);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
         }
         header img {
             height: 80px;
@@ -53,51 +54,81 @@
         }
         .section {
             width: 70%;
-            margin: 20px auto;
+            margin: 100px auto 20px auto;
             padding: 40px;
             background-color: rgba(25, 25, 25, 0.9);
             color: lightblue;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
             text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .section h2 {
             font-size: 36px;
             color: gold;
             margin-bottom: 20px;
         }
+        .section h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
         .section p {
             font-size: 18px;
             margin: 10px 0;
         }
         .input-field {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 15px 0;
+            padding: 12px;
             width: 100%;
             border: 1px solid lightblue;
             border-radius: 5px;
             background-color: transparent;
             color: lightblue;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .input-field:focus {
+            border-color: gold;
         }
         .button {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 16px;
             border: 2px solid gold;
             color: gold;
             background: transparent;
             cursor: pointer;
             outline: none;
+            border-radius: 5px;
             transition: all 0.3s ease;
         }
         .button:hover {
             background-color: gold;
             color: black;
+            transform: scale(1.05);
         }
         .result {
             margin-top: 20px;
             font-size: 20px;
             color: gold;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+        }
+        /* For the widget */
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -107,10 +138,10 @@
         <nav>
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
-	        <a href="login.html">Login</a>
+            <a href="login.html">Login</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-	        <a href="encryption.html">Encryption Services</a>
-	        <a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="encryption.html">Encryption Services</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
@@ -174,6 +205,8 @@
             }
         };
     </script>
+
+    <!-- Crypto Guard AI widget -->
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
