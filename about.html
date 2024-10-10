@@ -79,7 +79,7 @@
         .background-section h1 {
             font-size: 72px;
             font-weight: bold;
-            color: gold;
+            color: white; /* Changed from gold to white */
             margin-bottom: 20px;
         }
 
@@ -97,7 +97,7 @@
 
         h2 {
             font-size: 36px;
-            color: gold;
+            color: white; /* Changed from gold to white */
             margin-top: 30px;
         }
 
@@ -142,7 +142,7 @@
             text-align: center;
             margin: 20px 0;
             font-size: 18px;
-            color: gold;
+            color: white; /* Changed from gold to white */
         }
 
         .icon-list {
@@ -160,7 +160,7 @@
 
         .icon-item i {
             font-size: 50px;
-            color: gold;
+            color: white; /* Changed from gold to white */
             margin-bottom: 10px;
         }
     </style>
@@ -172,10 +172,10 @@
         <nav>
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
-	        <a href="login.html">Login</a>
+            <a href="login.html">Login</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-	        <a href="encryption.html">Encryption Services</a>
-	        <a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="encryption.html">Encryption Services</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
@@ -246,85 +246,13 @@
         <p>Thank you for choosing CryptoGuard. We look forward to helping you secure your digital future!</p>
 
         <h2>Contact Us</h2>
-        <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@cryptoguard.com" style="color: lightblue;">support@cryptoguard.com</a>.</p>
-
-        <h2>Why Choose CryptoGuard?</h2>
-        <div class="icon-list">
-            <div class="icon-item">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Robust Security</h3>
-                <p>We provide top-notch security tools for your digital assets.</p>
-            </div>
-            <div class="icon-item">
-                <i class="fas fa-book-open"></i>
-                <h3>Educational Resources</h3>
-                <p>Comprehensive guides and tutorials to keep you informed.</p>
-            </div>
-            <div class="icon-item">
-                <i class="fas fa-users"></i>
-                <h3>Community Support</h3>
-                <p>Join our network of crypto enthusiasts for shared knowledge.</p>
-            </div>
-        </div>
+        <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@cryptoguard.com" style="color: lightblue;">support@cryptoguard.com</a></p>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 CryptoGuard. All rights reserved.</p>
+        <p>&copy; 2024 CryptoGuard. All Rights Reserved.</p>
     </footer>
 
-    <!-- Chart.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('scamTrendsChart').getContext('2d');
-        const scamTrendsChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Number of Scams',
-                    data: [5, 15, 30, 45, 55, 75, 90, 100, 120, 140, 160, 180],
-                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-                    borderColor: 'rgba(255, 215, 0, 1)',
-                    borderWidth: 2,
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Number of Scams'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Months'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true,
-                        labels: {
-                            color: 'lightblue'
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.dataset.label + ': ' + context.raw;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-    <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
