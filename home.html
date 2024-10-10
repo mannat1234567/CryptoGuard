@@ -102,14 +102,12 @@
         .section {
             width: 50%;
             padding: 50px;
-            background-color: rgba(25, 25, 25, 0.9);
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(25, 25, 25, 0.9));
             color: lightblue;
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             animation: popIn 0.5s ease forwards;
             opacity: 0;
-            transition: opacity 0.5s ease;
             position: relative;
             text-align: center;
         }
@@ -120,6 +118,7 @@
         .section h2 {
             font-size: 36px;
             color: gold;
+            margin-bottom: 20px;
         }
         .section p {
             font-size: 18px;
@@ -159,13 +158,12 @@
             width: 50%;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(25, 25, 25, 0.9);
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(25, 25, 25, 0.9));
             border-radius: 10px;
             color: lightblue;
             text-align: center;
             animation: popIn 0.5s ease forwards;
             opacity: 0;
-            transition: opacity 0.5s ease;
         }
 
         #price-chart {
@@ -181,10 +179,10 @@
         <nav>
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
-	    <a href="login.html">Login</a>
+            <a href="login.html">Login</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-	    <a href="encryption.html">Encryption Services</a>
-	    <a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="encryption.html">Encryption Services</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
@@ -252,159 +250,54 @@
             </div>
             <div class="team-member">
                 <img src="cto.jpg" alt="CTO" class="team-photo">
-                <h3>CTO: Mannat Chawla</h3>
-                <p>Mannat leads the tech team and ensures CryptoGuard runs smoothly and securely. Fire Developer too.</p>
-            </div>
-            <div class="team-member">
-                <img src="cmo.jpg" alt="CMO" class="team-photo">
-                <h3>CMO: Tarang Yadav</h3>
-                <p>Tarang is responsible for marketing strategies and ensuring CryptoGuard reaches its users. Noice ppt skills</p>
+                <h3>CTO: Ankit Kumar</h3>
+                <p>Ankit is a blockchain expert and manages our tech innovations. He can also see the future through his glasses when staring at someone in front of him.</p>
             </div>
         </div>
     </div>
 
-    <!-- Roadmap Section -->
-    <div class="section">
-        <h2>Roadmap</h2>
-        <ul>
-            <li>Q1 2024: Launch of new features.</li>
-            <li>Q2 2024: Expansion into international markets.</li>
-            <li>Q3 2024: Implementation of AI for better insights.</li>
-        </ul>
-    </div>
-
-    <!-- News Section -->
-    <div class="section">
-        <h2>Latest News</h2>
-        <article>
-            <h3>CryptoGuard Launches New Features</h3>
-            <p>CryptoGuard has launched new features that allow users to better track their crypto behavior.</p>
-            <small>Posted on September 30, 2024</small>
-        </article>
-    </div>
-	 <!-- Downloadable Checklist Section -->
-    <div class="section">
-        <h2>Download Our Cybersecurity Checklist</h2>
-        <p>Stay safe online with our comprehensive checklist. Download it below:</p>
-        <a href="checklist.docx" download>
-            <button class="get-started-btn">Download Checklist</button>
-        </a>
-    </div>
-	<!--Mannat add some css or snthing here please looks boring asf-->
-
-    <!-- Contact Information Section -->
-    <div class="section">
-        <h2>Contact Information</h2>
-        <p>Email: <a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
-        <p>Phone: I'm not leaking my phone no. lol</p>
-    </div>
-	   
-
-
+    <!-- JavaScript to Handle Data -->
     <script>
-        // Live Crypto Tracker
-        const cryptoPriceElement = document.getElementById('crypto-price');
-        const priceChartCtx = document.getElementById('price-chart').getContext('2d');
-        let priceChart;
-        const historicalPrices = []; // Array to hold historical prices
-
-        const fetchCryptoPrice = async () => {
-            try {
-                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
-                const data = await response.json();
-                const price = data.bitcoin.usd;
-                cryptoPriceElement.textContent = `Current Bitcoin (BTC) Price: $${price}`;
-
-                // Update historical prices
-                historicalPrices.push(price);
-                if (historicalPrices.length > 10) { // Keep last 10 prices
-                    historicalPrices.shift();
-                }
-                updateChart(historicalPrices);
-            } catch (error) {
-                console.error('Error fetching crypto price:', error);
-                cryptoPriceElement.textContent = 'Failed to fetch price.';
-            }
-        };
-
-        const updateChart = (prices) => {
-            if (priceChart) {
-                priceChart.destroy();
-            }
-            priceChart = new Chart(priceChartCtx, {
-                type: 'line',
-                data: {
-                    labels: Array.from({ length: prices.length }, (_, i) => i + 1),
-                    datasets: [{
-                        label: 'Bitcoin Price (USD)',
-                        data: prices,
-                        borderColor: 'gold',
-                        backgroundColor: 'rgba(255, 215, 0, 0.2)',
-                        fill: true,
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Time (Last 10 Updates)',
-                            },
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Price (USD)',
-                            },
-                            beginAtZero: false,
-                        },
-                    },
-                },
-            });
-        };
-
-        fetchCryptoPrice();
-        setInterval(fetchCryptoPrice, 30000); // Update every 30 seconds
-
-        // Random User Count
         const userCountElement = document.getElementById('user-count');
-        const updateUserCount = () => {
-            const randomCount = Math.floor(Math.random() * 1000) + 1; // Random number between 1 and 1000
-            userCountElement.textContent = randomCount;
-        };
-        updateUserCount();
-        setInterval(updateUserCount, 5000); // Update every 5 seconds
+        const cryptoPriceElement = document.getElementById('crypto-price');
+        const ctx = document.getElementById('price-chart').getContext('2d');
+        
+        async function updateUserCount() {
+            const response = await fetch('/user-count');
+            const data = await response.json();
+            userCountElement.textContent = data.count;
+        }
 
-        // Fetching reviews from JSON
-        fetch('reviews.json')
-            .then(response => response.json())
-            .then(data => {
-                const reviewsSection = document.getElementById('reviews-section');
-                data.reviews.forEach(review => {
-                    const reviewDiv = document.createElement('li');
-                    reviewDiv.classList.add('review');
-                    reviewDiv.innerHTML = `
-                        <h3>${review.author}</h3>
-                        <div class="star-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-                        <p>"${review.comment}"</p>
-                    `;
-                    reviewsSection.querySelector('ul').appendChild(reviewDiv);
-                });
-                document.querySelectorAll('.reviews').forEach(el => {
-                    el.style.opacity = 1;
-                });
-            })
-            .catch(error => console.error('Error loading reviews:', error));
+        async function updateCryptoPrice() {
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+            const data = await response.json();
+            const bitcoinPrice = data.bitcoin.usd;
+            cryptoPriceElement.textContent = `Bitcoin: $${bitcoinPrice}`;
+            
+            const priceData = {
+                labels: ['10s', '20s', '30s', '40s', '50s', '60s'],
+                datasets: [{
+                    label: 'BTC Price (USD)',
+                    data: [bitcoinPrice, bitcoinPrice * 1.02, bitcoinPrice * 0.98, bitcoinPrice * 1.03, bitcoinPrice * 1.01, bitcoinPrice * 0.97],
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1
+                }]
+            };
+            new Chart(ctx, {
+                type: 'line',
+                data: priceData,
+                options: {
+                    scales: {
+                        y: { beginAtZero: false },
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
+        }
 
-        // Redirect to signup and simulate login
-        const getStartedBtn = document.querySelector('.get-started-btn');
-        getStartedBtn.addEventListener('click', function() {
-            localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'signup.html';
-        });
+        setInterval(updateUserCount, 10000);  // Update every 10 seconds
+        setInterval(updateCryptoPrice, 10000);  // Update every 10 seconds
     </script>
-
-    <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
