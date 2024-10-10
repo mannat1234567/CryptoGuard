@@ -20,36 +20,26 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.7);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            max-width: 100%; /* Ensure header doesn't overflow */
         }
 
         header img {
             height: 80px;
         }
 
-        header nav {
-            display: flex;
-            flex-wrap: wrap; /* Allows items to wrap if they don't fit */
-            gap: 10px; /* Adds space between items */
-        }
-
         header nav a {
             text-decoration: none;
             color: gold;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
             transition: color 0.3s ease;
-            margin-right: 10px; /* Adjust margin to avoid overflow */
-        }
-
-        header nav a:hover {
-            color: lightblue;
+            margin-left: 10%
+			margin-right: 10%
         }
 
         .section {
@@ -59,7 +49,7 @@
             color: lightblue;
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
@@ -124,31 +114,6 @@
         form button:hover {
             background-color: darkgoldenrod;
         }
-
-        /* Responsive Design for smaller screens */
-        @media (max-width: 768px) {
-            header nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            header nav a {
-                font-size: 14px;
-                margin-right: 0;
-            }
-
-            .section {
-                width: 90%;
-            }
-
-            header img {
-                height: 60px;
-            }
-
-            form input, form textarea {
-                width: 95%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -157,11 +122,10 @@
         <img src="cryptoguard.jpg" alt="Company Logo">
         <nav>
             <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
             <a href="about.html">About</a>
-	        <a href="login.html">Login</a>
-            <a href="crowdspamr.html">Crowd Spam Report</a>
-	        <a href="encryption.html">Encryption Services</a>
-	        <a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="crowdspamr.html">Crowd Spam Report/a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
@@ -213,10 +177,10 @@
 
                 sortedWallets.forEach(({ wallet_address, encounters }) => {
                     const walletRow = document.createElement('tr');
-                    walletRow.innerHTML = 
+                    walletRow.innerHTML = `
                         <td>${wallet_address}</td>
                         <td>${encounters}</td>
-                    ;
+                    `;
                     walletBody.appendChild(walletRow);
                 });
             } catch (error) {
@@ -256,7 +220,6 @@
             }
         });
     </script>
-<script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
+
 </body>
 </html>
-
