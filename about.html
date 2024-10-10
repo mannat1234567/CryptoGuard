@@ -53,7 +53,7 @@
 
         header nav a {
             text-decoration: none;
-            color: white; /* Changed to white */
+            color: gold;
             font-weight: bold;
             font-size: 18px;
             transition: color 0.3s ease;
@@ -79,7 +79,7 @@
         .background-section h1 {
             font-size: 72px;
             font-weight: bold;
-            color: white; /* Changed to white */
+            color: gold;
             margin-bottom: 20px;
         }
 
@@ -97,7 +97,7 @@
 
         h2 {
             font-size: 36px;
-            color: white; /* Changed to white */
+            color: gold;
             margin-top: 30px;
         }
 
@@ -142,7 +142,7 @@
             text-align: center;
             margin: 20px 0;
             font-size: 18px;
-            color: white; /* Changed to white */
+            color: gold;
         }
 
         .icon-list {
@@ -160,7 +160,7 @@
 
         .icon-item i {
             font-size: 50px;
-            color: white; /* Changed to white */
+            color: gold;
             margin-bottom: 10px;
         }
     </style>
@@ -248,26 +248,22 @@
         <h2>Contact Us</h2>
         <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@cryptoguard.com" style="color: lightblue;">support@cryptoguard.com</a>.</p>
 
-        <h2>Why Trust CryptoGuard?</h2>
-        <ul>
-            <li>End-to-end encryption for your crypto transactions.</li>
-            <li>Real-time scam alerts and reports.</li>
-            <li>24/7 customer support by crypto security experts.</li>
-        </ul>
-
-        <!-- Icon List Section -->
+        <h2>Why Choose CryptoGuard?</h2>
         <div class="icon-list">
             <div class="icon-item">
-                <i class="fas fa-lock"></i>
-                <p>End-to-End Encryption</p>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Robust Security</h3>
+                <p>We provide top-notch security tools for your digital assets.</p>
             </div>
             <div class="icon-item">
-                <i class="fas fa-shield-alt"></i>
-                <p>Real-Time Scam Alerts</p>
+                <i class="fas fa-book-open"></i>
+                <h3>Educational Resources</h3>
+                <p>Comprehensive guides and tutorials to keep you informed.</p>
             </div>
             <div class="icon-item">
                 <i class="fas fa-users"></i>
-                <p>24/7 Support</p>
+                <h3>Community Support</h3>
+                <p>Join our network of crypto enthusiasts for shared knowledge.</p>
             </div>
         </div>
     </div>
@@ -277,30 +273,58 @@
         <p>&copy; 2024 CryptoGuard. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Chart.js Script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('scamTrendsChart').getContext('2d');
         const scamTrendsChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    label: 'Crypto Scam Trends',
-                    data: [30, 45, 60, 55, 80, 120, 90, 110, 135, 160],
-                    backgroundColor: 'rgba(0, 123, 255, 0.3)',
-                    borderColor: 'rgba(0, 123, 255, 1)',
-                    borderWidth: 1
+                    label: 'Number of Scams',
+                    data: [5, 15, 30, 45, 55, 75, 90, 100, 120, 140, 160, 180],
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 2,
+                    fill: true,
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Scams'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: 'lightblue'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.raw;
+                            }
+                        }
                     }
                 }
             }
         });
     </script>
+    <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
