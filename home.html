@@ -135,7 +135,7 @@
         .reviews .review {
             padding: 15px;
             border-radius: 10px;
-            background-color: rgba(40, 40, 40, 0);
+            background-color: rgba(40, 40, 40, 0.8);
             color: lightblue;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
@@ -313,7 +313,7 @@
                 const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
                 const data = await response.json();
                 const price = data.bitcoin.usd;
-                cryptoPriceElement.textContent = Current Bitcoin (BTC) Price: $${price};
+                cryptoPriceElement.textContent = `Current Bitcoin (BTC) Price: $${price}`;
 
                 // Update historical prices
                 historicalPrices.push(price);
@@ -384,11 +384,11 @@
                 data.reviews.forEach(review => {
                     const reviewDiv = document.createElement('li');
                     reviewDiv.classList.add('review');
-                    reviewDiv.innerHTML = 
+                    reviewDiv.innerHTML = `
                         <h3>${review.author}</h3>
                         <div class="star-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
                         <p>"${review.comment}"</p>
-                    ;
+                    `;
                     reviewsSection.querySelector('ul').appendChild(reviewDiv);
                 });
                 document.querySelectorAll('.reviews').forEach(el => {
