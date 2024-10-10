@@ -1,0 +1,42 @@
+{
+  "reports": [
+    {
+      "wallet_address": "0xabc123def456",
+      "name": "Rajesh Kumar",
+      "date_of_encounter": "2024-09-10",
+      "description": "I encountered this wallet in a phishing scam involving fake crypto mining services."
+    },
+    {
+      "wallet_address": "0xdef789ghi012",
+      "name": "Gukesh Sharma",
+      "date_of_encounter": "2024-08-20",
+      "description": "This wallet promised high returns on investments but never sent any back."
+    },
+    {
+      "wallet_address": "0xghi345jkl678",
+      "name": "Anjali Verma",
+      "date_of_encounter": "2024-10-01",
+      "description": "I was scammed into sending Bitcoin for a fraudulent airdrop."
+    },
+    {
+      "wallet_address": "0xjkl901mno234",
+      "name": "Suresh Reddy",
+      "date_of_encounter": "2024-07-15",
+      "description": "This wallet was involved in a scam asking for donations to a fake charity."
+    }
+  ],
+  "top_scam_wallets": [
+    {
+      "wallet_address": "0xabc123def456",
+      "encounters": 10
+    },
+    {
+      "wallet_address": "0xdef789ghi012",
+      "encounters": 8
+    },
+    {
+      "wallet_address": "0xghi345jkl678",
+      "encounters": 5
+    }
+  ]
+}
