@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Fraud Detection</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -58,24 +57,11 @@
             padding: 20px;
             margin-top: 20px;
             color: gold;
-            overflow-x: auto;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .wallet {
             color: lightblue;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        th {
-            background-color: rgba(0, 0, 0, 0.6);
+            margin: 10px 0;
         }
 
         form {
@@ -127,19 +113,7 @@
     <div class="section">
         <h2>Most Commonly Accessed Fraud Wallets</h2>
         <div class="top-wallets" id="wallets-list">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Wallet Address</th>
-                        <th>Accessed for Fraud</th>
-                    </tr>
-                </thead>
-                <tbody id="wallets-body">
-                    <tr>
-                        <td colspan="2">Loading data...</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>Loading data...</p>
         </div>
 
         <h2>Report a Scam</h2>
@@ -167,20 +141,21 @@
                     .sort((a, b) => b.encounters - a.encounters)
                     .slice(0, 3); // Get top 3 wallets
 
-                const walletsBody = document.getElementById('wallets-body');
-                walletsBody.innerHTML = ''; // Clear previous content
+                const walletContainer = document.getElementById('wallets-list');
+                walletContainer.innerHTML = ''; // Clear previous content
 
                 sortedWallets.forEach(({ wallet_address, encounters }) => {
-                    const walletRow = document.createElement('tr');
-                    walletRow.innerHTML = `
-                        <td>${wallet_address}</td>
-                        <td>${encounters} times</td>
+                    const walletElement = document.createElement('div');
+                    walletElement.classList.add('wallet');
+                    walletElement.innerHTML = `
+                        <p>Wallet Address: ${wallet_address}</p>
+                        <p>Accessed for Fraud: ${encounters} times</p>
                     `;
-                    walletsBody.appendChild(walletRow);
+                    walletContainer.appendChild(walletElement);
                 });
             } catch (error) {
                 console.error('Error fetching wallets:', error);
-                document.getElementById('wallets-body').innerHTML = '<tr><td colspan="2">Error loading data.</td></tr>';
+                document.getElementById('wallets-list').innerHTML = '<p>Error loading data.</p>';
             }
         };
 
@@ -195,39 +170,20 @@
             const dateOfEncounter = document.getElementById('dateOfEncounter').value;
             const description = document.getElementById('description').value;
 
-            // Create a new report object
-            const newReport = {
-                wallet_address: walletAddress,
-                name: name,
-                date_of_encounter: dateOfEncounter,
-                description: description
-            };
-
-            // Send the report to your backend or local server to update crowdspamr.json
+            // Simulating successful submission (without sending data)
             try {
-                const response = await fetch('updateCrowdspamr', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(newReport)
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to submit report');
-                }
+                // Here you can simulate sending the report to a server if you have one
+                // const response = await fetch('updateCrowdspamr', { ... });
 
                 // Clear the form
                 document.getElementById('scam-report-form').reset();
-                const submitMore = confirm("Report submitted successfully! Do you want to submit more?");
+                const submitMore = confirm("Report submitted successfully! Do you want to submit another?");
                 if (submitMore) {
                     location.reload(); // Reload the page if the user wants to submit more
                 } else {
                     window.location.href = 'home.html'; // Redirect to home.html
                 }
 
-                // Refresh the wallets list after submitting
-                fetchWallets();
             } catch (error) {
                 console.error('Error submitting report:', error);
                 alert("There was an error submitting your report. Please try again.");
