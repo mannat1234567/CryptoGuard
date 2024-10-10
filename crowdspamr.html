@@ -20,25 +20,36 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            max-width: 100%; /* Ensure header doesn't overflow */
         }
 
         header img {
             height: 80px;
         }
 
+        header nav {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap if they don't fit */
+            gap: 10px; /* Adds space between items */
+        }
+
         header nav a {
             text-decoration: none;
             color: gold;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             transition: color 0.3s ease;
-            margin-right: 5%
+            margin-right: 10px; /* Adjust margin to avoid overflow */
+        }
+
+        header nav a:hover {
+            color: lightblue;
         }
 
         .section {
@@ -112,6 +123,31 @@
 
         form button:hover {
             background-color: darkgoldenrod;
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav a {
+                font-size: 14px;
+                margin-right: 0;
+            }
+
+            .section {
+                width: 90%;
+            }
+
+            header img {
+                height: 60px;
+            }
+
+            form input, form textarea {
+                width: 95%;
+            }
         }
     </style>
 </head>
