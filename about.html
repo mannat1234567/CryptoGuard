@@ -5,165 +5,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - CryptoGuard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMH5i7Zl0e5I0T4DgH0PpGI5+R1Iy3m2ZJbPp14nOBX6D6b2YFDOV6A8D1Drg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            animation: moveBackground 30s linear infinite;
-            padding-top: 100px;
-            color: lightblue;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: url('pic.gif') no-repeat center center/cover;
+        background-attachment: fixed;
+        animation: moveBackground 30s linear infinite;
+        padding-top: 100px;
+        color: #e0e0e0;
+        scroll-behavior: smooth;
+        transition: background 0.5s ease-in-out;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
+    @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
 
-        header img {
-            height: 40px;
-        }
+    /* Transparent Header with Blur */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        transition: backdrop-filter 0.3s ease;
+    }
 
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
+    header img {
+        height: 80px;
+        transition: transform 0.5s ease;
+    }
 
-        header nav a {
-            text-decoration: none;
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
+    header img:hover {
+        transform: rotate(360deg);
+    }
 
-        header nav a:hover {
-            color: lightblue;
-        }
+    header nav {
+        display: flex;
+        gap: 20px;
+    }
 
-        .background-section {
-            width: 100%;
-            height: 80vh;
-            text-align: center;
-            padding: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
+    header nav a {
+        text-decoration: none;
+        color: gold;
+        font-weight: bold;
+        font-size: 18px;
+        position: relative;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    header nav a:hover {
+        color: white;
+        transform: scale(1.2);
+    }
 
-        .background-section h1 {
-            font-size: 72px;
-            font-weight: bold;
-            color: gold;
-            margin-bottom: 20px;
-        }
+    header nav a:before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: gold;
+        transition: width 0.3s ease;
+    }
 
-        .background-section p {
-            font-size: 20px;
-            color: lightblue;
-            margin: 0;
-        }
+    header nav a:hover:before {
+        width: 100%;
+    }
 
-        .content {
-            padding: 20px;
-            margin: 0 20px;
-            padding-bottom: 100px;
-        }
+    /* Main Section */
+    .background-section {
+        width: 100%;
+        height: 80vh;
+        text-align: center;
+        padding: 50px;
+        animation: fadeIn 1s ease-in-out, slideInBackground 1s ease forwards;
+    }
 
-        h2 {
-            font-size: 36px;
-            color: gold;
-            margin-top: 30px;
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
+    @keyframes slideInBackground {
+        from { transform: translateY(-100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: lightblue;
-            width: 100%;
-        }
+    .background-section h1 {
+        font-size: 72px;
+        font-weight: bold;
+        color: gold;
+        margin-bottom: 20px;
+        animation: slideIn 1s ease forwards, colorShift 2s infinite alternate;
+    }
 
-        .founders {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-            padding: 20px 0;
-        }
+    @keyframes slideIn {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
 
-        .founder {
-            text-align: center;
-        }
+    @keyframes colorShift {
+        0% { color: gold; }
+        50% { color: lightblue; }
+        100% { color: gold; }
+    }
 
-        .founder img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
+    .background-section p {
+        font-size: 20px;
+        color: lightblue;
+        margin: 0;
+        animation: fadeIn 2s ease forwards, textShake 1.5s ease infinite;
+    }
 
-        .chart-container {
-            width: 100%;
-            height: 400px;
-            margin: 40px 0;
-        }
+    @keyframes textShake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+    }
 
-        .trend-info {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 18px;
-            color: gold;
-        }
+    .get-started-btn {
+        margin-top: 40px;
+        padding: 15px 40px;
+        font-size: 30px;
+        border: 2px solid gold;
+        color: gold;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px gold;
+        animation: pulse 2s infinite;
+    }
 
-        .icon-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 40px 0;
-        }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 15px gold; }
+        50% { box-shadow: 0 0 30px gold; }
+        100% { box-shadow: 0 0 15px gold; }
+    }
 
-        .icon-item {
-            text-align: center;
-            flex: 1 0 30%; /* Responsive width */
-            margin: 10px;
-        }
+    .get-started-btn:hover {
+        background-color: gold;
+        color: black;
+        transform: scale(1.1);
+    }
 
-        .icon-item i {
-            font-size: 50px;
-            color: gold;
-            margin-bottom: 10px;
-        }
-    </style>
+    /* Content Section */
+    .content {
+        padding: 20px;
+        margin: 0 20px;
+        padding-bottom: 100px;
+        animation: fadeInContent 1.5s ease-in-out;
+    }
+
+    @keyframes fadeInContent {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        font-size: 36px;
+        color: gold;
+        margin-top: 30px;
+        animation: slideInText 1s ease;
+    }
+
+    @keyframes slideInText {
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: lightblue;
+        width: 100%;
+        animation: fadeInFooter 1s ease-in-out;
+    }
+
+    @keyframes fadeInFooter {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .founders {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding: 20px 0;
+        animation: fadeInFounders 1s ease forwards;
+    }
+
+    @keyframes fadeInFounders {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .founder {
+        text-align: center;
+    }
+
+    .founder img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    /* Chart */
+    .chart-container {
+        width: 100%;
+        height: 400px;
+        margin: 40px 0;
+        animation: chartBounce 1.5s ease forwards;
+    }
+
+    @keyframes chartBounce {
+        0% { transform: translateY(0); }
+        25% { transform: translateY(-10px); }
+        50% { transform: translateY(0); }
+        75% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Icons */
+    .icon-list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .icon-item {
+        text-align: center;
+        flex: 1 0 30%;
+        margin: 10px;
+        animation: bounceIcon 1s ease forwards;
+    }
+
+    @keyframes bounceIcon {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    .icon-item i {
+        font-size: 50px;
+        color: gold;
+        margin-bottom: 10px;
+    }
+</style>
+
+
 </head>
 <body>
     <!-- Header -->
