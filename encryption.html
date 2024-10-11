@@ -4,102 +4,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Encryption Services</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            padding-top: 100px;
-            overflow-x: hidden;
-            animation: moveBackground 30s linear infinite;
-        }
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        header img {
-            height: 80px;
-        }
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-        header nav a {
-            text-decoration: none;
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: lightblue;
-        }
-        .section {
-            width: 70%;
-            margin: 20px auto;
-            padding: 40px;
-            background-color: rgba(25, 25, 25, 0.9);
-            color: lightblue;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-        .section h2 {
-            font-size: 36px;
-            color: gold;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        .input-field {
-            margin: 10px 0;
-            padding: 10px;
-            width: 100%;
-            border: 1px solid lightblue;
-            border-radius: 5px;
-            background-color: transparent;
-            color: lightblue;
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: 2px solid gold;
-            color: gold;
-            background: transparent;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .button:hover {
-            background-color: gold;
-            color: black;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 20px;
-            color: gold;
-        }
-    </style>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: url('pic.gif') no-repeat center center/cover;
+        background-attachment: fixed;
+        padding-top: 100px;
+        overflow-x: hidden;
+        animation: moveBackground 30s linear infinite;
+        color: #e0e0e0;
+        transition: background 0.5s ease-in-out;
+    }
+
+    @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
+
+    /* Transparent Header with Blur */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        transition: backdrop-filter 0.3s ease;
+    }
+
+    header img {
+        height: 80px;
+        transition: transform 0.5s ease;
+    }
+
+    header img:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    header nav {
+        display: flex;
+        gap: 20px;
+    }
+
+    header nav a {
+        text-decoration: none;
+        color: gold;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Change text to white on hover */
+    header nav a:hover {
+        color: white; /* Change to white on hover */
+        transform: scale(1.2); /* Slight scale up on hover */
+    }
+
+    header nav a:before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: gold;
+        transition: width 0.3s ease;
+    }
+
+    header nav a:hover:before {
+        width: 100%; /* Underline effect on hover */
+    }
+
+    /* Main Section */
+    .section {
+        width: 70%;
+        margin: 20px auto;
+        padding: 40px;
+        background-color: rgba(25, 25, 25, 0.9);
+        color: lightblue;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .section h2 {
+        font-size: 36px;
+        color: gold;
+        margin-bottom: 20px;
+        animation: fadeInHeader 1s ease forwards;
+    }
+
+    @keyframes fadeInHeader {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section p {
+        font-size: 18px;
+        margin: 10px 0;
+        animation: slideInText 0.5s ease forwards;
+    }
+
+    @keyframes slideInText {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Input Field Styling */
+    .input-field {
+        margin: 10px 0;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid lightblue;
+        border-radius: 5px;
+        background-color: transparent;
+        color: lightblue;
+        transition: background-color 0.3s ease;
+    }
+
+    .input-field:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Button Styling */
+    .button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 2px solid gold;
+        color: gold;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease;
+        animation: pulseButton 2s infinite;
+    }
+
+    @keyframes pulseButton {
+        0% { box-shadow: 0 0 15px gold; }
+        50% { box-shadow: 0 0 30px gold; }
+        100% { box-shadow: 0 0 15px gold; }
+    }
+
+    .button:hover {
+        background-color: gold;
+        color: black;
+        transform: scale(1.05); /* Slight grow on hover */
+    }
+
+    /* Result Section */
+    .result {
+        margin-top: 20px;
+        font-size: 20px;
+        color: gold;
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+</style>
+
+
 </head>
 <body>
     <header>
