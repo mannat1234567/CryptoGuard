@@ -4,121 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Fraud Detection</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            padding-top: 100px;
-        }
+ <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background: url('pic.gif') no-repeat center center/cover;
+        background-attachment: fixed;
+        padding-top: 100px;
+        color: #e0e0e0;
+        transition: background 0.5s ease-in-out;
+        scroll-behavior: smooth;
+    }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
+    @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
 
-header img {
-    height: 80px;
-}
+    /* Transparent Header with Blur */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        transition: backdrop-filter 0.3s ease;
+    }
 
-header nav {
-    display: flex;
-    gap: 20px; /* Added this line for consistent spacing */
-}
+    header img {
+        height: 80px;
+        transition: transform 0.5s ease;
+    }
 
-header nav a {
-    text-decoration: none;
-    color: gold;
-    font-weight: bold;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
+    header img:hover {
+        transform: scale(1.1); /* Slight zoom effect on hover */
+    }
 
+    header nav {
+        display: flex;
+        gap: 20px; /* Added this line for consistent spacing */
+    }
 
-        .section {
-            width: 60%;
-            padding: 50px;
-            background-color: rgba(25, 25, 25, 0.9);
-            color: lightblue;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
+    header nav a {
+        text-decoration: none;
+        color: gold;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-        .top-wallets {
-            background-color: rgba(25, 25, 25, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            color: gold;
-        }
+    header nav a:hover {
+        color: white;
+        transform: scale(1.2); /* Slight growth on hover */
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+    header nav a:before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: gold;
+        transition: width 0.3s ease;
+    }
 
-        th, td {
-            border: 1px solid lightblue;
-            padding: 10px;
-            text-align: center;
-        }
+    header nav a:hover:before {
+        width: 100%; /* Underline animation on hover */
+    }
 
-        th {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: gold;
-        }
+    /* Main Section */
+    .section {
+        width: 60%;
+        padding: 50px;
+        background-color: rgba(25, 25, 25, 0.9);
+        color: lightblue;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        opacity: 0;
+        animation: popIn 0.5s ease forwards;
+    }
 
-        .wallet {
-            color: lightblue;
-            margin: 10px 0;
-        }
+    @keyframes popIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
 
-        form {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .top-wallets {
+        background-color: rgba(25, 25, 25, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        color: gold;
+        animation: fadeIn 1s ease forwards;
+    }
 
-        form input, form textarea {
-            margin: 5px;
-            padding: 10px;
-            width: 80%;
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: lightblue;
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        form button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: gold;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        animation: slideIn 1s ease forwards;
+    }
 
-        form button:hover {
-            background-color: darkgoldenrod;
-        }
-    </style>
+    @keyframes slideIn {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    th, td {
+        border: 1px solid lightblue;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: gold;
+    }
+
+    .wallet {
+        color: lightblue;
+        margin: 10px 0;
+    }
+
+    form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form input, form textarea {
+        margin: 5px;
+        padding: 10px;
+        width: 80%;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: lightblue;
+        transition: background-color 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    form button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: gold;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 15px gold; }
+        50% { box-shadow: 0 0 30px gold; }
+        100% { box-shadow: 0 0 15px gold; }
+    }
+
+    form button:hover {
+        background-color: darkgoldenrod;
+        transform: scale(1.05); /* Slight grow on hover */
+    }
+
+</style>
+
 </head>
 <body>
 
