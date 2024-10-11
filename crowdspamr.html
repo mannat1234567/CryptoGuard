@@ -15,32 +15,36 @@
             padding-top: 100px;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
 
-        header img {
-            height: 80px;
-        }
+header img {
+    height: 80px;
+}
 
-        header nav a {
-            text-decoration: none;
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-            margin-left: 10%
-			margin-right: 10%
-        }
+header nav {
+    display: flex;
+    gap: 20px; /* Added this line for consistent spacing */
+}
+
+header nav a {
+    text-decoration: none;
+    color: gold;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
 
         .section {
             width: 60%;
