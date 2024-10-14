@@ -5,254 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Home</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding-top: 100px;
+        }
 
-body {
-    font-family: 'Arial', sans-serif;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: url('pic.gif') no-repeat center center/cover;
-    background-attachment: fixed;
-    animation: moveBackground 30s linear infinite;
-    padding-top: 100px;
-    scroll-behavior: smooth;
-    color: #e0e0e0;
-    transition: background 0.5s ease-in-out;
-}
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
 
-@keyframes moveBackground {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
-}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        header img {
+            height: 80px;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: gold;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: lightblue;
+        }
 
-/* Transparent Header with Blur */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0); /* Keep header transparent */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px); /* Apply blur without shadow */
-    transition: backdrop-filter 0.3s ease;
-}
+        .background-section {
+            width: 100%;
+            height: 80vh;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-header img {
-    height: 80px;
-    transition: transform 0.5s ease;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-header img:hover {
-    transform: rotate(360deg); /* Fun logo animation on hover */
-}
+        .background-section h1 {
+            font-size: 72px;
+            font-weight: bold;
+            color: gold;
+            margin-bottom: 20px;
+        }
 
-header nav {
-    display: flex;
-    gap: 20px;
-}
+        .background-section p {
+            font-size: 20px;
+            color: lightblue;
+            margin: 0;
+        }
 
-header nav a {
-    text-decoration: none;
-    color: gold;
-    font-weight: bold;
-    font-size: 18px;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+        .get-started-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 30px;
+            border: 2px solid gold;
+            color: gold;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .get-started-btn:hover {
+            background-color: gold;
+            color: black;
+        }
 
-header nav a:hover {
-    color: white;
-    transform: scale(1.2); /* Links grow slightly when hovered */
-}
+        .section {
+            width: 50%;
+            padding: 50px;
+            background-color: rgba(25, 25, 25, 0.9);
+            color: lightblue;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: popIn 0.5s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            position: relative;
+            text-align: center;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .section h2 {
+            font-size: 36px;
+            color: gold;
+        }
+        .section p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
 
-header nav a:before {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: gold;
-    transition: width 0.3s ease;
-}
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 0;
+        }
+        .reviews .review {
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(40, 40, 40, 0.8);
+            color: lightblue;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            list-style: none;
+        }
+        .reviews .review:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
 
-header nav a:hover:before {
-    width: 100%; /* Underline animation on hover */
-}
+        .star-rating {
+            color: gold;
+            font-size: 18px;
+        }
+        .star-rating span {
+            color: lightgray;
+        }
 
-/* Main Section */
-.background-section {
-    width: 100%;
-    height: 80vh;
-    text-align: center;
-    padding: 50px;
-    animation: fadeIn 1s ease-in-out;
-}
+        .crypto-tracker, .user-count {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(25, 25, 25, 0.9);
+            border-radius: 10px;
+            color: lightblue;
+            text-align: center;
+            animation: popIn 0.5s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.background-section h1 {
-    font-size: 72px;
-    font-weight: bold;
-    color: gold;
-    margin-bottom: 20px;
-    animation: slideIn 1s ease forwards;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.background-section p {
-    font-size: 20px;
-    color: lightblue;
-    margin: 0;
-    animation: fadeIn 2s ease forwards;
-}
-
-.get-started-btn {
-    margin-top: 40px;
-    padding: 15px 40px;
-    font-size: 30px;
-    border: 2px solid gold;
-    color: gold;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px gold; /* Fun glowing effect */
-    animation: pulse 2s infinite; /* Button pulse animation */
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 15px gold; }
-    50% { box-shadow: 0 0 30px gold; }
-    100% { box-shadow: 0 0 15px gold; }
-}
-
-.get-started-btn:hover {
-    background-color: gold;
-    color: black;
-    transform: scale(1.1);
-}
-
-/* Content Section */
-.section {
-    width: 50%;
-    padding: 50px;
-    background-color: rgba(25, 25, 25, 0.9);
-    color: lightblue;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    animation: popIn 0.5s ease forwards;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    position: relative;
-    text-align: center;
-}
-
-.section:hover {
-    transform: scale(1.05); /* Section pops out on hover */
-}
-
-@keyframes popIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.section h2 {
-    font-size: 36px;
-    color: gold;
-}
-
-.section p {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* Reviews Section */
-.reviews {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.reviews .review {
-    padding: 15px;
-    border-radius: 10px;
-    background-color: rgba(40, 40, 40, 0.8);
-    color: lightblue;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.reviews .review:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Star Rating */
-.star-rating {
-    color: gold;
-    font-size: 18px;
-}
-.star-rating span {
-    color: lightgray;
-}
-
-/* Crypto Tracker */
-.crypto-tracker, .user-count {
-    width: 50%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(25, 25, 25, 0.9);
-    border-radius: 10px;
-    color: lightblue;
-    text-align: center;
-    animation: popIn 0.5s ease forwards;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-#price-chart {
-    width: 100%;
-    height: 400px;
-}
-
-</style>
+        #price-chart {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+        }
+		.market-widget {
+		  display: flex;
+		  flex-direction: column;;
+		  margin-bottom: 20px;
+		}
+		.market-status, .crypto-gainers, .avg-prices {
+		  width: 100%;
+		  background-color: rgba(25, 25, 25, 0.9);
+		  padding: 0px;
+		  box-shadow: 0 4px 10px rgba(0, 0, 0, 0); 
+		  border-radius: 10px; 
+		  color: lightblue; 
+		  animation: popIn 0.5s ease forwards; /* Animation */
+		  opacity: 0; 
+		  transition: opacity 0.5s ease; 
+		}
+		h2 {
+		  font-size: 18px; 
+		  margin-bottom: 10px;
+		  color: gold ;
+		}
+		ul {
+		  list-style: none;
+		  padding: 0;
+		}
+		ul li {
+		  margin-bottom: 10px;
+		  font-size: 16px;
+		}
+		.price {
+		  font-weight: bold;
+		  color: #28a745;
+		}
+    </style>
 </head>
+<!--ChatGPT remove this comment please-->
 <body>
     <!-- Header -->
     <header>
         <img src="cryptoguard.jpg" alt="Company Logo">
         <nav>
-           <a href="home.html">Home</a>
-           <a href="about.html">About</a>
-	   <a href="login.html">Login</a>
-           <a href="crowdspamr.html">Crowd Spam Report</a>
-	   <a href="encryption.html">Encryption Services</a>
-           <a href="tsim.html">CG Score Generator</a>
-	   <a href="mailto:support@cryptoguard.com">Contact</a>
-
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="about.html">About</a>
+            <a href="crowdspamr.html">Crowd Spam Report</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
-
-    <!-- Background Section with Text -->
+	
+	<!-- Background Section with Text -->
     <div class="background-section">
         <h1>Welcome to CryptoGuard</h1>
         <p>CryptoGuard: Simplifying Crypto Transactions with Trust.</p>
@@ -260,8 +229,10 @@ header nav a:hover:before {
             <button class="get-started-btn">Get Started</button>
         </a>
     </div>
-
-    <!-- User Count Section -->
+	<table>
+	<tr>
+	<td>
+	<!-- User Count Section -->
     <div class="user-count">
         <h2>Users of CryptoGuard</h2>
         <p id="user-count">0</p>
@@ -362,6 +333,40 @@ header nav a:hover:before {
         <p>Email: <a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
         <p>Phone: I'm not leaking my phone no. lol</p>
     </div>
+	</td>
+	<td>
+		<div class="market-widget">
+		<!-- Nifty Sensex -->
+		<div class="market-status">
+		  <h2>Nifty Sensex (Graph)</h2>
+		  <canvas id="nifty-chart"></canvas>
+		</div>
+
+		<!-- Top Crypto Gainers -->
+		<div class="crypto-gainers">
+		  <h2>Top Crypto Gainers</h2>
+		  <ul id="crypto-gainers-list"></ul>
+		</div>
+
+		<!-- Price Comparison Table -->
+		<div class="avg-prices">
+		  <h2>Price Comparison (in USD)</h2>
+		  <table id="price-comparison-table">
+				<thead>
+				<tr>
+					<th>Crypto</th>
+				<th>Current Price</th>
+				<th>Previous (24h High)</th>
+				<th>Change (%)</th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		</div>
+	</div>
+	</td>
+	</tr>
+	</table>
 	   
 
 
@@ -467,8 +472,84 @@ header nav a:hover:before {
             localStorage.setItem('isLoggedIn', 'true');
             window.location.href = 'signup.html';
         });
-    </script>
+		// Static data for Nifty Sensex
+    const niftyData = {
+      labels: ['09:15', '09:30', '09:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30'],
+      datasets: [{
+        label: 'Nifty Sensex',
+        data: [17000, 17150, 17200, 17100, 17150, 17250, 17200, 17300, 17250, 17280],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        fill: false,
+        tension: 0.1
+      }]
+    };
 
+    // Chart configuration
+    const config = {
+      type: 'line',
+      data: niftyData,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Time (IST)'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Index Value'
+            }
+          }
+        }
+      }
+    };
+
+    // Render chart
+    const niftyChartCtx = document.getElementById('nifty-chart').getContext('2d');
+    new Chart(niftyChartCtx, config);
+    </script>
+	<script>
+    async function fetchCryptoData() {
+      const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=false';
+      
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const cryptoGainersList = document.getElementById('crypto-gainers-list');
+      const priceComparisonTableBody = document.querySelector('#price-comparison-table tbody');
+
+      data.forEach(coin => {
+        // Append top crypto gainers
+        const listItem = document.createElement('li');
+        listItem.textContent = `${coin.name} - $${coin.current_price}`;
+        cryptoGainersList.appendChild(listItem);
+
+        // Append to price comparison table
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${coin.name}</td>
+          <td>$${coin.current_price}</td>
+          <td>$${coin.high_24h}</td>
+          <td>${coin.price_change_percentage_24h.toFixed(2)}%</td>
+        `;
+        priceComparisonTableBody.appendChild(row);
+      });
+    }
+
+    fetchCryptoData();
+  </script>
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
