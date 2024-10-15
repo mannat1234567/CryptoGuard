@@ -5,209 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Home</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            animation: moveBackground 30s linear infinite;
-            padding-top: 100px;
-        }
-
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        header img {
-            height: 80px;
-        }
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-        header nav a {
-            text-decoration: none;
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: lightblue;
-        }
-
-        .background-section {
-            width: 100%;
-            height: 80vh;
-            text-align: center;
-            padding: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .background-section h1 {
-            font-size: 72px;
-            font-weight: bold;
-            color: gold;
-            margin-bottom: 20px;
-        }
-
-        .background-section p {
-            font-size: 20px;
-            color: lightblue;
-            margin: 0;
-        }
-
-        .get-started-btn {
-            margin-top: 40px;
-            padding: 15px 40px;
-            font-size: 30px;
-            border: 2px solid gold;
-            color: gold;
-            background: transparent;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        .get-started-btn:hover {
-            background-color: gold;
-            color: black;
-        }
-
-        .section {
-            width: 50%;
-            padding: 50px;
-            background-color: rgba(25, 25, 25, 0.9);
-            color: lightblue;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            animation: popIn 0.5s ease forwards;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            position: relative;
-            text-align: center;
-        }
-        @keyframes popIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .section h2 {
-            font-size: 36px;
-            color: gold;
-        }
-        .section p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .reviews {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-left: 0;
-        }
-        .reviews .review {
-            padding: 15px;
-            border-radius: 10px;
-            background-color: rgba(40, 40, 40, 0.8);
-            color: lightblue;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            list-style: none;
-        }
-        .reviews .review:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .star-rating {
-            color: gold;
-            font-size: 18px;
-        }
-        .star-rating span {
-            color: lightgray;
-        }
-
-        .crypto-tracker, .user-count {
-            width: 50%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(25, 25, 25, 0.9);
-            border-radius: 10px;
-            color: lightblue;
-            text-align: center;
-            animation: popIn 0.5s ease forwards;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        #price-chart {
-            width: 100%;
-            height: 400px; /* Adjust height as needed */
-        }
-		.market-widget {
-		  display: flex;
-		  flex-direction: column;;
-		  margin-bottom: 20px;
+  <style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
 		}
-		.market-status, .crypto-gainers, .avg-prices {
-		  width: 100%;
-		  background-color: rgba(25, 25, 25, 0.9);
-		  padding: 0px;
-		  box-shadow: 0 4px 10px rgba(0, 0, 0, 0); 
-		  border-radius: 10px; 
-		  color: lightblue; 
-		  animation: popIn 0.5s ease forwards; /* Animation */
-		  opacity: 0; 
-		  transition: opacity 0.5s ease; 
+
+		body {
+			font-family: 'Arial', sans-serif;
+			height: 100vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			background: url('pic.gif') no-repeat center center/cover;
+			background-attachment: fixed;
+			animation: moveBackground 30s linear infinite;
+			padding-top: 100px;
+			scroll-behavior: smooth;
+			color: #e0e0e0;
+			transition: background 0.5s ease-in-out;
 		}
-		h2 {
-		  font-size: 18px; 
-		  margin-bottom: 10px;
-		  color: gold ;
+
+		@keyframes moveBackground {
+			0% { background-position: 0 0; }
+			100% { background-position: 100% 100%; }
 		}
-		ul {
-		  list-style: none;
-		  padding: 0;
+
+		/* Transparent Header with Blur */
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			background-color: rgba(0, 0, 0, 0); /* Keep header transparent */
+			position: fixed;
+			width: 100%;
+			top: 0;
+			z-index: 1000;
+			backdrop-filter: blur(10px); /* Apply blur without shadow */
+			transition: backdrop-filter 0.3s ease;
 		}
-		ul li {
-		  margin-bottom: 10px;
-		  font-size: 16px;
+
+		header img {
+			height: 80px;
+			transition: transform 0.5s ease;
 		}
-		.price {
-		  font-weight: bold;
-		  color: #28a745;
+
+		header img:hover {
+			transform: rotate(360deg); /* Fun logo animation on hover */
 		}
-    </style>
+
+		header nav {
+			display: flex;
+			gap: 20px;
+		}
+
+		header nav a {
+			text-decoration: none;
+			color: gold;
+			font-weight: bold;
+			font-size: 18px;
+			position: relative;
+			transition: color 0.3s ease, transform 0.3s ease;
+		}
+
+		header nav a:hover {
+			color: white;
+			transform: scale(1.2); /* Links grow slightly when hovered */
+		}
+
+		header nav a:before {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			background-color: gold;
+			transition: width 0.3s ease;
+		}
+
+		header nav a:hover:before {
+			width: 100%; /* Underline animation on hover */
+		}
+
+		/* Main Section */
+		.background-section {
+			width: 100%;
+			height: 80vh;
+			text-align: center;
+			padding: 50px;
+			animation: fadeIn 1s ease-in-out;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+		.background-section h1 {
+			font-size: 72px;
+			font-weight: bold;
+			color: gold;
+			margin-bottom: 20px;
+			animation: slideIn 1s ease forwards;
+		}
+
+		@keyframes slideIn {
+			from { transform: translateY(-50px); opacity: 0; }
+			to { transform: translateY(0); opacity: 1; }
+		}
+
+		.background-section p {
+			font-size: 20px;
+			color: lightblue;
+			margin: 0;
+			animation: fadeIn 2s ease forwards;
+		}
+
+		.get-started-btn {
+			margin-top: 40px;
+			padding: 15px 40px;
+			font-size: 30px;
+			border: 2px solid gold;
+			color: gold;
+			background: transparent;
+			cursor: pointer;
+			outline: none;
+			transition: all 0.3s ease;
+			box-shadow: 0 0 15px gold; /* Fun glowing effect */
+			animation: pulse 2s infinite; /* Button pulse animation */
+		}
+
+		@keyframes pulse {
+			0% { box-shadow: 0 0 15px gold; }
+			50% { box-shadow: 0 0 30px gold; }
+			100% { box-shadow: 0 0 15px gold; }
+		}
+
+		.get-started-btn:hover {
+			background-color: gold;
+			color: black;
+			transform: scale(1.1);
+		}
+
+		/* Content Section */
+		.section {
+			width: 50%;
+			padding: 50px;
+			background-color: rgba(25, 25, 25, 0.9);
+			color: lightblue;
+			margin: 20px auto;
+			border-radius: 10px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+			animation: popIn 0.5s ease forwards;
+			opacity: 0;
+			transition: opacity 0.5s ease, transform 0.5s ease;
+			position: relative;
+			text-align: center;
+			margin-left: 0;
+		}
+
+		.section:hover {
+			transform: scale(1.05); /* Section pops out on hover */
+		}
+
+		@keyframes popIn {
+			from { transform: scale(0.9); opacity: 0; }
+			to { transform: scale(1); opacity: 1; }
+		}
+
+		.section h2 {
+			font-size: 36px;
+			color: gold;
+		}
+
+		.section p {
+			font-size: 18px;
+			margin: 10px 0;
+		}
+
+		/* Reviews Section */
+		.reviews {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.reviews .review {
+			padding: 15px;
+			border-radius: 10px;
+			background-color: rgba(40, 40, 40, 0.8);
+			color: lightblue;
+			transition: transform 0.3s, box-shadow 0.3s;
+			position: relative;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+		}
+
+		.reviews .review:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Star Rating */
+		.star-rating {
+			color: gold;
+			font-size: 18px;
+		}
+		.star-rating span {
+			color: lightgray;
+		}
+
+		/* Crypto Tracker */
+		.crypto-tracker, .user-count {
+			width: 50%;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: rgba(25, 25, 25, 0.9);
+			border-radius: 10px;
+			color: lightblue;
+			text-align: center;
+			animation: popIn 0.5s ease forwards;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			margin-left: 0;
+		}
+
+		#price-chart {
+			width: 100%;
+			height: 400px;
+		}
+		.market-analysis {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start; /* Aligns content to the left */
+			
+			
+			background-color: rgba(30, 30, 30, 0.8); /* Dark background with transparency */
+			border-radius: 10px; /* Rounded corners */
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+			max-width: 400px; /* Maximum width for the section */
+			color: #f0c674; /* Text color */
+			margin-left: auto;
+			margin-right: 0;
+			
+		}
+
+		.market-analysis h2 {
+			font-size: 32px; /* Font size for headings */
+			margin-bottom: 15px; /* Space below the heading */
+		}
+
+		.market-analysis p {
+			font-size: 18px; /* Font size for paragraphs */
+			line-height: 1.6; /* Line height for readability */
+			margin-bottom: 10px; /* Space below paragraphs */
+		}
+
+		.market-analysis .chart-container {
+			width: 100%; /* Full width for chart container */
+			margin-top: 20px; /* Space above chart */
+		}
+
+
+</style>
 </head>
-<!--ChatGPT remove this comment please-->
 <body>
     <!-- Header -->
     <header>
@@ -217,7 +279,9 @@
             <a href="login.html">Login</a>
             <a href="about.html">About</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-            <a href="mailto:support@cryptoguard.com">Contact</a>
+			<a href="tte.html">Talk To Experts</a>
+			<a href="tsim.html">CG Score Predictor</a>
+			<a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 	
@@ -229,146 +293,145 @@
             <button class="get-started-btn">Get Started</button>
         </a>
     </div>
-	<table>
-	<tr>
-	<td>
-	<!-- User Count Section -->
-    <div class="user-count">
-        <h2>Users of CryptoGuard</h2>
-        <p id="user-count">0</p>
-        <p>users have used our product this minute.</p>
-    </div>
+	
+	
+	
+	
+		<div class="market-analysis">
+			<div class="market-widget">
+				<!-- Nifty Sensex -->
+				<div class="market-status">
+				  <h2>Nifty Sensex (Graph)</h2>
+				  <canvas id="nifty-chart"></canvas>
+				</div>
 
-    <!-- Live Crypto Tracker Section -->
-    <div class="crypto-tracker">
-        <h2>Live Crypto Tracker</h2>
-        <p id="crypto-price">Fetching price...</p>
-        <canvas id="price-chart"></canvas>
-    </div>
+				<!-- Top Crypto Gainers -->
+				<div class="crypto-gainers">
+				  <h2>Top Crypto Gainers</h2>
+				  <ul id="crypto-gainers-list"></ul>
+				</div>
 
-    <!-- Features Section -->
-    <div class="section">
-        <h2>Features</h2>
-        <p>Gives you CG Score, which tells you your crypto behavior.</p>
-        <p>Provides transaction history for better tracking.</p>
-        <p>Lower the CG Score, the easier it is for you to get salt loans.</p>
-    </div>
-
-    <!-- User Reviews Section -->
-    <div class="section" id="reviews-section">
-        <h2>User Reviews</h2>
-        <ul>
-            <li class="review">
-                <h3>Amrita</h3>
-                <div class="star-rating">★★★★☆</div>
-                <p>"This app really helped me manage my crypto wallet and helped me get a salt loan on my ethereum, which kept my money invested yet allowed me to take out a loan against it. Brilliant idea."</p>
-            </li>
-            <li class="review">
-                <h3>Anjali</h3>
-                <div class="star-rating">★★★★★</div>
-                <p>"I've been using CryptoGuard for months. The CG Score feature really helps me understand my trading patterns!"</p>
-            </li>
-            <li class="review">
-                <h3>Suresh</h3>
-                <div class="star-rating">★★★★☆</div>
-                <p>"Excellent app! I got my first crypto loan through CryptoGuard, and the process was smooth and fast."</p>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Team Section -->
-    <div class="section">
-        <h2>Meet the Team</h2>
-        <div class="team">
-            <div class="team-member">
-                <img src="ceo.jpg" alt="CEO" class="team-photo">
-                <h3>CEO: Soham Mukherjee</h3>
-                <p>Soham has 10+ years of experience in the crypto space and is the visionary behind CryptoGuard. Realistically not possible as he is 16 years old</p>
-            </div>
-            <div class="team-member">
-                <img src="cto.jpg" alt="CTO" class="team-photo">
-                <h3>CTO: Mannat Chawla</h3>
-                <p>Mannat leads the tech team and ensures CryptoGuard runs smoothly and securely. Fire Developer too.</p>
-            </div>
-            <div class="team-member">
-                <img src="cmo.jpg" alt="CMO" class="team-photo">
-                <h3>CMO: Tarang Yadav</h3>
-                <p>Tarang is responsible for marketing strategies and ensuring CryptoGuard reaches its users. Noice ppt skills</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Roadmap Section -->
-    <div class="section">
-        <h2>Roadmap</h2>
-        <ul>
-            <li>Q1 2024: Launch of new features.</li>
-            <li>Q2 2024: Expansion into international markets.</li>
-            <li>Q3 2024: Implementation of AI for better insights.</li>
-        </ul>
-    </div>
-
-    <!-- News Section -->
-    <div class="section">
-        <h2>Latest News</h2>
-        <article>
-            <h3>CryptoGuard Launches New Features</h3>
-            <p>CryptoGuard has launched new features that allow users to better track their crypto behavior.</p>
-            <small>Posted on September 30, 2024</small>
-        </article>
-    </div>
-	 <!-- Downloadable Checklist Section -->
-    <div class="section">
-        <h2>Download Our Cybersecurity Checklist</h2>
-        <p>Stay safe online with our comprehensive checklist. Download it below:</p>
-        <a href="checklist.docx" download>
-            <button class="get-started-btn">Download Checklist</button>
-        </a>
-    </div>
-	<!--Mannat add some css or snthing here please looks boring asf-->
-
-    <!-- Contact Information Section -->
-    <div class="section">
-        <h2>Contact Information</h2>
-        <p>Email: <a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
-        <p>Phone: I'm not leaking my phone no. lol</p>
-    </div>
-	</td>
-	<td>
-		<div class="market-widget">
-		<!-- Nifty Sensex -->
-		<div class="market-status">
-		  <h2>Nifty Sensex (Graph)</h2>
-		  <canvas id="nifty-chart"></canvas>
-		</div>
-
-		<!-- Top Crypto Gainers -->
-		<div class="crypto-gainers">
-		  <h2>Top Crypto Gainers</h2>
-		  <ul id="crypto-gainers-list"></ul>
-		</div>
-
-		<!-- Price Comparison Table -->
-		<div class="avg-prices">
-		  <h2>Price Comparison (in USD)</h2>
-		  <table id="price-comparison-table">
-				<thead>
-				<tr>
-					<th>Crypto</th>
-				<th>Current Price</th>
-				<th>Previous (24h High)</th>
-				<th>Change (%)</th>
-			</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
-		</div>
+				<!-- Price Comparison Table -->
+				<div class="avg-prices">
+				  <h2>Price Comparison (in USD)</h2>
+				  <table id="price-comparison-table">
+						<thead>
+						<tr>
+							<th>Crypto</th>
+						<th>Current Price</th>
+						<th>Previous (24h High)</th>
+						<th>Change (%)</th>
+					</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				</div>
+			</div>
 	</div>
-	</td>
-	</tr>
-	</table>
-	   
+	
+			<!-- User Count Section -->
+			<div class="user-count">
+				<h2>Users of CryptoGuard</h2>
+				<p id="user-count">0</p>
+				<p>users have used our product this minute.</p>
+			</div>
+				
+			<!-- Live Crypto Tracker Section -->
+			<div class="crypto-tracker">
+				<h2>Live Crypto Tracker</h2>
+				<p id="crypto-price">Fetching price...</p>
+				<canvas id="price-chart"></canvas>
+			</div>
 
+			<!-- Features Section -->
+			<div class="section">
+				<h2>Features</h2>
+				<p>Gives you CG Score, which tells you your crypto behavior.</p>
+				<p>Provides transaction history for better tracking.</p>
+				<p>Lower the CG Score, the easier it is for you to get salt loans.</p>
+			</div>
+
+			<!-- User Reviews Section -->
+			<div class="section" id="reviews-section">
+				<h2>User Reviews</h2>
+				<ul>
+					<li class="review">
+						<h3>Amrita</h3>
+						<div class="star-rating">★★★★☆</div>
+						<p>"This app really helped me manage my crypto wallet and helped me get a salt loan on my ethereum, which kept my money invested yet allowed me to take out a loan against it. Brilliant idea."</p>
+					</li>
+					<li class="review">
+						<h3>Anjali</h3>
+						<div class="star-rating">★★★★★</div>
+						<p>"I've been using CryptoGuard for months. The CG Score feature really helps me understand my trading patterns!"</p>
+					</li>
+					<li class="review">
+						<h3>Suresh</h3>
+						<div class="star-rating">★★★★☆</div>
+						<p>"Excellent app! I got my first crypto loan through CryptoGuard, and the process was smooth and fast."</p>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Team Section -->
+			<div class="section">
+				<h2>Meet the Team</h2>
+				<div class="team">
+					<div class="team-member">
+						<img src="ceo.jpg" alt="CEO" class="team-photo">
+						<h3>CEO: Soham Mukherjee</h3>
+						<p>Soham has 10+ years of experience in the crypto space and is the visionary behind CryptoGuard. Realistically not possible as he is 16 years old</p>
+					</div>
+					<div class="team-member">
+						<img src="cto.jpg" alt="CTO" class="team-photo">
+						<h3>CTO: Mannat Chawla</h3>
+						<p>Mannat leads the tech team and ensures CryptoGuard runs smoothly and securely. Fire Developer too.</p>
+					</div>
+					<div class="team-member">
+						<img src="cmo.jpg" alt="CMO" class="team-photo">
+						<h3>CMO: Tarang Yadav</h3>
+						<p>Tarang is responsible for marketing strategies and ensuring CryptoGuard reaches its users. Noice ppt skills</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Roadmap Section -->
+			<div class="section">
+				<h2>Roadmap</h2>
+				<ul>
+					<li>Q1 2024: Launch of new features.</li>
+					<li>Q2 2024: Expansion into international markets.</li>
+					<li>Q3 2024: Implementation of AI for better insights.</li>
+				</ul>
+			</div>
+
+			<!-- News Section -->
+			<div class="section">
+				<h2>Latest News</h2>
+				<article>
+					<h3>CryptoGuard Launches New Features</h3>
+					<p>CryptoGuard has launched new features that allow users to better track their crypto behavior.</p>
+					<small>Posted on September 30, 2024</small>
+				</article>
+			</div>
+			 <!-- Downloadable Checklist Section -->
+			<div class="section">
+				<h2>Download Our Cybersecurity Checklist</h2>
+				<p>Stay safe online with our comprehensive checklist. Download it below:</p>
+				<a href="checklist.docx" download>
+					<button class="get-started-btn">Download Checklist</button>
+				</a>
+			</div>
+			<!--Mannat add some css or snthing here please looks boring asf-->
+
+			<!-- Contact Information Section -->
+			<div class="section">
+				<h2>Contact Information</h2>
+				<p>Email: <a href="mailto:support@cryptoguard.com">support@cryptoguard.com</a></p>
+				<p>Phone: I'm not leaking my phone no. lol</p>
+			</div>
+	</div>
+		   
 
     <script>
         // Live Crypto Tracker
@@ -549,7 +612,8 @@
     }
 
     fetchCryptoData();
-  </script>
+    </script>
+
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
