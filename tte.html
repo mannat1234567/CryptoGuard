@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard - Talk to Experts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            padding-top: 100px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        header img {
+            height: 80px;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: gold;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: lightblue;
+        }
+
+        .main-container {
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: gold;
+            margin-bottom: 20px;
+        }
+
+        .query-form {
+            background-color: rgba(25, 25, 25, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: lightblue;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .query-form input, .query-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid gold;
+            border-radius: 5px;
+            background: rgba(40, 40, 40, 0.8);
+            color: white;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: lightblue;
+        }
+
+        .answers-section {
+            margin-top: 50px;
+            background-color: rgba(25, 25, 25, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: lightblue;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .answer {
+            margin-bottom: 20px;
+            border-bottom: 1px solid gold;
+            padding-bottom: 10px;
+        }
+
+        .answer h3 {
+            color: gold;
+        }
+		.p {
+			font-size: 20px;
+			color: gold;
+			margin-bottom: 20px;
+		}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+     <header>
+        <img src="cryptoguard.jpg" alt="Company Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="about.html">About</a>
+            <a href="crowdspamr.html">Crowd Spam Report</a>
+			<a href="tte.html">Talk To Experts</a>
+			<a href="tsim.html">CG Score Predictor</a>
+			<a href="mailto:support@cryptoguard.com">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <h1>Talk to Our Experts</h1>
+        <p style="color: gold;">Got questions about crypto? Submit your query below, and our experts will provide you with answers!</p>
+
+        <!-- Query Form -->
+        <div class="query-form">
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <input type="email" id="userEmail" placeholder="Your Email" required>
+            <textarea id="userQuery" rows="5" placeholder="Your Query..." required></textarea>
+            <button class="submit-btn" onclick="submitQuery()">Submit Query</button>
+        </div>
+
+        <!-- Answers Section -->
+        <div class="answers-section" id="answers-section">
+            <h2>Expert Answers</h2>
+            <div class="answer">
+                <h3>Expert 1:</h3>
+                <p>"Investing in cryptocurrency can be highly rewarding, but it's essential to conduct thorough research before diving in."</p>
+            </div>
+            <div class="answer">
+                <h3>Expert 2:</h3>
+                <p>"Security is paramount in crypto transactions. Always use two-factor authentication and secure your wallets."</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitQuery() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const query = document.getElementById('userQuery').value;
+
+            if (name && email && query) {
+                alert('Thank you for your query, ' + name + '! Our experts will get back to you shortly.');
+                // Here you would typically send the query to your server or email it
+                document.getElementById('userName').value = '';
+                document.getElementById('userEmail').value = '';
+                document.getElementById('userQuery').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+</html>
