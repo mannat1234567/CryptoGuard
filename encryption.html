@@ -18,7 +18,7 @@
         padding-top: 100px;
         overflow-x: hidden;
         animation: moveBackground 30s linear infinite;
-        color: #e0e0e0;
+        color: #C2D9FF; /* Changed to Light Blue */
         transition: background 0.5s ease-in-out;
     }
 
@@ -33,7 +33,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(25, 4, 130, 0.5); /* Changed to Dark Blue with transparency */
         position: fixed;
         width: 100%;
         top: 0;
@@ -58,15 +58,15 @@
 
     header nav a {
         text-decoration: none;
-        color: gold;
+        color: #7752FE; /* Changed to Light Purple */
         font-weight: bold;
         font-size: 18px;
         transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    /* Change text to white on hover */
+    /* Change text to Light Blue on hover */
     header nav a:hover {
-        color: white; /* Change to white on hover */
+        color: #C2D9FF; /* Changed to Light Blue on hover */
         transform: scale(1.2); /* Slight scale up on hover */
     }
 
@@ -77,7 +77,7 @@
         height: 2px;
         bottom: -5px;
         left: 0;
-        background-color: gold;
+        background-color: #7752FE; /* Changed to Light Purple */
         transition: width 0.3s ease;
     }
 
@@ -106,7 +106,7 @@
 
     .section h2 {
         font-size: 36px;
-        color: gold;
+        color: #7752FE; /* Changed to Light Purple */
         margin-bottom: 20px;
         animation: fadeInHeader 1s ease forwards;
     }
@@ -132,10 +132,10 @@
         margin: 10px 0;
         padding: 10px;
         width: 100%;
-        border: 1px solid lightblue;
+        border: 1px solid #C2D9FF; /* Changed to Light Blue */
         border-radius: 5px;
         background-color: transparent;
-        color: lightblue;
+        color: #C2D9FF; /* Changed to Light Blue */
         transition: background-color 0.3s ease;
     }
 
@@ -148,8 +148,8 @@
         margin-top: 20px;
         padding: 10px 20px;
         font-size: 16px;
-        border: 2px solid gold;
-        color: gold;
+        border: 2px solid #7752FE; /* Changed to Light Purple */
+        color: #7752FE; /* Changed to Light Purple */
         background: transparent;
         cursor: pointer;
         outline: none;
@@ -158,13 +158,13 @@
     }
 
     @keyframes pulseButton {
-        0% { box-shadow: 0 0 15px gold; }
-        50% { box-shadow: 0 0 30px gold; }
-        100% { box-shadow: 0 0 15px gold; }
+        0% { box-shadow: 0 0 15px #7752FE; } /* Changed to Light Purple */
+        50% { box-shadow: 0 0 30px #7752FE; }
+        100% { box-shadow: 0 0 15px #7752FE; }
     }
 
     .button:hover {
-        background-color: gold;
+        background-color: #7752FE; /* Changed to Light Purple */
         color: black;
         transform: scale(1.05); /* Slight grow on hover */
     }
@@ -173,26 +173,23 @@
     .result {
         margin-top: 20px;
         font-size: 20px;
-        color: gold;
+        color: #7752FE; /* Changed to Light Purple */
         animation: fadeIn 0.5s ease forwards;
     }
-
 </style>
-
 
 </head>
 <body>
     <header>
         <img src="cryptoguard.jpg" alt="Company Logo">
         <nav>
-            <a href="home.html">Home</a>
-            <a href="login.html">Login</a>
-            <a href="about.html">About</a>
-            <a href="crowdspamr.html">Crowd Spam Report</a>
-	    <a href="encryption.html">Encryption Services</a>
-			<a href="tte.html">Talk To Experts</a>
-			<a href="tsim.html">CG Score Predictor</a>
-			<a href="mailto:support@cryptoguard.com">Contact</a>
+           <a href="home.html">Home</a>
+           <a href="about.html">About</a>
+	   <a href="login.html">Login</a>
+           <a href="crowdspamr.html">Crowd Spam Report</a>
+	   <a href="encryption.html">Encryption Services</a>
+           <a href="tsim.html">CG Score Generator</a>
+	   <a href="mailto:support@cryptoguard.com">Contact</a>
     
         </nav>
     </header>
@@ -257,6 +254,5 @@
             }
         };
     </script>
-	 <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
 </html>
