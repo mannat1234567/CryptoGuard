@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Login Form</title>
+  <title>CryptoGuard Login</title>
   <link rel="stylesheet" href="style.css">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
@@ -68,6 +68,14 @@
       padding: 2.5rem 1.5rem;
       border-radius: 1rem;
       backdrop-filter: blur(8px);
+    }
+
+    .login__logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px; /* Adjust size as needed */
+      height: auto;
     }
 
     .login__title {
@@ -211,7 +219,9 @@
   </style>
 </head>
 <body>
+
   <div class="login">
+    <img src="cryptoguard.jpg" alt="CryptoGuard Logo" class="login__logo">
     <form action="detector.html" method="POST" class="login__form">
       <h1 class="login__title">Login</h1>
 
@@ -219,7 +229,7 @@
         <div class="login__box">
           <i class="bx bx-user"></i>
           <div class="login__box-input">
-            <input type="email" required class="login__input" >
+            <input type="email" required class="login__input">
             <label for="" class="login__label">Email</label>
           </div>
         </div>
@@ -227,7 +237,7 @@
         <div class="login__box">
           <i class="ri-lock-2-line login__icon"></i>
           <div class="login__box-input">
-            <input type="password" required class="login__input" id="login-pass" >
+            <input type="password" required class="login__input" id="login-pass">
             <label for="" class="login__label">Password</label>
             <i class="ri-eye-off-line login__eye"></i>
           </div>
