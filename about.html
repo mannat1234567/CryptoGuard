@@ -6,282 +6,272 @@
     <title>About Us - CryptoGuard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMH5i7Zl0e5I0T4DgH0PpGI5+R1Iy3m2ZJbPp14nOBX6D6b2YFDOV6A8D1Drg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-        font-family: 'Arial', sans-serif;
-        height: 100vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-        background: url('pic.gif') no-repeat center center/cover;
-        background-attachment: fixed;
-        animation: moveBackground 30s linear infinite;
-        padding-top: 100px;
-        color: #e0e0e0;
-        scroll-behavior: smooth;
-        transition: background 0.5s ease-in-out;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: url('pic.gif') no-repeat center center/cover;
+            background-attachment: fixed;
+            animation: moveBackground 30s linear infinite;
+            padding-top: 100px;
+            color: #C2D9FF; /* Light Blue for text */
+            scroll-behavior: smooth;
+            transition: background 0.5s ease-in-out;
+        }
 
-    @keyframes moveBackground {
-        0% { background-position: 0 0; }
-        100% { background-position: 100% 100%; }
-    }
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
 
-    /* Transparent Header with Blur */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-        transition: backdrop-filter 0.3s ease;
-    }
+        /* Transparent Header with Blur */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(25, 4, 130, 0.5); /* Dark Blue with transparency */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: backdrop-filter 0.3s ease;
+        }
 
-    header img {
-        height: 80px;
-        transition: transform 0.5s ease;
-    }
+        header img {
+            height: 80px;
+            transition: transform 0.5s ease;
+        }
 
-    header img:hover {
-        transform: rotate(360deg);
-    }
+        header img:hover {
+            transform: rotate(360deg);
+        }
 
-    header nav {
-        display: flex;
-        gap: 20px;
-    }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
 
-    header nav a {
-        text-decoration: none;
-        color: gold;
-        font-weight: bold;
-        font-size: 18px;
-        position: relative;
-        transition: color 0.3s ease, transform 0.3s ease;
-    }
+        header nav a {
+            text-decoration: none;
+            color: #7752FE; /* Light Purple */
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    header nav a:hover {
-        color: white;
-        transform: scale(1.2);
-    }
+        header nav a:hover {
+            color: #C2D9FF; /* Light Blue */
+            transform: scale(1.2);
+        }
 
-    header nav a:before {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: gold;
-        transition: width 0.3s ease;
-    }
+        header nav a:before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #7752FE; /* Light Purple */
+            transition: width 0.3s ease;
+        }
 
-    header nav a:hover:before {
-        width: 100%;
-    }
+        header nav a:hover:before {
+            width: 100%;
+        }
 
-    /* Main Section */
-    .background-section {
-        width: 100%;
-        height: 80vh;
-        text-align: center;
-        padding: 50px;
-        animation: fadeIn 1s ease-in-out, slideInBackground 1s ease forwards;
-    }
+        /* Main Section */
+        .background-section {
+            width: 100%;
+            height: 80vh;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out, slideInBackground 1s ease forwards;
+        }
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    @keyframes slideInBackground {
-        from { transform: translateY(-100px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+        @keyframes slideInBackground {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-    .background-section h1 {
-        font-size: 72px;
-        font-weight: bold;
-        color: gold;
-        margin-bottom: 20px;
-        animation: slideIn 1s ease forwards, colorShift 2s infinite alternate;
-    }
+        .background-section h1 {
+            font-size: 72px;
+            font-weight: bold;
+            color: #7752FE; /* Light Purple */
+            margin-bottom: 20px;
+            animation: slideIn 1s ease forwards, colorShift 2s infinite alternate;
+        }
 
-    @keyframes slideIn {
-        from { transform: translateY(-50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-    @keyframes colorShift {
-        0% { color: gold; }
-        50% { color: lightblue; }
-        100% { color: gold; }
-    }
+        @keyframes colorShift {
+            0% { color: #7752FE; }
+            50% { color: #8E8FFA; } /* Lavender */
+            100% { color: #7752FE; }
+        }
 
-    .background-section p {
-        font-size: 20px;
-        color: lightblue;
-        margin: 0;
-        animation: fadeIn 2s ease forwards, textShake 1.5s ease infinite;
-    }
+        .background-section p {
+            font-size: 20px;
+            color: #C2D9FF; /* Light Blue */
+            margin: 0;
+            animation: fadeIn 2s ease forwards, textShake 1.5s ease infinite;
+        }
 
-    @keyframes textShake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        50% { transform: translateX(5px); }
-        75% { transform: translateX(-5px); }
-    }
+        @keyframes textShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
 
-    .get-started-btn {
-        margin-top: 40px;
-        padding: 15px 40px;
-        font-size: 30px;
-        border: 2px solid gold;
-        color: gold;
-        background: transparent;
-        cursor: pointer;
-        outline: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 15px gold;
-        animation: pulse 2s infinite;
-    }
+        .get-started-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 30px;
+            border: 2px solid #7752FE; /* Light Purple */
+            color: #7752FE; /* Light Purple */
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px #7752FE; /* Light Purple */
+            animation: pulse 2s infinite;
+        }
 
-    @keyframes pulse {
-        0% { box-shadow: 0 0 15px gold; }
-        50% { box-shadow: 0 0 30px gold; }
-        100% { box-shadow: 0 0 15px gold; }
-    }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px #7752FE; } /* Light Purple */
+            50% { box-shadow: 0 0 30px #7752FE; }
+            100% { box-shadow: 0 0 15px #7752FE; }
+        }
 
-    .get-started-btn:hover {
-        background-color: gold;
-        color: black;
-        transform: scale(1.1);
-    }
+        .get-started-btn:hover {
+            background-color: #7752FE; /* Light Purple */
+            color: black;
+            transform: scale(1.1);
+        }
 
-    /* Content Section */
-    .content {
-        padding: 20px;
-        margin: 0 20px;
-        padding-bottom: 100px;
-        animation: fadeInContent 1.5s ease-in-out;
-    }
+        /* Content Section */
+        .content {
+            padding: 20px;
+            margin: 0 20px;
+            padding-bottom: 100px;
+            animation: fadeInContent 1.5s ease-in-out;
+        }
 
-    @keyframes fadeInContent {
-        from { opacity: 0; transform: translateY(50px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    h2 {
-        font-size: 36px;
-        color: gold;
-        margin-top: 30px;
-        animation: slideInText 1s ease;
-    }
+        h2 {
+            font-size: 36px;
+            color: #7752FE; /* Light Purple */
+            margin-top: 30px;
+            animation: slideInText 1s ease;
+        }
 
-    @keyframes slideInText {
-        from { transform: translateX(-100px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
+        @keyframes slideInText {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
 
-    p {
-        font-size: 18px;
-        margin: 10px 0;
-    }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #C2D9FF; /* Light Blue */
+        }
 
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: lightblue;
-        width: 100%;
-        animation: fadeInFooter 1s ease-in-out;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(25, 4, 130, 0.8); /* Dark Blue with transparency */
+            color: #C2D9FF; /* Light Blue */
+            width: 100%;
+            animation: fadeInFooter 1s ease-in-out;
+        }
 
-    @keyframes fadeInFooter {
-        from { opacity: 0; transform: translateY(50px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeInFooter {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .founders {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-        padding: 20px 0;
-        animation: fadeInFounders 1s ease forwards;
-    }
+        .founders {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 20px 0;
+            animation: fadeInFounders 1s ease forwards;
+        }
 
-    @keyframes fadeInFounders {
-        from { opacity: 0; transform: translateY(50px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeInFounders {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .founder {
-        text-align: center;
-    }
+        .founder {
+            text-align: center;
+        }
 
-    .founder img {
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        margin-bottom: 10px;
-    }
+        .founder img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
 
-    /* Chart */
-    .chart-container {
-        width: 100%;
-        height: 400px;
-        margin: 40px 0;
-        animation: chartBounce 1.5s ease forwards;
-    }
+        /* Chart */
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 40px 0;
+            animation: chartBounce 1.5s ease forwards;
+        }
 
-    @keyframes chartBounce {
-        0% { transform: translateY(0); }
-        25% { transform: translateY(-10px); }
-        50% { transform: translateY(0); }
-        75% { transform: translateY(-5px); }
-        100% { transform: translateY(0); }
-    }
+        @keyframes chartBounce {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
 
-    /* Icons */
-    .icon-list {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin: 40px 0;
-    }
+        /* Icons */
+        .icon-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
 
-    .icon-item {
-        text-align: center;
-        flex: 1 0 30%;
-        margin: 10px;
-        animation: bounceIcon 1s ease forwards;
-    }
+        .icon {
+            text-align: center;
+            color: #C2D9FF; /* Light Blue */
+            transition: transform 0.3s ease;
+        }
 
-    @keyframes bounceIcon {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
-    }
-
-    .icon-item i {
-        font-size: 50px;
-        color: gold;
-        margin-bottom: 10px;
-    }
-</style>
-
-
+        .icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
