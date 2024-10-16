@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Checkout Form</title>
+
+   <style>
+		  * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+				}
+
+		body {
+			background: url('pic.gif') no-repeat center center fixed;
+			background-size: cover;
+			color: #ffffff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.container {
+			background-color: rgba(25, 36, 64, 0.9); /* Dark Blue with opacity */
+			padding: 40px;
+			border-radius: 15px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+			animation: fadeIn 1s ease-in-out;
+			width: 800px;
+			position: relative;
+		}
+
+		.logo {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+		}
+
+		.logo img {
+			height: 60px;
+		}
+
+		form {
+			max-width: 800px;
+			width: 100%;
+		}
+
+		.title {
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+			color: #7752FE; /* Light Purple */
+		}
+
+		.inputBox {
+			margin-bottom: 20px;
+		}
+
+		.inputBox span {
+			font-size: 1rem;
+			color: #C2D9FF; /* Light Blue */
+		}
+
+		.inputBox input {
+			width: 100%;
+			padding: 12px;
+			margin-top: 8px;
+			border: 2px solid #7752FE;
+			border-radius: 8px;
+			background: #1f283b;
+			color: #fff;
+			font-size: 1rem;
+		}
+
+		.flex {
+			display: flex;
+			gap: 20px;
+		}
+
+		.flex .inputBox {
+			flex: 1;
+		}
+
+		.submit-btn {
+			width: 100%;
+			padding: 15px;
+			background-color: #7752FE;
+			border: none;
+			border-radius: 8px;
+			color: #fff;
+			font-size: 1.2rem;
+			cursor: pointer;
+			transition: background-color 0.3s ease, transform 0.3s ease;
+		}
+
+		.submit-btn:hover {
+			background-color: #8E8FFA;
+			transform: translateY(-5px);
+		}
+
+		/* Updated Plan Summary Styling */
+		.plan-summary {
+			margin-top: 20px;
+			background-color: #7752FE;
+			padding: 20px;
+			border-radius: 10px;
+			color: #ffffff;
+			font-size: 1.5rem;
+			font-weight: bold;
+			text-align: center;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			animation: fadeInSummary 1s ease;
+		}
+
+		.plan-summary span {
+			color: #C2D9FF; /* Light Blue */
+			font-weight: bold;
+			background-color: #190482; /* Dark Blue */
+			padding: 5px 10px;
+			border-radius: 5px;
+		}
+
+		/* Animation for fade-in */
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Animation for the plan summary */
+		@keyframes fadeInSummary {
+			from {
+				opacity: 0;
+				transform: scale(0.9);
+			}
+			to {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo on the top left corner -->
+    <div class="logo">
+        <img src="cryptoguard.jpg" alt="CryptoGuard Logo">
+    </div>
+	<br>
+	<br>
+	<br>
+
+    <div id="plan-summary" class="plan-summary"></div>
+	<br>
+	<br>
+	<br>
+
+    <form id="checkout-form" onsubmit="return handleCheckout(event);">
+        <div class="row">
+            <div class="col">
+                <h3 class="title">Billing address</h3>
+                <div class="inputBox">
+                    <span>Full Name :</span>
+                    <input type="text" placeholder="john deo" required>
+                </div>
+                <div class="inputBox">
+                    <span>Email :</span>
+                    <input type="email" placeholder="example@example.com" required>
+                </div>
+                <div class="inputBox">
+                    <span>Address :</span>
+                    <input type="text" placeholder="room - street - locality" required>
+                </div>
+                <div class="inputBox">
+                    <span>City :</span>
+                    <input type="text" placeholder="mumbai" required>
+                </div>
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>State :</span>
+                        <input type="text" placeholder="india" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>Zip code :</span>
+                        <input type="text" placeholder="123 456" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h3 class="title">Payment</h3>
+                <div class="inputBox">
+                    <span>Cards Accepted :</span>
+                    <img src="card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>Name on card :</span>
+                    <input type="text" placeholder="mr. john deo" required>
+                </div>
+                <div class="inputBox">
+                    <span>Credit card number :</span>
+                    <input type="number" placeholder="1111-2222-3333-4444" required>
+                </div>
+                <div class="inputBox">
+                    <span>Exp month :</span>
+                    <input type="text" placeholder="january" required>
+                </div>
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Exp year :</span>
+                        <input type="number" placeholder="2022" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" placeholder="123" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Proceed to Checkout" class="submit-btn">
+    </form>
+
+</div>
+<script>
+    // JavaScript logic for dynamically showing selected plan details
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+    const cycle = urlParams.get('cycle');
+    const monthlyPrice = parseFloat(urlParams.get('monthlyPrice'));
+    const yearlyPrice = parseFloat(urlParams.get('yearlyPrice'));
+
+    const price = cycle === 'yearly' ? yearlyPrice : monthlyPrice;
+
+    document.getElementById('plan-summary').innerHTML = `
+        You have selected the <span>${plan}</span> plan.
+        <br>Billing cycle: <span>${cycle.charAt(0).toUpperCase() + cycle.slice(1)}</span>.
+        <br>Price: <span>₹${price.toFixed(2)}</span>.
+    `;
+	function handleCheckout(event) {
+		event.preventDefault(); // Prevent the default form submission
+		// Redirect to the thank you page
+		window.location.href = 'thankyou.html';
+	}
+</script>
+
+</body>
+</html>
