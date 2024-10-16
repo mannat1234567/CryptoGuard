@@ -6,298 +6,297 @@
     <title>CryptoGuard - Home</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-		body {
-			font-family: 'Arial', sans-serif;
-			height: 100vh;
-			overflow-x: hidden;
-			overflow-y: auto;
-			background: url('pic.gif') no-repeat center center/cover;
-			background-attachment: fixed;
-			animation: moveBackground 30s linear infinite;
-			padding-top: 100px;
-			scroll-behavior: smooth;
-			color: #e0e0e0;
-			transition: background 0.5s ease-in-out;
-		}
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: url('pic.gif') no-repeat center center/cover;
+    background-attachment: fixed;
+    animation: moveBackground 30s linear infinite;
+    padding-top: 100px;
+    scroll-behavior: smooth;
+    color: #FFE1FF; /* Soft Pink for text */
+    transition: background 0.5s ease-in-out;
+}
 
-		@keyframes moveBackground {
-			0% { background-position: 0 0; }
-			100% { background-position: 100% 100%; }
-		}
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
 
-		/* Transparent Header with Blur */
-		header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 20px;
-			background-color: rgba(0, 0, 0, 0); /* Keep header transparent */
-			position: fixed;
-			width: 100%;
-			top: 0;
-			z-index: 1000;
-			backdrop-filter: blur(10px); /* Apply blur without shadow */
-			transition: backdrop-filter 0.3s ease;
-		}
+/* Transparent Header with Blur */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(67, 56, 120, 0.5); /* Dark Purple with transparency */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: backdrop-filter 0.3s ease;
+}
 
-		header img {
-			height: 80px;
-			transition: transform 0.5s ease;
-		}
+header img {
+    height: 80px;
+    transition: transform 0.5s ease;
+}
 
-		header img:hover {
-			transform: rotate(360deg); /* Fun logo animation on hover */
-		}
+header img:hover {
+    transform: rotate(360deg);
+}
 
-		header nav {
-			display: flex;
-			gap: 20px;
-		}
+header nav {
+    display: flex;
+    gap: 20px;
+}
 
-		header nav a {
-			text-decoration: none;
-			color: gold;
-			font-weight: bold;
-			font-size: 18px;
-			position: relative;
-			transition: color 0.3s ease, transform 0.3s ease;
-		}
+header nav a {
+    text-decoration: none;
+    color: #E4B1F0; /* Light Purple */
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-		header nav a:hover {
-			color: white;
-			transform: scale(1.2); /* Links grow slightly when hovered */
-		}
+header nav a:hover {
+    color: #FFE1FF; /* Soft Pink on hover */
+    transform: scale(1.2);
+}
 
-		header nav a:before {
-			content: "";
-			position: absolute;
-			width: 0%;
-			height: 2px;
-			bottom: -5px;
-			left: 0;
-			background-color: gold;
-			transition: width 0.3s ease;
-		}
+header nav a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #E4B1F0; /* Light Purple underline */
+    transition: width 0.3s ease;
+}
 
-		header nav a:hover:before {
-			width: 100%; /* Underline animation on hover */
-		}
+header nav a:hover:before {
+    width: 100%;
+}
 
-		/* Main Section */
-		.background-section {
-			width: 100%;
-			height: 80vh;
-			text-align: center;
-			padding: 50px;
-			animation: fadeIn 1s ease-in-out;
-		}
+/* Main Section */
+.background-section {
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    padding: 50px;
+    animation: fadeIn 1s ease-in-out;
+}
 
-		@keyframes fadeIn {
-			from { opacity: 0; }
-			to { opacity: 1; }
-		}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-		.background-section h1 {
-			font-size: 72px;
-			font-weight: bold;
-			color: gold;
-			margin-bottom: 20px;
-			animation: slideIn 1s ease forwards;
-		}
+.background-section h1 {
+    font-size: 72px;
+    font-weight: bold;
+    color: #FFE1FF; /* PINKY PINKY WOOO WOOOOOOOOOO */
+    margin-bottom: 20px;
+    animation: slideIn 1s ease forwards;
+}
 
-		@keyframes slideIn {
-			from { transform: translateY(-50px); opacity: 0; }
-			to { transform: translateY(0); opacity: 1; }
-		}
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
-		.background-section p {
-			font-size: 20px;
-			color: lightblue;
-			margin: 0;
-			animation: fadeIn 2s ease forwards;
-		}
+.background-section p {
+    font-size: 20px;
+    color: #FFE1FF; /* Soft Pink */
+    margin: 0;
+    animation: fadeIn 2s ease forwards;
+}
 
-		.get-started-btn {
-			margin-top: 40px;
-			padding: 15px 40px;
-			font-size: 30px;
-			border: 2px solid gold;
-			color: gold;
-			background: transparent;
-			cursor: pointer;
-			outline: none;
-			transition: all 0.3s ease;
-			box-shadow: 0 0 15px gold; /* Fun glowing effect */
-			animation: pulse 2s infinite; /* Button pulse animation */
-		}
+.get-started-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    font-size: 30px;
+    border: 2px solid #FFE1FF; /* Medium Purple */
+    color: #FFE1FF;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #7E60BF;
+    animation: pulse 2s infinite;
+}
 
-		@keyframes pulse {
-			0% { box-shadow: 0 0 15px gold; }
-			50% { box-shadow: 0 0 30px gold; }
-			100% { box-shadow: 0 0 15px gold; }
-		}
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px #7E60BF; }
+    50% { box-shadow: 0 0 30px #7E60BF; }
+    100% { box-shadow: 0 0 15px #7E60BF; }
+}
 
-		.get-started-btn:hover {
-			background-color: gold;
-			color: black;
-			transform: scale(1.1);
-		}
+.get-started-btn:hover {
+    background-color: #7E60BF; /* Medium Purple */
+    color: black;
+    transform: scale(1.1);
+}
 
-		/* Content Section */
-		.section {
-			width: 50%;
-			padding: 50px;
-			background-color: rgba(25, 25, 25, 0.9);
-			color: lightblue;
-			margin: 20px auto;
-			border-radius: 10px;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-			animation: popIn 0.5s ease forwards;
-			opacity: 0;
-			transition: opacity 0.5s ease, transform 0.5s ease;
-			position: relative;
-			text-align: center;
-			
-		}
+/* Content Section */
+.section {
+    width: 50%;
+    padding: 50px;
+    background-color: rgba(67, 56, 120, 0.9); /* Dark Purple with transparency */
+    color: #FFE1FF; /* Soft Pink */
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: popIn 0.5s ease forwards;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: relative;
+    text-align: center;
+}
 
-		.section:hover {
-			transform: scale(1.05); /* Section pops out on hover */
-		}
+.section:hover {
+    transform: scale(1.05);
+}
 
-		@keyframes popIn {
-			from { transform: scale(0.9); opacity: 0; }
-			to { transform: scale(1); opacity: 1; }
-		}
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-		.section h2 {
-			font-size: 36px;
-			color: gold;
-		}
+.section h2 {
+    font-size: 36px;
+    color: #E4B1F0; /* Light Purple */
+}
 
-		.section p {
-			font-size: 18px;
-			margin: 10px 0;
-		}
+.section p {
+    font-size: 18px;
+    margin: 10px 0;
+}
 
-		/* Reviews Section */
-		.reviews {
-			display: flex;
-			flex-direction: column;
-			gap: 15px;
-		}
+/* Reviews Section */
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-		.reviews .review {
-			padding: 15px;
-			border-radius: 10px;
-			background-color: rgba(40, 40, 40, 0.8);
-			color: lightblue;
-			transition: transform 0.3s, box-shadow 0.3s;
-			position: relative;
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-		}
+.reviews .review {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(67, 56, 120, 0.8); /* Dark Purple with transparency */
+    color: #FFE1FF;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
 
-		.reviews .review:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-		}
+.reviews .review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
 
-		/* Star Rating */
-		.star-rating {
-			color: gold;
-			font-size: 18px;
-		}
-		.star-rating span {
-			color: lightgray;
-		}
+/* Star Rating */
+.star-rating {
+    color: #7E60BF; /* Medium Purple */
+    font-size: 18px;
+}
 
-		/* Crypto Tracker */
-		.crypto-tracker, .user-count {
-			width: 50%;
-			margin: 20px auto;
-			padding: 20px;
-			background-color: rgba(25, 25, 25, 0.9);
-			border-radius: 10px;
-			color: lightblue;
-			text-align: center;
-			animation: popIn 0.5s ease forwards;
-			opacity: 0;
-			transition: opacity 0.5s ease;
-			
-		}
+.star-rating span {
+    color: lightgray;
+}
 
-		#price-chart {
-			width: 100%;
-			height: 400px;
-		}
-		.market-analysis {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start; /* Aligns content to the left */
-			
-			
-			background-color: rgba(30, 30, 30, 0.8); /* Dark background with transparency */
-			border-radius: 10px; /* Rounded corners */
-			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-			max-width: 400px; /* Maximum width for the section */
-			color: #f0c674; /* Text color */
-			margin-left: auto;
-			margin-right: 0;
-			
-		}
+/* Crypto Tracker */
+.crypto-tracker, .user-count {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(67, 56, 120, 0.9); /* Dark Purple */
+    border-radius: 10px;
+    color: #FFE1FF; /* Soft Pink */
+    text-align: center;
+    animation: popIn 0.5s ease forwards;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
 
-		.market-analysis h2 {
-			font-size: 32px; /* Font size for headings */
-			margin-bottom: 15px; /* Space below the heading */
-		}
+#price-chart {
+    width: 100%;
+    height: 400px;
+}
 
-		.market-analysis p {
-			font-size: 18px; /* Font size for paragraphs */
-			line-height: 1.6; /* Line height for readability */
-			margin-bottom: 10px; /* Space below paragraphs */
-		}
+/* Market Analysis */
+.market-analysis {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(67, 56, 120, 0.8); /* Dark Purple with transparency */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    color: #E4B1F0; /* Light Purple */
+    margin-left: auto;
+    margin-right: 0;
+}
 
-		.market-analysis .chart-container {
-			width: 100%; /* Full width for chart container */
-			margin-top: 20px; /* Space above chart */
-		}
-		/* Banner Styling */
-		.banner {
-			width: 100%;
-			background-color: transparent;
-			overflow: hidden;
-			white-space: nowrap;
-			padding: 20px 0;
-			position: relative;
-			color: white;
-			font-family: Helvetica, Arial, sans-serif;
-		}
+.market-analysis h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
 
-		.banner-text {
-			display: inline-block;
-			animation: scrollText 20s linear infinite; /* Slowed down for more tips */
-		}
+.market-analysis p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
-		.banner-text p {
-			font-size: 1.2em;
-			display: inline;
-			margin-right: 50px; /* Spacing between each tip */
-		}
+.market-analysis .chart-container {
+    width: 100%;
+    margin-top: 20px;
+}
 
-		/* Text Scrolling Animation */
-		@keyframes scrollText {
-			0% {
-				transform: translateX(100%);
-			}
-			100% {
-				transform: translateX(-100%);
-			}
-		}
+/* Banner Styling */
+.banner {
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+    position: relative;
+    color: #FFE1FF; /* Soft Pink */
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.banner-text {
+    display: inline-block;
+    animation: scrollText 20s linear infinite;
+}
+
+.banner-text p {
+    font-size: 1.2em;
+    display: inline;
+    margin-right: 50px;
+}
+
+/* Text Scrolling Animation */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
 
 
