@@ -163,7 +163,7 @@
 			transition: opacity 0.5s ease, transform 0.5s ease;
 			position: relative;
 			text-align: center;
-			margin-left: 0;
+			
 		}
 
 		.section:hover {
@@ -228,7 +228,7 @@
 			animation: popIn 0.5s ease forwards;
 			opacity: 0;
 			transition: opacity 0.5s ease;
-			margin-left: 0;
+			
 		}
 
 		#price-chart {
@@ -266,6 +266,39 @@
 			width: 100%; /* Full width for chart container */
 			margin-top: 20px; /* Space above chart */
 		}
+		/* Banner Styling */
+		.banner {
+			width: 100%;
+			background-color: transparent;
+			overflow: hidden;
+			white-space: nowrap;
+			padding: 20px 0;
+			position: relative;
+			color: white;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		.banner-text {
+			display: inline-block;
+			animation: scrollText 20s linear infinite; /* Slowed down for more tips */
+		}
+
+		.banner-text p {
+			font-size: 1.2em;
+			display: inline;
+			margin-right: 50px; /* Spacing between each tip */
+		}
+
+		/* Text Scrolling Animation */
+		@keyframes scrollText {
+			0% {
+				transform: translateX(100%);
+			}
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+
 
 
 </style>
@@ -286,6 +319,17 @@
         </nav>
     </header>
 	
+	<!--Moving Banner...Absolute Pain to add but IM HIM CHAT-->
+	<div class="banner">
+        <div class="banner-text">
+            <p>🔒 Stay secure: Always double-check wallet addresses before sending crypto. 🛡️</p>
+            <p>💼 Diversify: Don't put all your crypto assets in one basket. 📈</p>
+            <p>🔑 Private keys: Keep your private keys offline for maximum security. 🔐</p>
+            <p>📊 Research: Always research before investing in any cryptocurrency. 🔎</p>
+            <p>⚠️ Beware of phishing: Never click on suspicious links in emails or texts. 🚨</p>
+        </div>
+    </div>
+	
 	<!-- Background Section with Text -->
     <div class="background-section">
         <h1>Welcome to CryptoGuard</h1>
@@ -294,43 +338,8 @@
             <button class="get-started-btn">Get Started</button>
         </a>
     </div>
-	
-	
-	
-	
-		<div class="market-analysis">
-			<div class="market-widget">
-				<!-- Nifty Sensex -->
-				<div class="market-status">
-				  <h2>Nifty Sensex (Graph)</h2>
-				  <canvas id="nifty-chart"></canvas>
-				</div>
-
-				<!-- Top Crypto Gainers -->
-				<div class="crypto-gainers">
-				  <h2>Top Crypto Gainers</h2>
-				  <ul id="crypto-gainers-list"></ul>
-				</div>
-
-				<!-- Price Comparison Table -->
-				<div class="avg-prices">
-				  <h2>Price Comparison (in USD)</h2>
-				  <table id="price-comparison-table">
-						<thead>
-						<tr>
-							<th>Crypto</th>
-						<th>Current Price</th>
-						<th>Previous (24h High)</th>
-						<th>Change (%)</th>
-					</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
-				</div>
-			</div>
-	</div>
-	
-			<!-- User Count Section -->
+	<center>
+	<!-- User Count Section -->
 			<div class="user-count">
 				<h2>Users of CryptoGuard</h2>
 				<p id="user-count">0</p>
@@ -432,6 +441,7 @@
 				<p>Phone: I'm not leaking my phone no. lol</p>
 			</div>
 	</div>
+	</center>
 		   
 
     <script>
