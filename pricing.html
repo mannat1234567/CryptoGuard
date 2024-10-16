@@ -1,260 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoGuard - Pricing</title>
+    <title>Pricing for CryptoGuard</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu&display=swap" rel="stylesheet">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            animation: moveBackground 30s linear infinite;
-            padding: 100px 20px; /* Added padding for top spacing */
-        }
+			margin: 0;
+			padding: 0;
+			font-family: 'Poppins', sans-serif;
+			box-sizing: border-box;
+		}
 
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
+		body {
+			background-image: url('pic.gif'); /* Set the background image */
+			background-size: cover; /* Cover the entire background */
+			background-position: center; /* Center the background */
+		}
 
-        header {
+		.container {
+			min-height: 100vh;
+			width: 100%;
+			padding: 23px 0;
+			padding-top: 100px;
+		}
+
+		.container h1 {
+			text-align: center;
+			margin-bottom: 23px;
+			color: #fff;
+		}
+
+		.container p {
+			text-align: center;
+			color: #fff; /* White text for paragraphs */
+			margin: 10px 0; /* Space above and below paragraphs */
+			font-size: 18px; /* Font size for paragraphs */
+		}
+
+		.price-row {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.box {
+			margin: 0px 12px;
+			text-align: center;
+			background: #1f283b; /* Dark background for boxes */
+			color: #fff;
+			border-radius: 17px;
+			padding: 0 12px;
+		}
+
+		.box h2 {
+			margin: 27px 0 23px;
+		}
+
+		.box ul {
+			list-style: none;
+			color: #ddd;
+			text-align: left;
+			margin: 20px 0;
+		}
+
+		.box ul li {
+			padding: 9px 63px;
+		}
+
+		.box ul li::before {
+			content: '\2022';
+			color: #8E8FFA; /* Accent color for bullet */
+			font-weight: bold;
+			margin-right: 8px;
+		}
+
+		.box .btn {
+			font-size: 16px;
+			margin: 23px 23px;
+			border: 2px solid #7752FE; /* Light Purple border */
+			padding: 12px 0px;
+			border-radius: 5px;
+			margin: 25px 35px;
+			transition: all 0.5s;
+			background-color: #7752FE; /* Dark Blue button */
+			color: white;
+		}
+
+		.box .btn:hover {
+			background-color: #8E8FFA; /* Hover effect */
+			cursor: pointer;
+		}
+
+		.box span {
+			font-size: 16px;
+		}
+
+		@media only screen and (max-width: 1000px) {
+			.price-row {
+				flex-wrap: wrap;
+			}
+
+			.box {
+				margin: 12px 23px;
+			}
+		}
+
+        .toggle-container {
             display: flex;
-            justify-content: space-between; /* Space between logo and nav */
             align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        header img {
-            height: 80px; /* Logo height */
-        }
-
-        header nav {
-            display: flex;
-            gap: 20px; /* Space between links */
-            margin-left: auto; /* Pushes nav to the right */
-            padding-right: 5px;
-        }
-
-        header nav a {
-            text-decoration: none;
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        header nav a:hover {
-            color: lightblue; /* Change color on hover */
-        }
-
-        .pricing-container {
-            display: flex;
             justify-content: center;
-            flex-direction: row; /* Align cards horizontally */
-            align-items: flex-start; /* Align cards at the start */
-            gap: 40px; /* Adjusted gap between cards */
-            margin-top: 80px; /* Space below the header */
+            margin-bottom: 20px;
+			padding-top: 100px;
         }
 
-        .card {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            border-radius: 0.25rem;
-            background-color: rgba(17, 24, 39, 1);
-            padding: 1.5rem;
-            width: 320px; /* Set a fixed width for cards */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .header {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .title {
-            font-size: 1.5rem;
-            line-height: 2rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .price {
-            font-size: 3.75rem;
-            line-height: 1;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .desc {
-            margin-top: 0.75rem;
-            margin-bottom: 0.75rem;
-            line-height: 1.625;
-            color: rgba(156, 163, 175, 1);
-        }
-
-        .lists {
-            margin-bottom: 1.5rem;
-            flex: 1 1 0%;
-            color: rgba(156, 163, 175, 1);
-        }
-
-        .lists .list {
-            margin-bottom: 0.5rem;
-            display: flex;
-            margin-left: 0.5rem;
-        }
-
-        .lists .list svg {
-            height: 1.5rem;
-            width: 1.5rem;
-            flex-shrink: 0;
-            margin-right: 0.5rem;
-            color: rgba(167, 139, 250, 1);
-        }
-
-        .action {
-            border: none;
-            outline: none;
-            display: inline-block;
-            border-radius: 0.25rem;
-            background-color: rgba(167, 139, 250, 1);
-            padding-left: 1.25rem;
-            padding-right: 1.25rem;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: rgba(17, 24, 39, 1);
+        .toggle {
+            position: relative;
+            width: 100px; /* Adjusted width for two labels */
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s;
+			
         }
 
-        .action:hover {
-            background-color: gold;
-            color: black;
+        .toggle:before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
         }
+
+        .toggle.active {
+            background-color: #7752FE; /* Change color when active */
+        }
+
+        .toggle.active:before {
+            transform: translateX(70px); /* Move the toggle to the right */
+        }
+
+        .label {
+            position: absolute;
+            top: 5px;
+            font-weight: bold;
+            color: #fff;
+            width: 50%; /* Equal width for both labels */
+            text-align: center;
+        }
+
+        .label.yearly {
+            left: 0;
+        }
+
+        .label.monthly {
+            right: 0;
+        }
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px; /* Adjust as necessary */
+			background-color: rgba(25, 36, 64, 0.7); /* Dark Blue with transparency */
+			position: fixed;
+			width: 100%;
+			top: 0;
+			z-index: 1000;
+			backdrop-filter: blur(10px);
+			left: 0; /* Start from the left edge */
+			right: 0; /* Stretch to the right edge */
+			margin: 0; /* Ensure no margin */
+		}
+
+		header img {
+			height: 80px;
+			transition: transform 0.5s ease;
+		}
+
+		header img:hover {
+			transform: rotate(360deg);
+		}
+
+		header nav {
+			display: flex;
+			gap: 20px;
+		}
+
+		header nav a {
+			text-decoration: none;
+			color: #7752FE; /* Light Purple */
+			font-weight: bold;
+			font-size: 15px;
+			position: relative;
+			transition: color 0.3s ease, transform 0.3s ease;
+		}
+
+		header nav a:hover {
+			color: #C2D9FF; /* Light Blue on hover */
+			transform: scale(1.2);
+		}
+
+		header nav a:before {
+			content: "";
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			background-color: #7752FE; /* Light Purple underline */
+			transition: width 0.3s ease;
+		}
+
+		header nav a:hover:before {
+			width: 100%;
+		}
+		p {
+			color: #7752FE; /* Light Purple */
+			margin: 10px 0; /* Optional: Add margin for spacing */
+		}
+
+
     </style>
 </head>
+
 <body>
-    <!-- Header -->
+	 <!-- Header -->
     <header>
         <img src="cryptoguard.jpg" alt="Company Logo">
         <nav>
             <a href="home.html">Home</a>
-            <a href="login.html">Use</a>
+            <a href="login.html">Login</a>
             <a href="about.html">About</a>
-            <a href="features.html">Features</a>
-            <a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="crowdspamr.html">Crowd Spam Report</a>
+	    <a href="encryption.html">Encryption Services</a>
+			<a href="tte.html">Talk To Experts</a>
+			<a href="tsim.html">CG Score Predictor</a>
+			<a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
-    </header>
+    </header
 
-    <!-- Pricing Section -->
-    <div class="pricing-container">
-        <!-- Casual Pricing Card -->
-        <div class="card">
-            <div class="header">
-                <span class="title">Casual</span>
-                <span class="price">Free</span>
-            </div>
-            <p class="desc">Perfect for Occasional users and serves a good trial demo</p>
-            <ul class="lists">
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>14 day trial</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Allows you to access the basic features of CryptoGuard</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Great for new users who are beginning to learn how to use crypto.</span>
-                </li>
-            </ul>
-            <button type="button" class="action"><a href="detector.html">Get Started</a></button>
-        </div>
 
-        <!-- Beginner Pricing Card -->
-        <div class="card">
-            <div class="header">
-                <span class="title">Beginner</span>
-                <span class="price">₹499</span>
-            </div>
-            <p class="desc">Useful for people who are used to such platforms.</p>
-            <ul class="lists">
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Unlocks all features of CryptoGuard</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Perfect for Occasional users and serves a good trial demo</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Great for seasoned users who have some experience in this sector.</span>
-                </li>
-            </ul>
-            <button type="button" class="action"><a href="payments1.html">Get Started</a></button>
+	<div class="container">
+		<h1>Choose your plan</h1>
+		<div class="toggle-container">
+            <p color="white">Monthly<p>
+            <div class="toggle" id="toggle"></div>
+            <p color="white">Yearly<p>
         </div>
+		<div class="price-row">
+			<div class="box">
+				<h2>Basic</h2>
+				<h1 id="basic-price">₹499 <span>/month</span></h1>
+				<ul>
+					<li>Transaction History Tracking</li>
+					<li>Basic Security Alerts</li>
+					<li>Single Wallet Support</li>
+					<li>Basic Support</li>
+					<li>Monthly Reporting</li>
+				</ul>
+				<div class="btn" onclick="redirectToPayment()">Add to Cart</div>
+			</div>
+			<div class="box">
+				<h2>Pro</h2>
+				<h1 id="advanced-price">₹699 <span>/month</span></h1>
+				<ul>
+					
+					<li>Enhanced Security Alerts</li>
+					<li>Fraud Detection System</li>
+					<li>Customizable Dashboard</li>
+					<li>Priority Support</li>
+					<li>Advanced Analytics</li>
+				</ul>
+				<div class="btn" onclick="redirectToPayment()">Add to Cart</div>
+			</div>
+			<div class="box">
+				<h2>Enterprise</h2>
+				<h1 id="premium-price">₹999 <span>/month</span></h1>
+				<ul>
+					
+					<li>Dedicated Account Manager</li>
+					<li>Custom Security Solutions</li>
+					<li>Team Management Features</li>
+					<li>Regular Compliance Updates</li>
+					<li>Integration with External Services</li>
+				</ul>
+				<div class="btn" onclick="redirectToPayment()">Add to Cart</div>
+			</div>
+		</div>
 
-        <!-- Pro Pricing Card -->
-        <div class="card">
-            <div class="header">
-                <span class="title">Pro</span>
-                <span class="price">₹999</span>
-            </div>
-            <p class="desc">Best for Professionals who trade frequently.</p>
-            <ul class="lists">
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>14 day trial</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Allows you to access all features of CryptoGuard</span>
-                </li>
-                <li class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Access to premium support features.</span>
-                </li>
-            </ul>
-            <button type="button" class="action"><a href="payments.html">Get Started</a></button>
-        </div>
     </div>
-    <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
+
+    <script>
+        const toggle = document.getElementById('toggle');
+
+        // Prices for yearly plans
+        const yearlyPrices = {
+            basic: 5000 ,
+            advanced: 6500,
+            premium: 10000,
+        };
+
+        // Function to toggle between monthly and yearly
+        toggle.addEventListener('click', function () {
+            toggle.classList.toggle('active');
+
+            if (toggle.classList.contains('active')) {
+                document.getElementById('basic-price').innerHTML = yearlyPrices.basic + "₹ <span>/year</span>";
+                document.getElementById('advanced-price').innerHTML = yearlyPrices.advanced + "₹ <span>/year</span>";
+                document.getElementById('premium-price').innerHTML = yearlyPrices.premium + "₹ <span>/year</span>";
+            } else {
+                document.getElementById('basic-price').innerHTML = "₹499 <span>/month</span>";
+                document.getElementById('advanced-price').innerHTML = "₹699<span>/month</span>";
+                document.getElementById('premium-price').innerHTML = "₹999 <span>/month</span>";
+            }
+        });
+		function redirectToPayment() {
+			window.location.href = 'payment.html';
+		}
+    </script>
 </body>
+
 </html>
