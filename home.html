@@ -22,7 +22,7 @@ body {
     animation: moveBackground 30s linear infinite;
     padding-top: 100px;
     scroll-behavior: smooth;
-    color: #FFE1FF; /* Soft Pink for text */
+    color: #C2D9FF; /* Light Blue for text */
     transition: background 0.5s ease-in-out;
 }
 
@@ -37,7 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: rgba(67, 56, 120, 0.5); /* Dark Purple with transparency */
+    background-color: rgba(25, 36, 64, 0.7); /* Dark Blue with transparency */
     position: fixed;
     width: 100%;
     top: 0;
@@ -62,15 +62,15 @@ header nav {
 
 header nav a {
     text-decoration: none;
-    color: #E4B1F0; /* Light Purple */
+    color: #7752FE; /* Light Purple */
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 header nav a:hover {
-    color: #FFE1FF; /* Soft Pink on hover */
+    color: #C2D9FF; /* Light Blue on hover */
     transform: scale(1.2);
 }
 
@@ -81,7 +81,7 @@ header nav a:before {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #E4B1F0; /* Light Purple underline */
+    background-color: #7752FE; /* Light Purple underline */
     transition: width 0.3s ease;
 }
 
@@ -106,7 +106,7 @@ header nav a:hover:before {
 .background-section h1 {
     font-size: 72px;
     font-weight: bold;
-    color: #FFE1FF; /* PINKY PINKY WOOO WOOOOOOOOOO */
+    color: #7752FE; /* Light Blue */
     margin-bottom: 20px;
     animation: slideIn 1s ease forwards;
 }
@@ -118,43 +118,43 @@ header nav a:hover:before {
 
 .background-section p {
     font-size: 20px;
-    color: #FFE1FF; /* Soft Pink */
+    color: #C2D9FF; /* Light Blue */
     margin: 0;
     animation: fadeIn 2s ease forwards;
 }
-
 .get-started-btn {
     margin-top: 40px;
     padding: 15px 40px;
     font-size: 30px;
-    border: 2px solid #FFE1FF; /* Medium Purple */
-    color: #FFE1FF;
+    border: 2px solid #4E2A91; /* Medium tone of Dark Blue */
+    color: #4E2A91; /* Medium tone of Dark Blue */
     background: transparent;
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px #7E60BF;
+    box-shadow: 0 0 15px #4E2A91; /* Medium tone of Dark Blue */
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 15px #7E60BF; }
-    50% { box-shadow: 0 0 30px #7E60BF; }
-    100% { box-shadow: 0 0 15px #7E60BF; }
+    0% { box-shadow: 0 0 15px #7752FE; } /* Light Purple */
+    50% { box-shadow: 0 0 30px #7752FE; } /* Light Purple */
+    100% { box-shadow: 0 0 15px #7752FE; } /* Light Purple */
 }
 
 .get-started-btn:hover {
-    background-color: #7E60BF; /* Medium Purple */
-    color: black;
+    background-color: #4E2A91; /* Medium tone of Dark Blue */
+    color: #C2D9FF; /* Light Blue for text on hover */
     transform: scale(1.1);
 }
+
 
 /* Content Section */
 .section {
     width: 50%;
     padding: 50px;
-    background-color: rgba(67, 56, 120, 0.9); /* Dark Purple with transparency */
-    color: #FFE1FF; /* Soft Pink */
+    background-color: rgba(25, 36, 64, 0.9); /* Dark Blue with transparency */
+    color: #C2D9FF; /* Light Blue */
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -176,7 +176,7 @@ header nav a:hover:before {
 
 .section h2 {
     font-size: 36px;
-    color: #E4B1F0; /* Light Purple */
+    color: #7752FE; /* Light Purple */
 }
 
 .section p {
@@ -194,8 +194,8 @@ header nav a:hover:before {
 .reviews .review {
     padding: 15px;
     border-radius: 10px;
-    background-color: rgba(67, 56, 120, 0.8); /* Dark Purple with transparency */
-    color: #FFE1FF;
+    background-color: rgba(25, 36, 64, 0.8); /* Dark Blue with transparency */
+    color: #C2D9FF;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -208,7 +208,7 @@ header nav a:hover:before {
 
 /* Star Rating */
 .star-rating {
-    color: #7E60BF; /* Medium Purple */
+    color: #7752FE; /* Light Purple */
     font-size: 18px;
 }
 
@@ -221,9 +221,9 @@ header nav a:hover:before {
     width: 50%;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(67, 56, 120, 0.9); /* Dark Purple */
+    background-color: rgba(25, 36, 64, 0.9); /* Dark Blue */
     border-radius: 10px;
-    color: #FFE1FF; /* Soft Pink */
+    color: #C2D9FF; /* Light Blue */
     text-align: center;
     animation: popIn 0.5s ease forwards;
     opacity: 0;
@@ -240,11 +240,11 @@ header nav a:hover:before {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgba(67, 56, 120, 0.8); /* Dark Purple with transparency */
+    background-color: rgba(25, 36, 64, 0.8); /* Dark Blue with transparency */
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     max-width: 400px;
-    color: #E4B1F0; /* Light Purple */
+    color: #7752FE; /* Light Purple */
     margin-left: auto;
     margin-right: 0;
 }
@@ -273,7 +273,7 @@ header nav a:hover:before {
     white-space: nowrap;
     padding: 20px 0;
     position: relative;
-    color: #FFE1FF; /* Soft Pink */
+    color: #C2D9FF; /* Light Blue */
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -286,6 +286,8 @@ header nav a:hover:before {
     font-size: 1.2em;
     display: inline;
     margin-right: 50px;
+	color: #190482;
+	
 }
 
 /* Text Scrolling Animation */
@@ -297,6 +299,18 @@ header nav a:hover:before {
         transform: translateX(-100%);
     }
 }
+.company-logo {
+    width: 150px; /* Adjust size as needed */
+    margin-top: 20px; /* Spacing above the logo */
+    animation: fadeIn 1s ease forwards; /* Optional fade-in effect */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
 
 
 
@@ -330,10 +344,12 @@ header nav a:hover:before {
     </div>
 	
 	<!-- Background Section with Text -->
-    <div class="background-section">
-        <h1>Welcome to CryptoGuard</h1>
-        <p>CryptoGuard: Simplifying Crypto Transactions with Trust.</p>
-        <a href="signup.html">
+   <div class="background-section">
+		<h1>Welcome to CryptoGuard</h1>
+		<p>CryptoGuard: Simplifying Crypto Transactions with Trust.</p>
+		<img src="cryptoguard.jpg" alt="CryptoGuard Logo" class="company-logo">
+		<br>
+		<a href="signup.html">
             <button class="get-started-btn">Get Started</button>
         </a>
     </div>
