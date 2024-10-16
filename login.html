@@ -1,135 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoGuard</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            height: 100vh;
-        }
-        .left-section {
-            width: 50%;
-            background: url('background1.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-        .left-section h1 {
-            font-size: 80px;
-            font-family: 'Verdana', sans-serif;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-        .left-section p {
-            font-size: 18px;
-            margin-top: 20px;
-            font-family: 'Georgia', serif;
-            letter-spacing: 1px;
-        }
-        .right-section {
-            width: 50%;
-            background-color: white;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .right-section img {
-            max-width: 40%;  /* Smaller logo */
-            height: auto;
-        }
-        .right-section form {
-            margin-top: 20px;
-            width: 100%;
-        }
-        .right-section input[type="text"],
-        .right-section input[type="email"],
-        .right-section input[type="password"] { /* Added password input */
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-family: 'Futuristic', sans-serif;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .right-section label {
-            font-family: 'Futuristic', sans-serif;
-            color: black;
-        }
-        .right-section input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .right-section input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            background-color: black;
-            color: white;
-            font-family: 'Futuristic', sans-serif;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;  /* Added space */
-            font-size: 16px;
-        }
-        .signup-link {
-            margin-top: 10px;
-            font-family: 'Futuristic', sans-serif;
-            color: black;
-            text-decoration: none;
-            text-align: center; /* Center the link */
-        }
-        .signup-link:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
-    </style>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();  // Prevent the default form submission behavior
-            window.location.href = "cgpin.html";  // stupid ahh decision
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Login Form</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+    :root {
+      --white-color: #C2D9FF;
+      --dark-blue: #190482;
+      --light-purple: #7752FE;
+      --lavender: #8E8FFA;
+      --body-font: "Poppins", sans-serif; 
+      --h1-font-size: 1.75rem;
+      --normal-font-size: 1rem;
+      --small-font-size: .813rem;
+      --font-medium: 500; 
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body, input, button {
+      font-size: var(--normal-font-size);
+      font-family: var(--body-font);
+    }
+
+    body {
+      color: var(--white-color);
+      background-color: var(--dark-blue);
+    }
+
+    input, button {
+      border: none;
+      outline: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .login {
+      position: relative;
+      height: 100vh;
+      display: grid;
+      align-items: center;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .login__form {
+      position: relative;
+      background-color: hsla(0, 0%, 10%, 0.5);
+      border: 2px solid var(--white-color);
+      margin-inline: 1.5rem;
+      padding: 2.5rem 1.5rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .login__title {
+      text-align: center;
+      font-size: var(--h1-font-size);
+      font-weight: var(--font-medium);
+      margin-bottom: 2rem;
+    }
+
+    .login__content, .login__box {
+      display: grid;
+    }
+
+    .login__content {
+      row-gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .login__box {
+      grid-template-columns: max-content 1fr;
+      align-items: center;
+      column-gap: 0.75rem;
+      border-bottom: 2px solid var(--white-color);
+    }
+
+    .login__icon, .login__eye {
+      font-size: 1.25rem;
+    }
+
+    .login__input {
+      width: 100%;
+      padding-block: 0.8rem;
+      background: none;
+      color: var(--white-color);
+      position: relative;
+      z-index: 1;
+    }
+
+    .login__box-input {
+      position: relative;
+    }
+
+    .login__label {
+      position: absolute;
+      left: 0;
+      top: 13px;
+      font-weight: var(--font-medium);
+      transition: top 0.3s, font-size 0.3s;
+    }
+
+    .login__eye {
+      position: absolute;
+      right: 0;
+      top: 18px;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .login__box:nth-child(2) input {
+      padding-right: 1.8rem;
+    }
+
+    .login__check, .login__check-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .login__check {
+      margin-bottom: 1.5rem;
+    }
+
+    .login__check-label, .login__forgot, .login__register {
+      font-size: var(--small-font-size);
+    }
+
+    .login__check-group {
+      column-gap: 0.5rem;
+    }
+
+    .login__check-input {
+      width: 16px;
+      height: 16px;
+    }
+
+    .login__forgot {
+      color: var(--white-color);
+    }
+
+    .login__forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login__button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background-color: var(--white-color);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      margin-bottom: 2rem;
+    }
+
+    .login__register {
+      text-align: center;
+    }
+
+    .login__register a {
+      color: var(--white-color);
+      font-weight: var(--font-medium);
+    }
+
+    .login__register a:hover {
+      text-decoration: underline;
+    }
+
+    .login__input:focus + .login__label {
+      top: -12px;
+      font-size: var(--small-font-size);
+    }
+
+    .login__input:not(:placeholder-shown) .login__input:not(:focus) + .login__label {
+      top: -12px;
+      font-size: var(--small-font-size);
+    }
+
+    /* for medium devices */
+    @media screen and (min-width: 576px) {
+      .login {
+        justify-content: center;
+      }
+      .login__form {
+        width: 432px;
+        padding: 4rem 3rem 3.5rem;
+        border-radius: 1.5rem;
+      }
+      .login__title {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="login">
+    <form action="detector.html" method="POST" class="login__form">
+      <h1 class="login__title">Login</h1>
 
-    <div class="left-section">
-        <h1>Welcome to CryptoGuard</h1>
-        <p>CryptoGuard: Simplifying Crypto Transactions with Trust.</p>
-    </div>
+      <div class="login__content">
+        <div class="login__box">
+          <i class="bx bx-user"></i>
+          <div class="login__box-input">
+            <input type="email" required class="login__input" >
+            <label for="" class="login__label">Email</label>
+          </div>
+        </div>
 
-    <div class="right-section">
-        <img src="cryptoguard.jpg" alt="Company Logo">
-        <form onsubmit="handleSubmit(event)">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="login__box">
+          <i class="ri-lock-2-line login__icon"></i>
+          <div class="login__box-input">
+            <input type="password" required class="login__input" id="login-pass" >
+            <label for="" class="login__label">Password</label>
+            <i class="ri-eye-off-line login__eye"></i>
+          </div>
+        </div>
+      </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+      <div class="login__check">
+        <div class="login__check-group">
+          <input type="checkbox" class="login__check-input">
+          <label for="" class="login__check-label">Remember me</label>
+        </div>
+        <a href="#" class="login__forgot">Forgot Password?</a>
+      </div>
 
-            <label for="password">Password:</label> <!-- Added Password label -->
-            <input type="password" id="password" name="password" required> <!-- Added Password input -->
+      <button type="submit" class="login__button">Login</button>
 
-            <label>
-                <input type="checkbox" id="remember" name="remember">
-                Remember Me
-            </label>
+      <p class="login__register">
+        Don't have an account? <a href="signup.html">Register</a>
+      </p>
+    </form>
+  </div>
 
-            <input type="submit" value="Submit">
-        </form>
-        <a class="signup-link" href="signup.html">Don't have an account? Sign Up here</a>
-    </div>
-<script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
+  <script>
+    /*--================== Show Hidden - Password =================*/
+    const showHiddenPass = (loginPass, loginEye) => {
+      const input = document.getElementById(loginPass),
+            iconEye = document.getElementById(loginEye);
+
+      iconEye.addEventListener('click', () => {
+        // Change password to text 
+        if(input.type === 'password') {
+          // Switch to text 
+          input.type = 'text';
+          // Icon change
+          iconEye.classList.add('ri-eye-line');
+          iconEye.classList.remove('ri-eye-off-line');
+        } else {
+          // Change to password
+          input.type = 'password';
+          // Icon change 
+          iconEye.classList.remove('ri-eye-line');
+          iconEye.classList.add('ri-eye-off-line');
+        }
+      });
+    }
+
+    showHiddenPass('login-pass', 'login-eye');
+  </script>
 </body>
 </html>
