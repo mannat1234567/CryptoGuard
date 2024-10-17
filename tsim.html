@@ -63,35 +63,36 @@
         gap: 20px;
     }
 
-    /* Change text to white on hover with underline */
-    header nav a {
-        text-decoration: none;
-        color: #C2D9FF; /* Light Blue */
-        font-weight: bold;
-        font-size: 18px;
-        position: relative;
-        transition: color 0.3s ease, transform 0.3s ease;
-    }
+   header nav a {
+    text-decoration: none;
+    color: #C2D9FF; /* Light Blue */
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-    header nav a:hover {
-        color: #7752FE; /* Light Purple on hover */
-        transform: scale(1.2); /* Slight scale up on hover */
-    }
+header nav a:hover {
+    color: white; /* Change text to white on hover */
+    transform: scale(1.2); /* Slight scale up on hover */
+}
 
-    header nav a:before {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #C2D9FF; /* Light Blue underline */
-        transition: width 0.3s ease;
-    }
+header nav a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #7752FE; /* Light Purple underline */
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
 
-    header nav a:hover:before {
-        width: 100%; /* Underline effect */
-    }
+header nav a:hover:before {
+    width: 100%; /* Underline effect */
+    background-color: #8E8FFA; /* Different color for underline on hover */
+}
+
 
     /* Risk Score Section Styling */
     .risk-score-section {
