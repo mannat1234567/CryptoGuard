@@ -18,6 +18,13 @@
             background: url('pic.gif') no-repeat center center/cover;
             background-attachment: fixed;
             padding-top: 100px;
+            animation: fadeIn 1.5s ease-in-out;
+            background-color: #190482;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         header {
@@ -25,13 +32,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            animation: slideDown 1s ease-out;
         }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
         header img {
             height: 80px;
         }
@@ -41,87 +55,122 @@
         }
         header nav a {
             text-decoration: none;
-            color: gold;
+            color: #C2D9FF; /* Light Blue */
             font-weight: bold;
             font-size: 18px;
             transition: color 0.3s ease;
         }
         header nav a:hover {
-            color: lightblue;
+            color: #8E8FFA; /* Lavender */
         }
 
         .main-container {
             padding: 50px;
             text-align: center;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         h1 {
             font-size: 48px;
-            color: gold;
+            color: #C2D9FF; /* Light Blue */
             margin-bottom: 20px;
+        }
+
+        p {
+            color: #C2D9FF;
+            font-size: 20px;
+            margin-bottom: 40px;
         }
 
         .query-form {
             background-color: rgba(25, 25, 25, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            color: lightblue;
+            padding: 30px;
+            border-radius: 15px;
+            color: #C2D9FF; /* Light Blue */
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            animation: bounceIn 1.5s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .query-form input, .query-form textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid gold;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #C2D9FF; /* Light Blue */
             border-radius: 5px;
             background: rgba(40, 40, 40, 0.8);
             color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .query-form input:focus, .query-form textarea:focus {
+            outline: none;
+            border-color: #7752FE; /* Light Purple */
+            background-color: rgba(50, 50, 50, 0.9);
         }
 
         .submit-btn {
-            padding: 10px 20px;
-            background-color: gold;
-            color: black;
-            border: none;
+            padding: 12px 25px;
+            background-color: #190482; /* Dark Blue */
+            color: #C2D9FF; /* Light Blue */
+            border: 1px solid #C2D9FF; /* Light Blue */
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .submit-btn:hover {
-            background-color: lightblue;
+            background-color: #7752FE; /* Light Purple */
+            transform: translateY(-3px);
         }
 
         .answers-section {
             margin-top: 50px;
             background-color: rgba(25, 25, 25, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            color: lightblue;
+            padding: 30px;
+            border-radius: 15px;
+            color: #C2D9FF; /* Light Blue */
             max-width: 800px;
-            margin: 20px auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 40px auto;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            animation: slideUp 1.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .answer {
             margin-bottom: 20px;
-            border-bottom: 1px solid gold;
+            border-bottom: 1px solid #C2D9FF; /* Light Blue */
             padding-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .answer:hover {
+            background-color: rgba(50, 50, 50, 0.9);
+            transform: scale(1.02);
         }
 
         .answer h3 {
-            color: gold;
+            color: #C2D9FF; /* Light Blue */
+            margin-bottom: 10px;
         }
-		.p {
-			font-size: 20px;
-			color: gold;
-			margin-bottom: 20px;
-		}
-
     </style>
 </head>
 <body>
@@ -133,16 +182,16 @@
             <a href="login.html">Login</a>
             <a href="about.html">About</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-			<a href="tte.html">Talk To Experts</a>
-			<a href="tsim.html">CG Score Predictor</a>
-			<a href="mailto:support@cryptoguard.com">Contact</a>
+            <a href="tte.html">Talk To Experts</a>
+            <a href="tsim.html">CG Score Predictor</a>
+            <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
     <!-- Main Container -->
     <div class="main-container">
         <h1>Talk to Our Experts</h1>
-        <p style="color: gold;">Got questions about crypto? Submit your query below, and our experts will provide you with answers!</p>
+        <p>Got questions about crypto? Submit your query below, and our experts will provide you with answers!</p>
 
         <!-- Query Form -->
         <div class="query-form">
@@ -154,7 +203,8 @@
 
         <!-- Answers Section -->
         <div class="answers-section" id="answers-section">
-            <h2>Expert Answers</h2>
+            <h2>Expert Opinions</h2>
+			<br><br>
             <div class="answer">
                 <h3>Expert 1:</h3>
                 <p>"Investing in cryptocurrency can be highly rewarding, but it's essential to conduct thorough research before diving in."</p>
