@@ -4,174 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoGuard - Talk to Experts</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            padding-top: 100px;
-            animation: fadeIn 1.5s ease-in-out;
-            background-color: #190482;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background: url('pic.gif') no-repeat center center/cover;
+        background-attachment: fixed;
+        padding-top: 120px; /* Added more top padding for better spacing */
+        animation: moveBackground 30s linear infinite;
+        scroll-behavior: smooth;
+        transition: background 0.5s ease-in-out;
+        color: #C2D9FF; /* Light Blue for text */
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            animation: slideDown 1s ease-out;
-        }
+    @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
+    /* Transparent Header with Blur */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px; /* Increased padding for better spacing */
+        background-color: rgba(0,0,0,0); 
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        transition: backdrop-filter 0.3s ease;
+    }
 
-        header img {
-            height: 80px;
-        }
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-        header nav a {
-            text-decoration: none;
-            color: #C2D9FF; /* Light Blue */
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: #8E8FFA; /* Lavender */
-        }
+    header img {
+        height: 80px;
+        transition: transform 0.5s ease;
+    }
 
-        .main-container {
-            padding: 50px;
-            text-align: center;
-            animation: fadeInUp 1.5s ease-in-out;
-        }
+    header img:hover {
+        transform: rotate(360deg); /* Logo spin animation on hover */
+    }
 
-        @keyframes fadeInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+    header nav {
+        display: flex;
+        gap: 30px; /* Increased gap for better readability between links */
+    }
 
-        h1 {
-            font-size: 48px;
-            color: #C2D9FF; /* Light Blue */
-            margin-bottom: 20px;
-        }
+    header nav a {
+        text-decoration: none;
+        color: #7752FE; /* Light Purple */
+        font-weight: bold;
+        font-size: 20px; /* Slightly increased font size */
+        position: relative;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-        p {
-            color: #C2D9FF;
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
+    header nav a:hover {
+        color: #C2D9FF; /* Light Blue */
+        transform: scale(1.2); /* Pop animation */
+    }
 
-        .query-form {
-            background-color: rgba(25, 25, 25, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            color: #C2D9FF; /* Light Blue */
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-            animation: bounceIn 1.5s ease-out;
-        }
+    header nav a::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #7752FE; /* Light Purple */
+        transition: width 0.3s ease;
+    }
 
-        @keyframes bounceIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+    header nav a:hover::before {
+        width: 100%;
+    }
 
-        .query-form input, .query-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            border: 1px solid #C2D9FF; /* Light Blue */
-            border-radius: 5px;
-            background: rgba(40, 40, 40, 0.8);
-            color: white;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
+    .main-container {
+        padding: 70px 50px; /* Increased padding for better readability */
+        text-align: center;
+        animation: fadeIn 1s ease-in-out, slideInBackground 1s ease forwards;
+    }
 
-        .query-form input:focus, .query-form textarea:focus {
-            outline: none;
-            border-color: #7752FE; /* Light Purple */
-            background-color: rgba(50, 50, 50, 0.9);
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-        .submit-btn {
-            padding: 12px 25px;
-            background-color: #190482; /* Dark Blue */
-            color: #C2D9FF; /* Light Blue */
-            border: 1px solid #C2D9FF; /* Light Blue */
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+    @keyframes slideInBackground {
+        from { transform: translateY(-100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
 
-        .submit-btn:hover {
-            background-color: #7752FE; /* Light Purple */
-            transform: translateY(-3px);
-        }
+    h1 {
+        font-size: 52px; /* Slightly increased font size */
+        color: #7752FE; /* Light Purple */
+        margin-bottom: 30px; /* Increased margin for breathing room */
+        animation: colorShift 2s infinite alternate;
+    }
 
-        .answers-section {
-            margin-top: 50px;
-            background-color: rgba(25, 25, 25, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            color: #C2D9FF; /* Light Blue */
-            max-width: 800px;
-            margin: 40px auto;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-            animation: slideUp 1.5s ease-out;
-        }
+    @keyframes colorShift {
+        0% { color: #7752FE; }
+        50% { color: #8E8FFA; } /* Lavender */
+        100% { color: #7752FE; }
+    }
 
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+    .query-form {
+        background-color: rgba(25, 25, 25, 0.9);
+        padding: 30px; /* Increased padding for better space around form */
+        border-radius: 10px;
+        color: #C2D9FF; /* Light Blue */
+        max-width: 600px;
+        margin: 50px auto; /* Added margin for separation */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 
-        .answer {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #C2D9FF; /* Light Blue */
-            padding-bottom: 10px;
-            transition: all 0.3s ease;
-        }
+    .query-form input, .query-form textarea {
+        width: 100%;
+        padding: 15px; /* Increased padding for better user experience */
+        margin: 15px 0; /* Added margin for spacing between input fields */
+        border: 1px solid #7752FE;
+        border-radius: 5px;
+        background: rgba(40, 40, 40, 0.8);
+        color: white;
+    }
 
-        .answer:hover {
-            background-color: rgba(50, 50, 50, 0.9);
-            transform: scale(1.02);
-        }
+    .submit-btn {
+        padding: 15px 30px; /* Increased padding for a larger button */
+        background-color: #7752FE; /* Light Purple */
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px; /* Increased button font size */
+        transition: background-color 0.3s ease;
+        box-shadow: 0 0 15px #7752FE;
+        animation: pulse 2s infinite;
+    }
 
-        .answer h3 {
-            color: #C2D9FF; /* Light Blue */
-            margin-bottom: 10px;
-        }
-    </style>
+    @keyframes pulse {
+        0% { box-shadow: 0 0 15px #7752FE; }
+        50% { box-shadow: 0 0 30px #7752FE; }
+        100% { box-shadow: 0 0 15px #7752FE; }
+    }
+
+    .submit-btn:hover {
+        background-color: #C2D9FF; /* Light Blue on hover */
+        transform: scale(1.1);
+    }
+
+    .answers-section {
+        margin-top: 70px; /* Increased margin for better separation from form */
+        background-color: rgba(25, 25, 25, 0.9);
+        padding: 30px; /* Increased padding for better content readability */
+        border-radius: 10px;
+        color: #C2D9FF;
+        max-width: 800px;
+        margin: 30px auto; /* Adjusted margin for spacing */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .answer {
+        margin-bottom: 30px; /* Increased space between answers */
+        border-bottom: 1px solid #7752FE;
+        padding-bottom: 20px;
+    }
+
+    .answer h3 {
+        color: #7752FE; /* Light Purple */
+        font-size: 28px; /* Increased heading size for emphasis */
+    }
+
+    .p {
+        font-size: 20px;
+        color: #C2D9FF;
+        margin-bottom: 30px; /* Increased margin for breathing space */
+        animation: textShake 1.5s ease infinite;
+    }
+
+    @keyframes textShake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+    }
+</style>
+
 </head>
 <body>
     <!-- Header -->
@@ -182,16 +208,17 @@
             <a href="login.html">Login</a>
             <a href="about.html">About</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-            <a href="tte.html">Talk To Experts</a>
-            <a href="tsim.html">CG Score Predictor</a>
-            <a href="mailto:support@cryptoguard.com">Contact</a>
+              <a href="encryption.html">Encryption Services</a>
+			<a href="tte.html">Talk To Experts</a>
+			<a href="tsim.html">CG Score Predictor</a>
+			<a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
 
     <!-- Main Container -->
     <div class="main-container">
         <h1>Talk to Our Experts</h1>
-        <p>Got questions about crypto? Submit your query below, and our experts will provide you with answers!</p>
+        <p style="color: #C2D9FF;">Got questions about crypto? Submit your query below, and our experts will provide you with answers!</p>
 
         <!-- Query Form -->
         <div class="query-form">
@@ -203,8 +230,7 @@
 
         <!-- Answers Section -->
         <div class="answers-section" id="answers-section">
-            <h2>Expert Opinions</h2>
-			<br><br>
+            <h2>Expert Answers</h2>
             <div class="answer">
                 <h3>Expert 1:</h3>
                 <p>"Investing in cryptocurrency can be highly rewarding, but it's essential to conduct thorough research before diving in."</p>
