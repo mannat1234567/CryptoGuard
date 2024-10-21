@@ -7,145 +7,146 @@
     <title>CryptoGuard Checkout</title>
 
    <style>
-		  * {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			font-family: 'Poppins', sans-serif;
-				}
+		 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-		body {
-			background: url('pic.gif') no-repeat center center fixed;
-			background-size: cover;
-			color: #ffffff;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
-		}
+body {
+    background: url('pic.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-		.container {
-			background-color: rgba(25, 36, 64, 0.9); /* Dark Blue with opacity */
-			padding: 40px;
-			border-radius: 15px;
-			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-			animation: fadeIn 1s ease-in-out;
-			width: 800px;
-			position: relative;
-		}
+.container {
+    background-color: rgba(30, 42, 94, 0.9); /* Dark Blue with opacity */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+    width: 800px;
+    position: relative;
+}
 
-		.logo {
-			position: absolute;
-			top: 20px;
-			left: 20px;
-		}
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
 
-		.logo img {
-			height: 60px;
-		}
+.logo img {
+    height: 60px;
+}
 
-		form {
-			max-width: 800px;
-			width: 100%;
-		}
+form {
+    max-width: 800px;
+    width: 100%;
+}
 
-		.title {
-			font-size: 1.8rem;
-			margin-bottom: 20px;
-			color: #7752FE; /* Light Purple */
-		}
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #FFC107; /* Gold */
+}
 
-		.inputBox {
-			margin-bottom: 20px;
-		}
+.inputBox {
+    margin-bottom: 20px;
+}
 
-		.inputBox span {
-			font-size: 1rem;
-			color: #C2D9FF; /* Light Blue */
-		}
+.inputBox span {
+    font-size: 1rem;
+    color: #C2D9FF; /* Light Blue */
+}
 
-		.inputBox input {
-			width: 100%;
-			padding: 12px;
-			margin-top: 8px;
-			border: 2px solid #7752FE;
-			border-radius: 8px;
-			background: #1f283b;
-			color: #fff;
-			font-size: 1rem;
-		}
+.inputBox input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 2px solid #FFC107; /* Gold */
+    border-radius: 8px;
+    background: #1f283b; /* Dark background */
+    color: #fff;
+    font-size: 1rem;
+}
 
-		.flex {
-			display: flex;
-			gap: 20px;
-		}
+.flex {
+    display: flex;
+    gap: 20px;
+}
 
-		.flex .inputBox {
-			flex: 1;
-		}
+.flex .inputBox {
+    flex: 1;
+}
 
-		.submit-btn {
-			width: 100%;
-			padding: 15px;
-			background-color: #7752FE;
-			border: none;
-			border-radius: 8px;
-			color: #fff;
-			font-size: 1.2rem;
-			cursor: pointer;
-			transition: background-color 0.3s ease, transform 0.3s ease;
-		}
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #003A70; /* Dark Blue */
+    border: none;
+    border-radius: 8px;
+    color: #FFC107; /* Gold */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-		.submit-btn:hover {
-			background-color: #8E8FFA;
-			transform: translateY(-5px);
-		}
+.submit-btn:hover {
+    background-color: #005A9E; /* Lighter Blue */
+    transform: translateY(-5px);
+}
 
-		/* Updated Plan Summary Styling */
-		.plan-summary {
-			margin-top: 20px;
-			background-color: #7752FE;
-			padding: 20px;
-			border-radius: 10px;
-			color: #ffffff;
-			font-size: 1.5rem;
-			font-weight: bold;
-			text-align: center;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-			animation: fadeInSummary 1s ease;
-		}
+/* Updated Plan Summary Styling */
+.plan-summary {
+    margin-top: 20px;
+    background-color: #003A70; /* Dark Blue */
+    padding: 20px;
+    border-radius: 10px;
+    color: #FFC107; /* Gold */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInSummary 1s ease;
+}
 
-		.plan-summary span {
-			color: #C2D9FF; /* Light Blue */
-			font-weight: bold;
-			background-color: #190482; /* Dark Blue */
-			padding: 5px 10px;
-			border-radius: 5px;
-		}
+.plan-summary span {
+    color: #FFC107; /* Gold */
+    font-weight: bold;
+    background-color: #1E2A5E; /* Dark Blue */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 
-		/* Animation for fade-in */
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(20px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
+/* Animation for fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-		/* Animation for the plan summary */
-		@keyframes fadeInSummary {
-			from {
-				opacity: 0;
-				transform: scale(0.9);
-			}
-			to {
-				opacity: 1;
-				transform: scale(1);
-			}
-		}
+/* Animation for the plan summary */
+@keyframes fadeInSummary {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 
 </style>
 </head>
