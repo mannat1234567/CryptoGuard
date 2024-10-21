@@ -6,125 +6,163 @@
     <title>CryptoGuard - FAQ</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            animation: moveBackground 30s linear infinite;
-            padding-top: 100px;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: url('pic.gif') no-repeat center center/cover;
+    background-attachment: fixed;
+    animation: moveBackground 30s linear infinite;
+    padding-top: 100px;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(25, 25, 25, 0);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
 
-        header img {
-            height: 40px;
-        }
+/* Transparent Header with Blur */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0); /* Darker background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: backdrop-filter 0.3s ease;
+}
 
-        header nav {
-            display: flex;
-            gap: 15px;
-        }
+header img {
+    height: 80px;
+    transition: transform 0.5s ease;
+}
 
-        header nav a {
-            text-decoration: none;
-            color: #C2D9FF; /* Light Blue */
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+header img:hover {
+    transform: rotate(360deg);
+}
 
-        header nav a:hover {
-            color: #7752FE; /* Light Purple */
-            transform: translateY(-3px);
-        }
+header nav {
+    display: flex;
+    gap: 20px;
+}
 
-        .faq-section {
-            width: 70%;
-            margin: 80px auto;
-            padding: 20px;
-            background-color: rgba(25, 25, 25, 0.9);
-            color: #C2D9FF; /* Light Blue */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+header nav a {
+    text-decoration: none;
+    color: #3A46A8; /* Lighter tone of blue for navigation links */
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-        .faq-section h1 {
-            font-size: 36px;
-            color: #7752FE; /* Light Purple */
-            margin-bottom: 20px;
-        }
+header nav a:hover {
+    color: #F9D342; /* Gold on hover */
+    transform: scale(1.2);
+}
 
-        .faq-search {
-            margin-bottom: 20px;
-        }
+header nav a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #7C93C3; /* Soft Blue underline */
+    transition: width 0.3s ease;
+}
 
-        .faq-search input {
-            width: 100%;
-            padding: 10px;
-            font-size: 18px;
-            border-radius: 5px;
-            border: none;
-            background-color: #190482; /* Dark Blue */
-            color: #C2D9FF; /* Light Blue */
-        }
+header nav a:hover:before {
+    width: 100%;
+}
 
-        .faq-search input::placeholder {
-            color: #C2D9FF; /* Light Blue */
-        }
+/* FAQ Section Styling */
+.faq-section {
+    width: 70%;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: rgba(25, 25, 25, 0.9);
+    color: #F7CA44; /* Light Blue */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
-        .faq-item {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
+.faq-section h1 {
+    font-size: 36px;
+    color: #3A46A8; /* Light Purple */
+    margin-bottom: 20px;
+}
 
-        .faq-item h3 {
-            cursor: pointer;
-            color: #7752FE; /* Light Purple */
-            margin-bottom: 5px;
-            transition: color 0.3s ease;
-        }
+.faq-search {
+    margin-bottom: 20px;
+}
 
-        .answer {
-            display: none;
-            padding-left: 10px;
-            color: #C2D9FF; /* Light Blue */
-            font-size: 16px;
-        }
+.faq-search input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #433878; /* Dark Blue */
+    color: #F7CA44; /* Light Blue */
+}
 
-        .faq-item h3:hover {
-            color: #C2D9FF; /* Light Blue */
-        }
+.faq-search input::placeholder {
+    color: #F7CA44; /* Light Blue */
+}
 
-        .no-result {
-            display: none;
-            color: #C2D9FF; /* Light Blue */
-            text-align: center;
-            font-size: 18px;
-        }
+.faq-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.faq-item h3 {
+    cursor: pointer;
+    color: #3A46A8; /* Light Purple */
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.answer {
+    display: none;
+    padding-left: 10px;
+    color: #F7CA44; /* Light Blue */
+    font-size: 16px;
+}
+
+.faq-item h3:hover {
+    color: #3A46A8; /* Light Blue */
+}
+
+.no-result {
+    display: none;
+    color: #F7CA44; /* Light Blue */
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Hyperlink styling in FAQ section */
+.faq-item a {
+    color: #F7CA44; /* Light Blue */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faq-item a:hover {
+    color: #3A46A8; /* Light Purple */
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -138,6 +176,7 @@
             <a href="encryption.html">Encryption Services</a>
             <a href="tte.html">Talk To Experts</a>
             <a href="tsim.html">CG Score Predictor</a>
+			<a href="faq.html">FAQs</a>
             <a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
     </header>
