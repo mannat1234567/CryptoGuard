@@ -20,9 +20,9 @@ body {
     background: url('pic.gif') no-repeat center center/cover;
     background-attachment: fixed;
     animation: moveBackground 30s linear infinite;
-    padding-top: 0px;
+    padding-top: 75px;
     scroll-behavior: smooth;
-    color: #C2D9FF; /* Light Blue for text */
+    color: #F9D342; /* Gold for text */
     transition: background 0.5s ease-in-out;
 }
 
@@ -37,7 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: rgba(0,0,0,0)
+    background-color: rgba(0, 0, 0, 0); /* Darker background */
     position: fixed;
     width: 100%;
     top: 0;
@@ -62,7 +62,7 @@ header nav {
 
 header nav a {
     text-decoration: none;
-    color: #7752FE; /* Light Purple */
+    color: #3A46A8; /* Lighter tone of blue for navigation links */
     font-weight: bold;
     font-size: 20px;
     position: relative;
@@ -70,7 +70,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #C2D9FF; /* Light Blue on hover */
+    color: #F9D342; /* Gold on hover */
     transform: scale(1.2);
 }
 
@@ -81,7 +81,7 @@ header nav a:before {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #7752FE; /* Light Purple underline */
+    background-color: #7C93C3; /* Soft Blue underline */
     transition: width 0.3s ease;
 }
 
@@ -106,7 +106,7 @@ header nav a:hover:before {
 .background-section h1 {
     font-size: 72px;
     font-weight: bold;
-    color: #7752FE; /* Light Blue */
+    color: #3A46A8; /* Lighter tone of blue for Welcome to CryptoGuard */
     margin-bottom: 20px;
     animation: slideIn 1s ease forwards;
 }
@@ -118,44 +118,43 @@ header nav a:hover:before {
 
 .background-section p {
     font-size: 20px;
-    color: #C2D9FF; /* Light Blue */
+    color: #F9D342; /* Gold */
     margin: 0;
     animation: fadeIn 2s ease forwards;
 }
+
 .get-started-btn {
     margin-top: 40px;
     padding: 15px 40px;
     font-size: 30px;
-    border: 2px solid #8E8FFA; /* Lavender */
-    color: #8E8FFA; /* Lavender */
+    border: 2px solid #7C93C3; /* Soft Blue */
+    color: #7C93C3; /* Soft Blue */
     background: transparent;
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px #8E8FFA; /* Lavender glow */
+    box-shadow: 0 0 15px #7C93C3; /* Soft Blue glow */
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 15px #8E8FFA; } /* Lavender */
-    50% { box-shadow: 0 0 30px #8E8FFA; } /* Lavender */
-    100% { box-shadow: 0 0 15px #8E8FFA; } /* Lavender */
+    0% { box-shadow: 0 0 15px #7C93C3; } /* Soft Blue */
+    50% { box-shadow: 0 0 30px #7C93C3; } /* Soft Blue */
+    100% { box-shadow: 0 0 15px #7C93C3; } /* Soft Blue */
 }
 
 .get-started-btn:hover {
-    background-color: #8E8FFA; /* Lavender */
-    color: #190482; /* Dark Blue for text on hover */
+    background-color: #F9D342; /* Gold */
+    color: #161D6F; /* Darker Blue for text on hover */
     transform: scale(1.1);
 }
-
-
 
 /* Content Section */
 .section {
     width: 50%;
     padding: 50px;
-    background-color: rgba(25, 36, 64, 0.9); /* Dark Blue with transparency */
-    color: #C2D9FF; /* Light Blue */
+    background-color: rgba(16, 22, 90, 0.9); /* Darker blue for tiles */
+    color: #F9D342; /* Gold */
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -177,7 +176,7 @@ header nav a:hover:before {
 
 .section h2 {
     font-size: 36px;
-    color: #7752FE; /* Light Purple */
+    color: #87A2FF; /* Darker Blue */
 }
 
 .section p {
@@ -195,8 +194,8 @@ header nav a:hover:before {
 .reviews .review {
     padding: 15px;
     border-radius: 10px;
-    background-color: rgba(25, 36, 64, 0.8); /* Dark Blue with transparency */
-    color: #C2D9FF;
+    background-color: rgba(16, 22, 90, 0.8); /* Darker Blue for tiles */
+    color: #F9D342; /* Gold */
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -209,7 +208,7 @@ header nav a:hover:before {
 
 /* Star Rating */
 .star-rating {
-    color: #7752FE; /* Light Purple */
+    color: #7C93C3; /* Soft Blue */
     font-size: 18px;
 }
 
@@ -222,9 +221,9 @@ header nav a:hover:before {
     width: 50%;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(25, 36, 64, 0.9); /* Dark Blue */
+    background-color: rgba(16, 22, 90, 0.9); /* Darker blue for tiles */
     border-radius: 10px;
-    color: #C2D9FF; /* Light Blue */
+    color: #F9D342; /* Gold */
     text-align: center;
     animation: popIn 0.5s ease forwards;
     opacity: 0;
@@ -241,11 +240,11 @@ header nav a:hover:before {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgba(25, 36, 64, 0.8); /* Dark Blue with transparency */
+    background-color: rgba(16, 22, 90, 0.8); /* Darker blue for tiles */
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     max-width: 400px;
-    color: #7752FE; /* Light Purple */
+    color: #7C93C3; /* Soft Blue */
     margin-left: auto;
     margin-right: 0;
 }
@@ -253,17 +252,13 @@ header nav a:hover:before {
 .market-analysis h2 {
     font-size: 32px;
     margin-bottom: 15px;
+    color: #161D6F; /* Darker Blue */
 }
 
 .market-analysis p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 10px;
-}
-
-.market-analysis .chart-container {
-    width: 100%;
-    margin-top: 20px;
 }
 
 /* Banner Styling */
@@ -274,7 +269,7 @@ header nav a:hover:before {
     white-space: nowrap;
     padding: 20px 0;
     position: relative;
-    color: #C2D9FF; /* Light Blue */
+    color: #F9D342; /* Gold */
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -287,8 +282,7 @@ header nav a:hover:before {
     font-size: 1.2em;
     display: inline;
     margin-right: 50px;
-	color: #8E8FFA;
-	
+    color: #87A2FF; /* Darker Blue */
 }
 
 /* Text Scrolling Animation */
@@ -300,6 +294,7 @@ header nav a:hover:before {
         transform: translateX(-100%);
     }
 }
+
 .company-logo {
     width: 150px; /* Adjust size as needed */
     margin-top: 20px; /* Spacing above the logo */
@@ -310,10 +305,6 @@ header nav a:hover:before {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-
-
-
 
 </style>
 </head>
@@ -326,8 +317,9 @@ header nav a:hover:before {
             <a href="login.html">Login</a>
             <a href="about.html">About</a>
             <a href="crowdspamr.html">Crowd Spam Report</a>
-	    <a href="encryption.html">Encryption Services</a>
+			<a href="encryption.html">Encryption Services</a>
 			<a href="tte.html">Talk To Experts</a>
+			<a href="faq.html">FAQs</a>
 			<a href="tsim.html">CG Score Predictor</a>
 			<a href="mailto:support@cryptoguard.com">Contact</a>
         </nav>
