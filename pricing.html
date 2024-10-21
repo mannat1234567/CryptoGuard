@@ -9,224 +9,226 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-        * {
-			margin: 0;
-			padding: 0;
-			font-family: 'Poppins', sans-serif;
-			box-sizing: border-box;
-		}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
 
-		body {
-			background-image: url('pic.gif'); /* Set the background image */
-			background-size: cover; /* Cover the entire background */
-			background-position: center; /* Center the background */
-		}
+body {
+    background-image: url('pic.gif'); /* Set the background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+}
 
-		.container {
-			min-height: 100vh;
-			width: 100%;
-			padding: 23px 0;
-			padding-top: 100px;
-		}
+.container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 23px 0;
+    padding-top: 100px;
+}
 
-		.container h1 {
-			text-align: center;
-			margin-bottom: 23px;
-			color: #fff;
-		}
+.container h1 {
+    text-align: center;
+    margin-bottom: 23px;
+    color: #FFC107; /* Gold */
+}
 
-		.container p {
-			text-align: center;
-			color: #fff; /* White text for paragraphs */
-			margin: 10px 0; /* Space above and below paragraphs */
-			font-size: 18px; /* Font size for paragraphs */
-		}
+.container p {
+    text-align: center;
+    color: #FFC107; /* Gold for paragraphs */
+    margin: 10px 0; /* Space above and below paragraphs */
+    font-size: 18px; /* Font size for paragraphs */
+}
 
-		.price-row {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-		.box {
-			margin: 0px 12px;
-			text-align: center;
-			background: #1f283b; /* Dark background for boxes */
-			color: #fff;
-			border-radius: 17px;
-			padding: 0 12px;
-		}
+.box {
+    margin: 0px 12px;
+    text-align: center;
+    background: #1E2A5E; /* Dark Blue background for boxes */
+    color: #FFC107; /* Gold text */
+    border-radius: 17px;
+    padding: 0 12px;
+}
 
-		.box h2 {
-			margin: 27px 0 23px;
-		}
+.box h2 {
+    margin: 27px 0 23px;
+    color: #FFC107; /* Gold */
+}
 
-		.box ul {
-			list-style: none;
-			color: #ddd;
-			text-align: left;
-			margin: 20px 0;
-		}
+.box ul {
+    list-style: none;
+    color: #ddd; /* Light gray for list items */
+    text-align: left;
+    margin: 20px 0;
+}
 
-		.box ul li {
-			padding: 9px 63px;
-		}
+.box ul li {
+    padding: 9px 63px;
+}
 
-		.box ul li::before {
-			content: '\2022';
-			color: #8E8FFA; /* Accent color for bullet */
-			font-weight: bold;
-			margin-right: 8px;
-		}
+.box ul li::before {
+    content: '\2022';
+    color: #FFC107; /* Gold for bullet */
+    font-weight: bold;
+    margin-right: 8px;
+}
 
-		.box .btn {
-			font-size: 16px;
-			margin: 23px 23px;
-			border: 2px solid #7752FE; /* Light Purple border */
-			padding: 12px 0px;
-			border-radius: 5px;
-			margin: 25px 35px;
-			transition: all 0.5s;
-			background-color: #7752FE; /* Dark Blue button */
-			color: white;
-		}
+.box .btn {
+    font-size: 16px;
+    margin: 23px 23px;
+    border: 2px solid #FFC107; /* Gold border */
+    padding: 12px 0px;
+    border-radius: 5px;
+    margin: 25px 35px;
+    transition: all 0.5s;
+    background-color: #003A70; /* Dark Blue button */
+    color: white;
+}
 
-		.box .btn:hover {
-			background-color: #8E8FFA; /* Hover effect */
-			cursor: pointer;
-		}
+.box .btn:hover {
+    background-color: #005A9E; /* Lighter Blue on hover */
+    cursor: pointer;
+}
 
-		.box span {
-			font-size: 16px;
-		}
+.box span {
+    font-size: 16px;
+}
 
-		@media only screen and (max-width: 1000px) {
-			.price-row {
-				flex-wrap: wrap;
-			}
+@media only screen and (max-width: 1000px) {
+    .price-row {
+        flex-wrap: wrap;
+    }
 
-			.box {
-				margin: 12px 23px;
-			}
-		}
+    .box {
+        margin: 12px 23px;
+    }
+}
 
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-			padding-top: 100px;
-        }
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 100px;
+}
 
-        .toggle {
-            position: relative;
-            width: 100px; /* Adjusted width for two labels */
-            height: 30px;
-            background-color: #ccc;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-			
-        }
+.toggle {
+    position: relative;
+    width: 100px; /* Adjusted width for two labels */
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .toggle:before {
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 24px;
-            height: 24px;
-            background-color: white;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
+.toggle:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
 
-        .toggle.active {
-            background-color: #7752FE; /* Change color when active */
-        }
+.toggle.active {
+    background-color: #003A70; /* Change color when active */
+}
 
-        .toggle.active:before {
-            transform: translateX(70px); /* Move the toggle to the right */
-        }
+.toggle.active:before {
+    transform: translateX(70px); /* Move the toggle to the right */
+}
 
-        .label {
-            position: absolute;
-            top: 5px;
-            font-weight: bold;
-            color: #fff;
-            width: 50%; /* Equal width for both labels */
-            text-align: center;
-        }
+.label {
+    position: absolute;
+    top: 5px;
+    font-weight: bold;
+    color: #FFC107; /* Gold */
+    width: 50%; /* Equal width for both labels */
+    text-align: center;
+}
 
-        .label.yearly {
-            left: 0;
-        }
+.label.yearly {
+    left: 0;
+}
 
-        .label.monthly {
-            right: 0;
-        }
-		header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 20px; /* Adjust as necessary */
-			background-color: rgba(25, 36, 64, 0.7); /* Dark Blue with transparency */
-			position: fixed;
-			width: 100%;
-			top: 0;
-			z-index: 1000;
-			backdrop-filter: blur(10px);
-			left: 0; /* Start from the left edge */
-			right: 0; /* Stretch to the right edge */
-			margin: 0; /* Ensure no margin */
-		}
+.label.monthly {
+    right: 0;
+}
 
-		header img {
-			height: 80px;
-			transition: transform 0.5s ease;
-		}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Adjust as necessary */
+    background-color: rgba(30, 42, 94, 0); /* Dark Blue with transparency */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    left: 0; /* Start from the left edge */
+    right: 0; /* Stretch to the right edge */
+    margin: 0; /* Ensure no margin */
+}
 
-		header img:hover {
-			transform: rotate(360deg);
-		}
+header img {
+    height: 80px;
+    transition: transform 0.5s ease;
+}
 
-		header nav {
-			display: flex;
-			gap: 20px;
-		}
+header img:hover {
+    transform: rotate(360deg);
+}
 
-		header nav a {
-			text-decoration: none;
-			color: #7752FE; /* Light Purple */
-			font-weight: bold;
-			font-size: 15px;
-			position: relative;
-			transition: color 0.3s ease, transform 0.3s ease;
-		}
+header nav {
+    display: flex;
+    gap: 20px;
+}
 
-		header nav a:hover {
-			color: #C2D9FF; /* Light Blue on hover */
-			transform: scale(1.2);
-		}
+header nav a {
+    text-decoration: none;
+    color: #FFC107; /* Gold */
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-		header nav a:before {
-			content: "";
-			position: absolute;
-			width: 0%;
-			height: 2px;
-			bottom: -5px;
-			left: 0;
-			background-color: #7752FE; /* Light Purple underline */
-			transition: width 0.3s ease;
-		}
+header nav a:hover {
+    color: #C2D9FF; /* Light Blue on hover */
+    transform: scale(1.2);
+}
 
-		header nav a:hover:before {
-			width: 100%;
-		}
-		p {
-			color: #7752FE; /* Light Purple */
-			margin: 10px 0; /* Optional: Add margin for spacing */
-		}
+header nav a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFC107; /* Gold underline */
+    transition: width 0.3s ease;
+}
+
+header nav a:hover:before {
+    width: 100%;
+}
+
+p {
+    color: #FFC107; /* Gold */
+    margin: 10px 0; /* Optional: Add margin for spacing */
+}
 
 
     </style>
@@ -302,30 +304,38 @@
     <script>
         const toggle = document.getElementById('toggle');
 
-        // Prices for yearly plans
-        const yearlyPrices = {
-            basic: 5000 ,
-            advanced: 6500,
-            premium: 10000,
-        };
+// Prices for yearly plans
+const yearlyPrices = {
+    basic: 5000,
+    advanced: 6500,
+    premium: 10000,
+};
 
-        // Function to toggle between monthly and yearly
-        toggle.addEventListener('click', function () {
-            toggle.classList.toggle('active');
+// Function to toggle between monthly and yearly
+toggle.addEventListener('click', function () {
+    toggle.classList.toggle('active');
 
-            if (toggle.classList.contains('active')) {
-                document.getElementById('basic-price').innerHTML = yearlyPrices.basic + "₹ <span>/year</span>";
-                document.getElementById('advanced-price').innerHTML = yearlyPrices.advanced + "₹ <span>/year</span>";
-                document.getElementById('premium-price').innerHTML = yearlyPrices.premium + "₹ <span>/year</span>";
-            } else {
-                document.getElementById('basic-price').innerHTML = "₹499 <span>/month</span>";
-                document.getElementById('advanced-price').innerHTML = "₹699<span>/month</span>";
-                document.getElementById('premium-price').innerHTML = "₹999 <span>/month</span>";
-            }
-        });
-		function redirectToPayment() {
-			window.location.href = 'payment.html';
-		}
+    if (toggle.classList.contains('active')) {
+        document.getElementById('basic-price').innerHTML = yearlyPrices.basic + "₹ <span>/year</span>";
+        document.getElementById('advanced-price').innerHTML = yearlyPrices.advanced + "₹ <span>/year</span>";
+        document.getElementById('premium-price').innerHTML = yearlyPrices.premium + "₹ <span>/year</span>";
+    } else {
+        document.getElementById('basic-price').innerHTML = "₹499 <span>/month</span>";
+        document.getElementById('advanced-price').innerHTML = "₹699 <span>/month</span>";
+        document.getElementById('premium-price').innerHTML = "₹999 <span>/month</span>";
+    }
+});
+
+// Function to handle payment redirection
+function redirectToPayment() {
+    const paymentPage = 'https://cryptoguard-dps45.netlify.app/payment.html';
+    // Use window.location.replace to navigate
+    window.location.replace(paymentPage);
+}
+
+// Example of attaching the redirectToPayment function to a button
+document.getElementById('payment-btn').addEventListener('click', redirectToPayment);
+
     </script>
 </body>
 
