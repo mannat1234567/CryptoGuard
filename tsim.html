@@ -7,63 +7,63 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: 'Arial', sans-serif;
-        background: url('pic.gif') no-repeat center center/cover;
-        background-attachment: fixed;
-        padding-top: 100px;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: 100vh;
-        color: #C2D9FF; /* Light Blue */
-        animation: fadeIn 2s ease-out; /* Fade in the entire body */
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('pic.gif') no-repeat center center/cover;
+    background-attachment: fixed;
+    padding-top: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+    color: #C2D9FF; /* Light Blue */
+    animation: fadeIn 2s ease-out; /* Fade in the entire body */
+}
 
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 
-    /* Transparent Header with Blur */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: rgba(25, 4, 130, 0); /* Dark Blue with transparency */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-        animation: slideDown 1s ease-out; /* Slide in from the top */
-    }
+/* Transparent Header with Blur */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(25, 4, 130, 0); /* Dark Blue with transparency */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    animation: slideDown 1s ease-out; /* Slide in from the top */
+}
 
-    @keyframes slideDown {
-        0% { top: -100px; }
-        100% { top: 0; }
-    }
+@keyframes slideDown {
+    0% { top: -100px; }
+    100% { top: 0; }
+}
 
-    header img {
-        height: 60px;
-        transition: transform 0.5s ease;
-    }
+header img {
+    height: 60px;
+    transition: transform 0.5s ease;
+}
 
-    header img:hover {
-        transform: scale(1.1) rotate(15deg); /* Zoom in and rotate on hover */
-    }
+header img:hover {
+    transform: scale(1.1) rotate(15deg); /* Zoom in and rotate on hover */
+}
 
-    header nav {
-        display: flex;
-        gap: 20px;
-    }
+header nav {
+    display: flex;
+    gap: 20px;
+}
 
-   header nav a {
+header nav a {
     text-decoration: none;
     color: #C2D9FF; /* Light Blue */
     font-weight: bold;
@@ -73,7 +73,7 @@
 }
 
 header nav a:hover {
-    color: white; /* Change text to white on hover */
+    color: #FFD700; /* Gold color on hover */
     transform: scale(1.2); /* Slight scale up on hover */
 }
 
@@ -90,113 +90,112 @@ header nav a:before {
 
 header nav a:hover:before {
     width: 100%; /* Underline effect */
-    background-color: #8E8FFA; /* Different color for underline on hover */
+    background-color: #FFD700; /* Gold color for underline on hover */
 }
 
+/* Risk Score Section Styling */
+.risk-score-section {
+    width: 70%;
+    margin: 100px auto 0;
+    padding: 30px;
+    background-color: rgba(25, 4, 130, 0.85); /* Dark Blue */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: bounceIn 1.5s ease-out; /* Bounce in animation */
+}
 
-    /* Risk Score Section Styling */
-    .risk-score-section {
-        width: 70%;
-        margin: 100px auto 0;
-        padding: 30px;
-        background-color: rgba(25, 4, 130, 0.85); /* Dark Blue */
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        text-align: center;
-        animation: bounceIn 1.5s ease-out; /* Bounce in animation */
-    }
+@keyframes bounceIn {
+    0% { transform: translateY(-200px); opacity: 0; }
+    60% { transform: translateY(30px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
 
-    @keyframes bounceIn {
-        0% { transform: translateY(-200px); opacity: 0; }
-        60% { transform: translateY(30px); }
-        100% { transform: translateY(0); opacity: 1; }
-    }
+.risk-score-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #FFD700; /* Gold */
+    animation: fadeInText 1s ease-out; /* Fade in text */
+}
 
-    .risk-score-section h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #7752FE; /* Light Purple */
-        animation: fadeInText 1s ease-out; /* Fade in text */
-    }
+@keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 
-    @keyframes fadeInText {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
+.risk-score {
+    font-size: 60px;
+    font-weight: bold;
+    color: #8E8FFA; /* Lavender */
+    margin: 20px 0;
+    animation: pulse 2s infinite; /* Pulsing animation */
+}
 
-    .risk-score {
-        font-size: 60px;
-        font-weight: bold;
-        color: #8E8FFA; /* Lavender */
-        margin: 20px 0;
-        animation: pulse 2s infinite; /* Pulsing animation */
-    }
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
 
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
+.risk-level, .details {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #C2D9FF; /* Light Blue */
+}
 
-    .risk-level, .details {
-        font-size: 20px;
-        margin: 10px 0;
-        color: #C2D9FF; /* Light Blue */
-    }
+/* Progress Bar Styling */
+.bar {
+    width: 100%;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+    animation: barAnimation 2s ease-out; /* Animated progress bar */
+}
 
-    /* Progress Bar Styling */
-    .bar {
-        width: 100%;
-        height: 20px;
-        background-color: lightgray;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 15px 0;
-        animation: barAnimation 2s ease-out; /* Animated progress bar */
-    }
+@keyframes barAnimation {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
 
-    @keyframes barAnimation {
-        0% { width: 0%; }
-        100% { width: 100%; }
-    }
+.bar-fill {
+    height: 100%;
+    background-color: #7752FE; /* Light Purple */
+    border-radius: 10px;
+}
 
-    .bar-fill {
-        height: 100%;
-        background-color: #7752FE; /* Light Purple */
-        border-radius: 10px;
-    }
+/* Input Section Styling */
+.input-section {
+    margin-top: 30px;
+}
 
-    /* Input Section Styling */
-    .input-section {
-        margin-top: 30px;
-    }
+.input-section input {
+    padding: 10px;
+    margin: 10px;
+    width: calc(40% - 24px);
+    border: 2px solid #8E8FFA; /* Lavender */
+    border-radius: 5px;
+    background-color: rgba(25, 4, 130, 0.5); /* Dark Blue */
+    color: #C2D9FF; /* Light Blue */
+    animation: fadeIn 1s ease-out; /* Fade in input */
+}
 
-    .input-section input {
-        padding: 10px;
-        margin: 10px;
-        width: calc(40% - 24px);
-        border: 2px solid #8E8FFA; /* Lavender */
-        border-radius: 5px;
-        background-color: rgba(25, 4, 130, 0.5); /* Dark Blue */
-        color: #C2D9FF; /* Light Blue */
-        animation: fadeIn 1s ease-out; /* Fade in input */
-    }
+.input-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7752FE; /* Light Purple */
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: bounceIn 0.5s ease-out; /* Bounce in button */
+}
 
-    .input-section button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #7752FE; /* Light Purple */
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        animation: bounceIn 0.5s ease-out; /* Bounce in button */
-    }
-
-    .input-section button:hover {
-        background-color: #8E8FFA; /* Lavender on hover */
-        color: white;
-    }
+.input-section button:hover {
+    background-color: #8E8FFA; /* Lavender on hover */
+    color: white;
+}
 
 </style>
 
