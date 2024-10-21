@@ -6,159 +6,161 @@
     <title>CryptoGuard - Enter CG PIN</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            background: url('pic.gif') no-repeat center center/cover;
-            background-attachment: fixed;
-            animation: moveBackground 30s linear infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: url('pic.gif') no-repeat center center/cover;
+    background-attachment: fixed;
+    animation: moveBackground 30s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
 
-        .pin-container {
-            width: 200px; /* Decreased width */
-            padding: 40px; /* Decreased padding */
-            background-color: rgba(25, 25, 25, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
+.pin-container {
+    width: 200px; /* Decreased width */
+    padding: 40px; /* Decreased padding */
+    background-color: rgba(25, 25, 25, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        .pin-container h1 {
-            font-size: 36px;
-            color: gold;
-            margin-bottom: 20px;
-        }
+.pin-container h1 {
+    font-size: 36px;
+    color: gold; /* Gold color */
+    margin-bottom: 20px;
+}
 
-        .otp-Form {
-            width: 75%;
-            height: 600px; /* Increased height */
-            background-color: rgb(255, 255, 255);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 30px;
-            gap: 20px;
-            position: relative;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
-            border-radius: 15px;
-        }
+.otp-Form {
+    width: 75%;
+    height: 600px; /* Increased height */
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    gap: 20px;
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+    border-radius: 15px;
+}
 
-        .mainHeading {
-            font-size: 1.5em; /* Increased font size */
-            color: rgb(15, 15, 15);
-            font-weight: 700;
-        }
+.mainHeading {
+    font-size: 1.5em; /* Increased font size */
+    color: rgb(15, 15, 15);
+    font-weight: 700;
+}
 
-        .otpSubheading {
-            font-size: 1em; /* Increased font size */
-            color: black;
-            line-height: 20px;
-            text-align: center;
-        }
+.otpSubheading {
+    font-size: 1em; /* Increased font size */
+    color: black;
+    line-height: 20px;
+    text-align: center;
+}
 
-        .inputContainer {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-        }
+.inputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
 
-        .otp-input {
-            background-color: rgb(228, 228, 228);
-            width: 35px; /* Adjusted width */
-            height: 40px; /* Increased height */
-            text-align: center;
-            border: none;
-            border-radius: 7px;
-            caret-color: rgb(127, 129, 255);
-            color: rgb(44, 44, 44);
-            outline: none;
-            font-weight: 600;
-            font-size: 24px; /* Increased font size */
-        }
+.otp-input {
+    background-color: rgb(228, 228, 228);
+    width: 35px; /* Adjusted width */
+    height: 40px; /* Increased height */
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    caret-color: rgb(0, 102, 204); /* Blue caret color */
+    color: rgb(44, 44, 44);
+    outline: none;
+    font-weight: 600;
+    font-size: 24px; /* Increased font size */
+}
 
-        .otp-input:focus,
-        .otp-input:valid {
-            background-color: rgba(127, 129, 255, 0.199);
-            transition-duration: .3s;
-        }
+.otp-input:focus,
+.otp-input:valid {
+    background-color: rgba(0, 102, 204, 0.2); /* Blue focus color */
+    transition-duration: .3s;
+}
 
-        .verifyButton {
-            width: 100%;
-            height: 40px; /* Increased height */
-            border: none;
-            background-color: rgb(127, 129, 255);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 10px;
-            transition-duration: .2s;
-            font-size: 18px; /* Increased font size */
-        }
+.verifyButton {
+    width: 100%;
+    height: 40px; /* Increased height */
+    border: none;
+    background-color: rgb(0, 102, 204); /* Blue background */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: .2s;
+    font-size: 18px; /* Increased font size */
+}
 
-        .verifyButton:hover {
-            background-color: rgb(144, 145, 255);
-            transition-duration: .2s;
-        }
+.verifyButton:hover {
+    background-color: rgb(0, 128, 255); /* Lighter blue on hover */
+    transition-duration: .2s;
+}
 
-        .exitBtn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.171);
-            background-color: rgb(255, 255, 255);
-            border-radius: 50%;
-            width: 30px; /* Increased width */
-            height: 30px; /* Increased height */
-            border: none;
-            color: black;
-            font-size: 1.5em; /* Increased font size */
-            cursor: pointer;
-        }
+.exitBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.171);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 30px; /* Increased width */
+    height: 30px; /* Increased height */
+    border: none;
+    color: black;
+    font-size: 1.5em; /* Increased font size */
+    cursor: pointer;
+}
 
-        .resendNote {
-            font-size: 0.8em; /* Increased font size */
-            color: black;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
+.resendNote {
+    font-size: 0.8em; /* Increased font size */
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
 
-        .resendBtn {
-            background-color: transparent;
-            border: none;
-            color: rgb(127, 129, 255);
-            cursor: pointer;
-            font-size: 1.2em; /* Increased font size */
-            font-weight: 700;
-        }
+.resendBtn {
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 102, 204); /* Blue color */
+    cursor: pointer;
+    font-size: 1.2em; /* Increased font size */
+    font-weight: 700;
+}
+
+        
     </style>
 </head>
 <body>
@@ -179,25 +181,45 @@
 
     <script>
         document.getElementById('otpForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent default form submission
 
-            const otp = [
-                document.getElementById('otp-input1').value,
-                document.getElementById('otp-input2').value,
-                document.getElementById('otp-input3').value,
-                document.getElementById('otp-input4').value,
-            ].join('');
+    const otp = [
+        document.getElementById('otp-input1').value,
+        document.getElementById('otp-input2').value,
+        document.getElementById('otp-input3').value,
+        document.getElementById('otp-input4').value,
+    ].join('');
 
-            if (otp === '6942') {
-                window.location.href = 'detector.html'; // Redirect to detector.html if OTP is correct
-            } else {
-                alert('Incorrect PIN! Please try again.'); // Alert for incorrect PIN
-            }
-        });
+    if (otp === '6942') {
+        window.location.href = 'detector.html'; // Redirect to detector.html if OTP is correct
+    } else {
+        alert('Incorrect PIN! Please try again.'); // Alert for incorrect PIN
+    }
+});
 
-        function resetCode() {
-            window.location.href = 'cgpinres.html'; // Redirect to cgpinres.html
+// Function to move focus between input fields
+const otpInputs = document.querySelectorAll('.otp-input');
+
+otpInputs.forEach((input, index) => {
+    input.addEventListener('input', function() {
+        // Move to the next input if the current input has a value
+        if (input.value.length === 1 && index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
         }
+    });
+
+    input.addEventListener('keydown', function(event) {
+        // Move back to the previous input if backspace is pressed
+        if (event.key === 'Backspace' && index > 0 && input.value.length === 0) {
+            otpInputs[index - 1].focus();
+        }
+    });
+});
+
+function resetCode() {
+    window.location.href = 'cgpinres.html'; // Redirect to cgpinres.html
+}
+
     </script>
 <script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
 </body>
