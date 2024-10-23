@@ -222,14 +222,14 @@
 
   <div class="login">
     <img src="cryptoguard.jpg" alt="CryptoGuard Logo" class="login__logo">
-    <form action="detector.html" method="POST" class="login__form">
+    <form class="login__form" id="loginForm">
       <h1 class="login__title">Login</h1>
 
       <div class="login__content">
         <div class="login__box">
           <i class="bx bx-user"></i>
           <div class="login__box-input">
-            <input type="email" required class="login__input">
+            <input type="email" id="email" required class="login__input">
             <label for="" class="login__label">Email</label>
           </div>
         </div>
@@ -237,9 +237,9 @@
         <div class="login__box">
           <i class="ri-lock-2-line login__icon"></i>
           <div class="login__box-input">
-            <input type="password" required class="login__input" id="login-pass">
+            <input type="password" id="password" required class="login__input" id="login-pass">
             <label for="" class="login__label">Password</label>
-            <i class="ri-eye-off-line login__eye"></i>
+            <i class="ri-eye-off-line login__eye" id="login-eye"></i>
           </div>
         </div>
       </div>
@@ -252,7 +252,7 @@
         <a href="#" class="login__forgot">Forgot Password?</a>
       </div>
 
-      <button type="submit" class="login__button">Login</button>
+      <button type="button" class="login__button" id="loginBtn">Login</button>
 
       <p class="login__register">
         Don't have an account? <a href="signup.html">Register</a>
@@ -261,7 +261,7 @@
   </div>
 
   <script>
-    /*--================== Show Hidden - Password =================*/
+    // Show Hidden Password Functionality
     const showHiddenPass = (loginPass, loginEye) => {
       const input = document.getElementById(loginPass),
             iconEye = document.getElementById(loginEye);
@@ -285,7 +285,24 @@
     }
 
     showHiddenPass('login-pass', 'login-eye');
+
+    // Login Button Functionality
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Hardcoded credentials for redirection
+      const correctEmail = "admin@cg.com";
+      const correctPassword = "pass123";
+
+      if (email === correctEmail && password === correctPassword) {
+        // Redirect to detector.html if credentials are correct
+        window.location.href = "detector.html";
+      } else {
+        alert('Invalid email or password. Please try again.');
+      }
+    });
   </script>
-<script src="https://widget.cxgenie.ai/widget.js" data-aid="b9c1b506-4998-4095-8260-d171ab7de8b4" data-lang="en"></script>
+
 </body>
 </html>
